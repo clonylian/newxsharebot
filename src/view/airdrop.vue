@@ -4497,4 +4497,9 @@ let fwc = () => {
     padding: 0.5rem !important;
   }
 }
+@media (max-width: 1900px) {
+  .yaribot {
+    width: 65%;
+  }
+}
 </style>

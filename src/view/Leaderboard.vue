@@ -1183,9 +1183,4 @@ onMounted(() => {
     width: 85%;
   }
 }
-@media (max-width: 1250px) {
-  .yaribot {
-    width: 65%;
-  }
-}
 </style>
