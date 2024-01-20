@@ -3297,7 +3297,7 @@ let fwc = () => {
 } */
 
 .yaribot {
-  width: 58.5%;
+  width: 60.5%;
   margin: 7.5rem auto 0;
   text-align: center;
 }
@@ -4495,11 +4495,6 @@ let fwc = () => {
   }
   .ynewstayboxctlbox {
     padding: 0.5rem !important;
-  }
-}
-@media (max-width: 1900px) {
-  .yaribot {
-    width: 65%;
   }
 }
 </style>
