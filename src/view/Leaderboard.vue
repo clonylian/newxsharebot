@@ -772,7 +772,7 @@ onMounted(() => {
 <style scoped>
 .yleader {
   width: 100%;
-  padding: 8.5rem 7.5rem 3.5rem 7.5rem;
+  padding: 8.5rem 4rem 3.5rem 4rem;
   box-sizing: border-box;
   background: rgb(30, 37, 43);
   align-items: center;
