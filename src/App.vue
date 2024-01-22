@@ -2118,7 +2118,7 @@ onBeforeUnmount(() => {
   }
 });
 //logintwitter
-let twitterlog = () => {
+let twitterlog = async () => {
   ongb();
   loginan.value = 1;
   hello.init(
@@ -2142,6 +2142,10 @@ let twitterlog = () => {
         console.log("err", err);
       }
     );
+  const response = await hello("twitter").api(
+    "/1.1/account/verify_credentials.json"
+  );
+  console.log("userobject", response);
   hello.on("auth.login", (result) => {
     hello(result.network)
       .api("/me")
