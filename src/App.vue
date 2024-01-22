@@ -2145,6 +2145,7 @@ let twitterlog = async () => {
   const response = await hello("twitter").api(
     "/1.1/account/verify_credentials.json"
   );
+  console.log("大苏打");
   console.log("userobject", response);
   hello.on("auth.login", (result) => {
     hello(result.network)
