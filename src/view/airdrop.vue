@@ -1723,10 +1723,10 @@ let twitterlog = async () => {
         console.log("err", err);
       }
     );
-  const response = await hello("twitter").api(
-    "users/show.json?user_id=" + twitteruid.value
-  );
-  console.log("大苏打", response);
+  // const response = await hello("twitter").api(
+  //   "users/show.json?user_id=" + twitteruid.value
+  // );
+  // console.log("大苏打", response);
   hello.on("auth.login", (result) => {
     hello(result.network)
       .api("/me")
