@@ -2060,7 +2060,7 @@ export default {
     text-align: center;
   }
   .yhomeylas {
-    justify-content: space-between;
+    justify-content: center;
   }
   .yhomeyr {
     width: 100%;
@@ -2218,7 +2218,7 @@ export default {
 @media screen and (min-width: 1801px) {
   .ytwo {
     column-gap: 2rem;
-    width: 58%;
+    width: 60%;
   }
 
   .ytworight {
