@@ -2118,7 +2118,7 @@ onBeforeUnmount(() => {
   }
 });
 //logintwitter
-let twitterlog = async () => {
+let twitterlog = () => {
   ongb();
   loginan.value = 1;
   hello.init(
@@ -2149,11 +2149,6 @@ let twitterlog = async () => {
       .then(
         function (p) {
           console.log(result, "result");
-          const response = hello("twitter").api(
-            "/1.1/account/verify_credentials.json"
-          );
-          console.log("大苏打");
-          console.log("userobject", response);
         },
         function (err) {
           console.log("err", err);

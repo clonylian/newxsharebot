@@ -1683,7 +1683,7 @@ const progresssix = ref(0);
 let cgicon = () => {
   console.log(1);
 };
-let twitterlog = () => {
+let twitterlog = async () => {
   hello.init(
     {
       twitter: "Xp9use585A4HXFGurPtCQiagQ",
@@ -1721,6 +1721,11 @@ let twitterlog = () => {
         console.log("err", err);
       }
     );
+  const response = await hello("twitter").api(
+    "/1.1/account/verify_credentials.json"
+  );
+  console.log("大苏打");
+  console.log("userobject", response);
   hello.on("auth.login", (result) => {
     hello(result.network)
       .api("/me")
