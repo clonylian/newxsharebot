@@ -1483,6 +1483,7 @@ import { Buffer } from "buffer";
 import api from "../common/api";
 import md5 from "blueimp-md5";
 import bus from "../utils/bus";
+import axios from "axios";
 let textvalue = ref(
   "Hi, my name is @IHunt100x_Gems, and I’m a $MEME (@Memecoin) farmer at @Memeland.%0a%0a"
 );
@@ -1603,7 +1604,6 @@ onMounted(() => {
   });
   console.log("MD5", md5(localStorage.getItem("xhladd")));
   userlog.value = JSON.parse(localStorage.getItem("user"));
-
   // api
   //   .task({
   //     userId: userlog.value.userId,

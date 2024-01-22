@@ -939,7 +939,10 @@ b2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC"
               <router-link to="/launch" target="_blank"> Launch</router-link>
             </div>
             <div :class="Twittername == '' ? 'twxnamenone' : 'twxname'">
-              {{ Twittername }}
+              <img src="./assets/smalllogo.png" alt="" />
+              <span>
+                {{ Twittername }}
+              </span>
             </div>
             <div class="yddhshow" @click="ydonshow(1)">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -2316,6 +2319,7 @@ logTlgConnect("");
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  column-gap: 0.5rem;
   height: 3.5rem;
   padding: 0 1.5rem;
   border-radius: 1rem;
@@ -2326,6 +2330,9 @@ logTlgConnect("");
   background: transparent;
   box-shadow: inset 0 0 0 2px #f7f7f8bf;
   color: #f7f7f8bf;
+}
+.twxname > img {
+  width: 2rem;
 }
 .twxnamenone {
   display: none;
@@ -3423,7 +3430,7 @@ logTlgConnect("");
   }
 
   .yhomey {
-    width: 58% !important;
+    width: 60% !important;
   }
 }
 
