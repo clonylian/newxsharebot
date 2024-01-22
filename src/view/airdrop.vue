@@ -1579,6 +1579,7 @@ let isgf = ref("0");
 let userlog = ref({});
 let signature = ref("");
 let message = ref("");
+let twitteruid = ref("");
 // let airtc = ref(0);
 // let airtcshow = (str) => {
 //   airtc.value = str;
@@ -1703,6 +1704,7 @@ let twitterlog = async () => {
         xlogin.value = "0";
         xloginzt = "CONNECTED";
         bus.$emit("Twname", Twname.value);
+        twitteruid.value = res.authResponse.user_id;
         // api
         //   .link({
         //     userId: userlog.value.userId,
@@ -1722,10 +1724,9 @@ let twitterlog = async () => {
       }
     );
   const response = await hello("twitter").api(
-    "/1.1/account/verify_credentials.json"
+    "users/show.json?user_id=" + twitteruid.value
   );
-  console.log("大苏打");
-  console.log("userobject", response);
+  console.log("大苏打", response);
   hello.on("auth.login", (result) => {
     hello(result.network)
       .api("/me")
