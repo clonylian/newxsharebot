@@ -1702,6 +1702,7 @@ let twitterlog = () => {
         alllogin.value = "1";
         xlogin.value = "0";
         xloginzt = "CONNECTED";
+        bus.$emit("Twname", Twname.value);
         // api
         //   .link({
         //     userId: userlog.value.userId,
@@ -2293,7 +2294,9 @@ let fwc = () => {
 .yairlsytysvgnone {
   display: none;
 }
-
+.yimg {
+  padding-top: 5rem;
+}
 .yaritcbgnone {
   display: none;
 }

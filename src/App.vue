@@ -938,6 +938,9 @@ b2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC"
             <div :class="$route.path == '/' ? 'yheadslau' : 'yheadslaunone'">
               <router-link to="/launch" target="_blank"> Launch</router-link>
             </div>
+            <div :class="Twittername == '' ? 'twxnamenone' : 'twxname'">
+              {{ Twittername }}
+            </div>
             <div class="yddhshow" @click="ydonshow(1)">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
@@ -2158,6 +2161,12 @@ onMounted(() => {
   } else {
     loginan.value = 1;
   }
+  if (localStorage.getItem("Twname")) {
+    Twittername.value = localStorage.getItem("Twname");
+  }
+  bus.$on("Twname", (val) => {
+    Twittername.value = val;
+  });
 });
 let handleCredentialResponse = async (response) => {
   let code = response.credential;
@@ -2301,6 +2310,25 @@ logTlgConnect("");
 <style>
 .ymainbt {
   position: relative;
+}
+.twxname {
+  font-family: "Poppins";
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  padding: 0 1.5rem;
+  border-radius: 1rem;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
+  color: #f7f7f8bf;
+}
+.twxnamenone {
+  display: none;
 }
 .ymianbtbg {
   width: 100%;
@@ -3177,6 +3205,9 @@ logTlgConnect("");
 @media (max-width: 1225px) {
   .yfootberiy {
     margin-bottom: 1rem;
+  }
+  .twxname {
+    display: none;
   }
   .yddhshow {
     display: block;
