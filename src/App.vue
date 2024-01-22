@@ -2142,17 +2142,18 @@ let twitterlog = async () => {
         console.log("err", err);
       }
     );
-  const response = await hello("twitter").api(
-    "/1.1/account/verify_credentials.json"
-  );
-  console.log("大苏打");
-  console.log("userobject", response);
+
   hello.on("auth.login", (result) => {
     hello(result.network)
       .api("/me")
       .then(
         function (p) {
           console.log(result, "result");
+          const response = hello("twitter").api(
+            "/1.1/account/verify_credentials.json"
+          );
+          console.log("大苏打");
+          console.log("userobject", response);
         },
         function (err) {
           console.log("err", err);
