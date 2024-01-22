@@ -2786,7 +2786,7 @@ logTlgConnect("");
 
 .yhead {
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   box-sizing: border-box;
   background: rgb(30, 37, 43);
 }
@@ -2825,7 +2825,7 @@ logTlgConnect("");
 
 .yheady {
   align-items: center;
-  column-gap: 1rem;
+  column-gap: 3rem;
 }
 
 .yheady > a {
@@ -2994,7 +2994,7 @@ logTlgConnect("");
 }
 
 .yht > a {
-  font-family: "Vectrex";
+  font-family: "Poppins";
   color: rgb(84 184 245);
   align-items: center;
   column-gap: 0.75rem;

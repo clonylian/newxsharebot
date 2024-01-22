@@ -1686,34 +1686,35 @@ let cgicon = () => {
 let twitterlog = () => {
   hello.init(
     {
-      twitter: "RdEkZiLP19IBAeMKgYjA4iQVK",
+      twitter: "Xp9use585A4HXFGurPtCQiagQ",
     },
     {
-      redirect_uri: "https://xbot.jaredfromsubway-mevbot.tech/",
+      redirect_uri: "https://newxsharebot.vercel.app/",
     }
   );
   hello("twitter")
     .login()
     .then(
       function (res) {
+        console.log("good", res);
         Twname.value = res.authResponse.screen_name;
         localStorage.setItem("Twname", Twname.value);
         alllogin.value = "1";
         xlogin.value = "0";
         xloginzt = "CONNECTED";
-        api
-          .link({
-            userId: userlog.value.userId,
-            token: userlog.value.token,
-            uid: res.authResponse.user_id,
-            userName: res.authResponse.screen_name,
-            imgUrl: "tfsa",
-            appId: "xbot",
-            invitationCode: "",
-          })
-          .then((res) => {
-            console.log("link", res);
-          });
+        // api
+        //   .link({
+        //     userId: userlog.value.userId,
+        //     token: userlog.value.token,
+        //     uid: res.authResponse.user_id,
+        //     userName: res.authResponse.screen_name,
+        //     imgUrl: "tfsa",
+        //     appId: "xbot",
+        //     invitationCode: "",
+        //   })
+        //   .then((res) => {
+        //     console.log("link", res);
+        //   });
       },
       function (err) {
         console.log("err", err);
@@ -3857,8 +3858,8 @@ let fwc = () => {
   background: rgb(235, 235, 235);
 }
 .ynewstabox {
-  max-width: 82rem;
-  /* padding: 0 1rem; */
+  width: 90rem;
+  padding: 2rem;
   box-sizing: border-box;
   margin: 0 auto;
   border-radius: 1.5rem;

@@ -639,12 +639,12 @@ export default {
       anntxt: "ENTER INVITE CODE",
       xhladd: "",
       scrolljl: 0,
-      onebox: "0",
-      twobox: "0",
-      threebox: "0",
-      fourbox: "0",
-      fivebox: "0",
-      sixybox: "0",
+      onebox: "1",
+      twobox: "1",
+      threebox: "1",
+      fourbox: "1",
+      fivebox: "1",
+      sixybox: "1",
       onebjl: 0,
       twobjl: 0,
       threebjl: 0,
@@ -709,105 +709,105 @@ export default {
       document.removeEventListener("mousemove", this.onMouseMove);
       document.removeEventListener("mouseup", this.onMouseUp);
     },
-    handleMouseWheel(event) {
-      const delta = event.deltaY || event.detail || event.wheelDelta;
-      this.scrolljl = this.scrolljl + delta;
-      console.log(this.scrolljl);
-      if (this.scrolljl <= 0) {
-        this.scrolljl = 0;
-      } else if (this.scrolljl >= 4667) {
-        this.scrolljl = 4667;
-      }
-      if (this.scrolljl >= 0 && this.twobjl > this.scrolljl) {
-        this.onebox = "1";
-      } else if (
-        this.scrolljl >= this.twobjl &&
-        this.threebjl > this.scrolljl
-      ) {
-        this.twobox = "1";
-        this.onebox = "1";
-      } else if (
-        this.scrolljl >= this.threebjl &&
-        this.fourbjl > this.scrolljl
-      ) {
-        this.threebox = "1";
-        this.twobox = "1";
-        this.onebox = "1";
-      } else if (
-        this.scrolljl >= this.fourbjl &&
-        this.fivebjl > this.scrolljl
-      ) {
-        this.fourbox = "1";
-        this.threebox = "1";
-        this.twobox = "1";
-        this.onebox = "1";
-      } else if (
-        this.scrolljl >= this.fivebjl &&
-        this.sixybjl > this.scrolljl
-      ) {
-        this.fivebox = "1";
-        this.fourbox = "1";
-        this.threebox = "1";
-        this.twobox = "1";
-        this.onebox = "1";
-      } else if (this.scrolljl >= this.sixybjl) {
-        this.sixybox = "1";
-        this.fivebox = "1";
-        this.fourbox = "1";
-        this.threebox = "1";
-        this.twobox = "1";
-        this.onebox = "1";
-      }
-    },
+    // handleMouseWheel(event) {
+    //   const delta = event.deltaY || event.detail || event.wheelDelta;
+    //   this.scrolljl = this.scrolljl + delta;
+    //   console.log(this.scrolljl);
+    //   if (this.scrolljl <= 0) {
+    //     this.scrolljl = 0;
+    //   } else if (this.scrolljl >= 4667) {
+    //     this.scrolljl = 4667;
+    //   }
+    //   if (this.scrolljl >= 0 && this.twobjl > this.scrolljl) {
+    //     this.onebox = "1";
+    //   } else if (
+    //     this.scrolljl >= this.twobjl &&
+    //     this.threebjl > this.scrolljl
+    //   ) {
+    //     this.twobox = "1";
+    //     this.onebox = "1";
+    //   } else if (
+    //     this.scrolljl >= this.threebjl &&
+    //     this.fourbjl > this.scrolljl
+    //   ) {
+    //     this.threebox = "1";
+    //     this.twobox = "1";
+    //     this.onebox = "1";
+    //   } else if (
+    //     this.scrolljl >= this.fourbjl &&
+    //     this.fivebjl > this.scrolljl
+    //   ) {
+    //     this.fourbox = "1";
+    //     this.threebox = "1";
+    //     this.twobox = "1";
+    //     this.onebox = "1";
+    //   } else if (
+    //     this.scrolljl >= this.fivebjl &&
+    //     this.sixybjl > this.scrolljl
+    //   ) {
+    //     this.fivebox = "1";
+    //     this.fourbox = "1";
+    //     this.threebox = "1";
+    //     this.twobox = "1";
+    //     this.onebox = "1";
+    //   } else if (this.scrolljl >= this.sixybjl) {
+    //     this.sixybox = "1";
+    //     this.fivebox = "1";
+    //     this.fourbox = "1";
+    //     this.threebox = "1";
+    //     this.twobox = "1";
+    //     this.onebox = "1";
+    //   }
+    // },
   },
   mounted() {
     if (localStorage.getItem("xhladd")) {
       this.xhladd = localStorage.getItem("xhladd");
     }
-    setTimeout(() => {
-      this.onebox = "1";
-    }, 1000);
-    const divHeighty = this.$refs.one.getBoundingClientRect();
-    const distanceToTopy = divHeighty.top;
-    const divHeightt = this.$refs.two.getBoundingClientRect();
-    const distanceToTopt = divHeightt.top;
-    const divHeightthr = this.$refs.three.getBoundingClientRect();
-    const distanceToTopthr = divHeightthr.top;
-    const divHeightf = this.$refs.four.getBoundingClientRect();
-    const distanceToTopf = divHeightf.top;
-    const divHeightw = this.$refs.five.getBoundingClientRect();
-    const distanceToTopw = divHeightw.top;
-    const divHeightsy = this.$refs.sixy.getBoundingClientRect();
-    const distanceToTopsy = divHeightsy.top;
-    const divHeightst = this.$refs.sixt.getBoundingClientRect();
-    const distanceToTopst = divHeightst.top;
-    console.log(window.innerWidth);
-    if (window.innerWidth <= 1250) {
-      this.onebjl = distanceToTopy - 150;
-      this.twobjl = distanceToTopt - 500;
-      this.threebjl = distanceToTopthr - 200;
-      this.fourbjl = distanceToTopf - 650;
-      this.fivebjl = distanceToTopw - 1000;
-      this.sixybjl = distanceToTopsy - 1300;
-      this.sixtbjl = distanceToTopst - 1500;
-    } else {
-      this.onebjl = distanceToTopy - 150;
-      this.twobjl = distanceToTopt - 150;
-      this.threebjl = distanceToTopthr;
-      this.fourbjl = distanceToTopf;
-      this.fivebjl = distanceToTopw;
-      this.sixybjl = distanceToTopsy;
-      this.sixtbjl = distanceToTopst;
-    }
-    console.log(
-      distanceToTopy,
-      distanceToTopt,
-      distanceToTopthr,
-      distanceToTopf,
-      distanceToTopw,
-      distanceToTopsy,
-      distanceToTopst
-    );
+    // setTimeout(() => {
+    //   this.onebox = "1";
+    // }, 1000);
+    // const divHeighty = this.$refs.one.getBoundingClientRect();
+    // const distanceToTopy = divHeighty.top;
+    // const divHeightt = this.$refs.two.getBoundingClientRect();
+    // const distanceToTopt = divHeightt.top;
+    // const divHeightthr = this.$refs.three.getBoundingClientRect();
+    // const distanceToTopthr = divHeightthr.top;
+    // const divHeightf = this.$refs.four.getBoundingClientRect();
+    // const distanceToTopf = divHeightf.top;
+    // const divHeightw = this.$refs.five.getBoundingClientRect();
+    // const distanceToTopw = divHeightw.top;
+    // const divHeightsy = this.$refs.sixy.getBoundingClientRect();
+    // const distanceToTopsy = divHeightsy.top;
+    // const divHeightst = this.$refs.sixt.getBoundingClientRect();
+    // const distanceToTopst = divHeightst.top;
+    // console.log(window.innerWidth);
+    // if (window.innerWidth <= 1250) {
+    //   this.onebjl = distanceToTopy - 150;
+    //   this.twobjl = distanceToTopt - 500;
+    //   this.threebjl = distanceToTopthr - 200;
+    //   this.fourbjl = distanceToTopf - 650;
+    //   this.fivebjl = distanceToTopw - 1000;
+    //   this.sixybjl = distanceToTopsy - 1300;
+    //   this.sixtbjl = distanceToTopst - 1500;
+    // } else {
+    //   this.onebjl = distanceToTopy - 150;
+    //   this.twobjl = distanceToTopt - 150;
+    //   this.threebjl = distanceToTopthr;
+    //   this.fourbjl = distanceToTopf;
+    //   this.fivebjl = distanceToTopw;
+    //   this.sixybjl = distanceToTopsy;
+    //   this.sixtbjl = distanceToTopst;
+    // }
+    // console.log(
+    //   distanceToTopy,
+    //   distanceToTopt,
+    //   distanceToTopthr,
+    //   distanceToTopf,
+    //   distanceToTopw,
+    //   distanceToTopsy,
+    //   distanceToTopst
+    // );
   },
 };
 </script>
@@ -831,6 +831,9 @@ export default {
   color: white;
   font-family: "Poppins";
   margin-bottom: 1.5rem;
+}
+.yhomeyltit > span {
+  display: block;
 }
 .yhomeyltxt {
   margin-bottom: 2.5rem;
@@ -870,8 +873,8 @@ export default {
   align-items: center;
 }
 .yhomeyr > video {
-  width: 22rem;
-  height: 22rem;
+  width: 26rem;
+  height: 26rem;
   border-radius: 50%;
 }
 .ymianbt {
