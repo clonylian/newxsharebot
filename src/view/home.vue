@@ -4,83 +4,32 @@
       :class="onebox == '1' ? 'yhomey flex yhomeyshow' : 'yhomey flex'"
       ref="one"
     >
-      <div class="yhomey_one">
-        <p class="yhomey_two">{{ $store.state.txt.yhome }}</p>
-        <h1 class="yhomey_three">
-          {{ $store.state.txt.yhometitle }}
+      <div class="yhomeyl">
+        <h1 class="yhomeyltit">
+          <span>Stake your ETH,</span><span>earn rewards,</span
+          ><span>&amp; help secure</span><span>Ethereum</span>
         </h1>
-        <p class="yhomey_four">
-          {{ $store.state.txt.yhomecont }}
+        <p class="yhomeyltxt">
+          Rocket Pool is the leading decentralised liquid staking protocol for
+          Ethereum
         </p>
-        <h1 class="yhomey_three">{{ $store.state.txt.yhometitlet }}</h1>
-        <p class="yhomey_four">{{ $store.state.txt.yhomecontt }}</p>
-        <div class="yhomey_inpbox flex">
-          <div class="yhomeyinpy">
-            <input
-              type="text"
-              v-model="yzminpy"
-              maxlength="1"
-              ref="input1"
-              @keydown="yzminp($event, 1, yzminpy)"
-              @input="xiqian(1, yzminpy)"
-            />
-          </div>
-          <div class="yhomeyinpy">
-            <input
-              type="text"
-              v-model="yzminpt"
-              maxlength="1"
-              ref="input2"
-              @input="xiqian(2, yzminpt)"
-              @keydown="yzminp($event, 2, yzminpt)"
-            />
-          </div>
-          <div class="yhomeyinpy">
-            <input
-              type="text"
-              v-model="yzminpthr"
-              maxlength="1"
-              ref="input3"
-              @input="xiqian(3, yzminpthr)"
-              @keydown="yzminp($event, 3, yzminpt)"
-            />
-          </div>
-          <div class="yhomeyinpy">
-            <input
-              type="text"
-              v-model="yzminpf"
-              maxlength="1"
-              ref="input4"
-              @input="xiqian(4, yzminpf)"
-              @keydown="yzminp($event, 4, yzminpt)"
-              routz
-            />
-          </div>
-          <div class="yhomeyinpy">
-            <input
-              type="text"
-              v-model="yzminpw"
-              maxlength="1"
-              ref="input5"
-              @input="xiqian(5, yzminpw)"
-              @keydown="yzminp($event, 5, yzminpt)"
-            />
-          </div>
+        <div class="yhomeylas flex">
+          <a href=""><button class="yhomeylasbut">Liquid staking</button></a
+          ><a href=""
+            ><button class="yhomeylasbut">
+              <span>Node staking</span>
+            </button></a
+          >
         </div>
-        <div class="yhomey_but flex">
-          <button :class="logari == '1' ? 'shiactive' : ''" @click="routz()">
-            {{ anntxt }}
-          </button>
-        </div>
-        <!-- <div class="yhome_five">Register Wallet</div>
-        <p class="yhome_six">
-          By creating an account, you will be able to earn $GIVE tokens by
-          engaging on Twitter starting October 18th. All beta users will receive
-          an additional 5,000 ($50) bonus in $GIVE tokens at the end of Epoch 1
-          on October 25th, 2023 6PM UTC. Link your Twitter Username to your
-          wallet address above. (NOTE: There may be a small gas fee to
-          register.)
-        </p> -->
+      </div>
+      <div class="yhomeyr flex">
+        <video
+          src="../assets/silver.mp4"
+          playsinline=""
+          autoplay=""
+          loop=""
+          muted
+        ></video>
       </div>
     </div>
     <div
@@ -88,7 +37,7 @@
       id="xShareBot"
       ref="two"
     >
-      <h2>{{ $store.state.txt.thometitle }}</h2>
+      <!-- <h2>{{ $store.state.txt.thometitle }}</h2> -->
       <div class="ytwo flex">
         <div class="ytwoleft">
           <img
@@ -113,7 +62,7 @@
       id="MevBot"
       ref="three"
     >
-      <h2>{{ $store.state.txt.thrhometitle }}</h2>
+      <!-- <h2>{{ $store.state.txt.thrhometitle }}</h2> -->
       <div class="ytwo flex">
         <div class="ytworight">
           <h2>{{ $store.state.txt.thrhomesamletitle }}</h2>
@@ -703,7 +652,6 @@ export default {
       fivebjl: 0,
       sixtbjl: 0,
       sixybjl: 0,
-      logari: "0",
     };
   },
   methods: {
@@ -713,6 +661,7 @@ export default {
         this.updateOffset();
       }
     },
+
     moveRight() {
       if (this.selectedIndex < this.$store.state.txt.sixhomelist.length - 1) {
         this.selectedIndex++;
@@ -759,88 +708,6 @@ export default {
     onMouseUp() {
       document.removeEventListener("mousemove", this.onMouseMove);
       document.removeEventListener("mouseup", this.onMouseUp);
-    },
-    yzminp(event, currentInput) {
-      const key = event.keyCode || event.which;
-      if (key === 8 && event.target.value === "") {
-        if (currentInput == 5) {
-          this.$refs.input4.focus();
-        } else if (currentInput == 4) {
-          this.$refs.input3.focus();
-        } else if (currentInput == 3) {
-          this.$refs.input2.focus();
-        } else if (currentInput == 2) {
-          this.$refs.input1.focus();
-        }
-      }
-    },
-    xiqian(index, val) {
-      if (val != "") {
-        if (index == 1) {
-          this.$refs.input2.focus();
-        } else if (index == 2) {
-          this.$refs.input3.focus();
-        } else if (index == 3) {
-          this.$refs.input4.focus();
-        } else if (index == 4) {
-          this.$refs.input5.focus();
-        }
-      }
-      let values =
-        this.yzminpy +
-        this.yzminpt +
-        this.yzminpthr +
-        this.yzminpf +
-        this.yzminpw;
-      let length = values.length;
-      if (length == 5) {
-        this.anntxt = "REDEEM INVITE CODE";
-      } else {
-        this.anntxt = "ENTER INVITE CODE";
-      }
-    },
-    routz() {
-      let values =
-        this.yzminpy +
-        this.yzminpt +
-        this.yzminpthr +
-        this.yzminpf +
-        this.yzminpw;
-      this.logari = "1";
-      let length = values.length;
-      let sign = md5(this.xhladd + "88888888");
-      let walletadd = this.xhladd;
-      // if (length == 5 && localStorage.getItem("xhladd")) {
-      //   api
-      //     .login({
-      //       appId: "xbot",
-      //       sign: sign,
-      //       walletAddress: walletadd,
-      //     })
-      //     .then((res) => {
-      //       console.log(res);
-      //       localStorage.setItem("user", JSON.stringify(res.data.data));
-      //       api
-      //         .verifyinvitation({
-      //           invitationCode: "ZVKMN",
-      //           appId: "xbot",
-      //           userId: res.data.data.userId,
-      //           token: res.data.data.token,
-      //         })
-      //         .then((res) => {
-      //           console.log("verifyinvitation", res.data.status);
-      //           if (res.data.status == "success") {
-      //             this.$router.push("/Airdrop");
-      //           }
-      //         });
-      //     });
-      // } else if (localStorage.getItem("xhladd") && length != 5) {
-      //   alert("Please enter the correct invitation code!!!");
-      // } else {
-      //   alert("Please link the wallet first!!!");
-      // }
-      this.$router.push("/Airdrop");
-      localStorage.setItem("istrue", "1");
     },
     handleMouseWheel(event) {
       const delta = event.deltaY || event.detail || event.wheelDelta;
@@ -918,21 +785,20 @@ export default {
     if (window.innerWidth <= 1250) {
       this.onebjl = distanceToTopy - 150;
       this.twobjl = distanceToTopt - 500;
-      this.threebjl = distanceToTopthr - 300;
+      this.threebjl = distanceToTopthr - 200;
       this.fourbjl = distanceToTopf - 650;
       this.fivebjl = distanceToTopw - 1000;
       this.sixybjl = distanceToTopsy - 1300;
-      this.sixtbjl = distanceToTopst - 250;
+      this.sixtbjl = distanceToTopst - 1500;
     } else {
       this.onebjl = distanceToTopy - 150;
       this.twobjl = distanceToTopt - 150;
-      this.threebjl = distanceToTopthr - 150;
-      this.fourbjl = distanceToTopf - 150;
-      this.fivebjl = distanceToTopw - 150;
-      this.sixybjl = distanceToTopsy - 150;
-      this.sixtbjl = distanceToTopst - 250;
+      this.threebjl = distanceToTopthr;
+      this.fourbjl = distanceToTopf;
+      this.fivebjl = distanceToTopw;
+      this.sixybjl = distanceToTopsy;
+      this.sixtbjl = distanceToTopst;
     }
-
     console.log(
       distanceToTopy,
       distanceToTopt,
@@ -955,6 +821,58 @@ export default {
 @font-face {
   font-family: "two";
   src: url("../assets/GT-Pressura-Mono-Regular.woff2") format("woff");
+}
+.yhomeyl {
+  width: 50%;
+}
+.yhomeyltit {
+  font-size: 72px;
+  line-height: 80px;
+  color: white;
+  font-family: "Poppins";
+  margin-bottom: 1.5rem;
+}
+.yhomeyltxt {
+  margin-bottom: 2.5rem;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #6e757c;
+}
+.yhomeylas {
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.yhomeylasbut {
+  font-family: "Poppins";
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  padding: 0 1.5rem;
+  border-radius: 1rem;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
+  color: #f7f7f8bf;
+}
+.yhomeylasbut:hover {
+  background: #f7f7f8bf;
+  box-shadow: none;
+  color: #272e35;
+}
+.yhomeyr {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.yhomeyr > video {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
 }
 .ymianbt {
   background-color: rgb(17, 11, 11);
@@ -1053,7 +971,7 @@ export default {
   position: relative;
   /* display: flex; */
   /* overflow: hidden; */
-  font-family: one;
+  font-family: "Poppins";
   /* margin-top: 3rem; */
   padding-top: 3rem;
   margin: 0 auto;
@@ -1296,7 +1214,7 @@ export default {
   margin: 1rem auto;
   width: 10rem;
   color: white;
-  font-family: two;
+  font-family: "Inter";
   border-radius: 10px;
   padding: 1rem 2.5rem;
   border: 1px white solid;
@@ -1314,7 +1232,7 @@ export default {
   color: #b3bbca;
   font-size: 22px;
   text-align: center;
-  font-family: two;
+  font-family: "Inter";
 }
 
 .app_one {
@@ -1323,7 +1241,7 @@ export default {
   background-size: 100%;
   background-repeat: no-repeat;
   overflow: hidden;
-  font-family: "Vectrex" !important;
+  font-family: "Poppins" !important;
 }
 
 .ymainhy .app_five {
@@ -1426,7 +1344,7 @@ export default {
   margin-right: -2px;
   font-size: 18px;
   line-height: 26px;
-  font-family: "GT Pressura Mono";
+  font-family: "Inter";
   font-weight: 400;
   text-transform: uppercase;
   width: 450px;
@@ -1496,7 +1414,7 @@ export default {
   margin-left: -2px;
   font-size: 18px;
   line-height: 26px;
-  font-family: "GT Pressura Mono";
+  font-family: "Inter";
   font-weight: 400;
   text-transform: uppercase;
   width: 450px;
@@ -1720,6 +1638,7 @@ export default {
   padding-top: 5rem;
   position: relative;
   opacity: 0.05;
+  box-sizing: border-box;
   transition: opacity 1s linear;
 }
 .yhomeyshow {
@@ -1794,6 +1713,7 @@ export default {
 .ytwobox {
   width: 100%;
   opacity: 0.05;
+  padding-top: 10rem;
   transition: opacity 0.8s linear;
 }
 .ytwoboxshow {
@@ -1944,7 +1864,7 @@ export default {
   display: flex;
   padding: 3rem 4rem;
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 1.5rem;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -2049,7 +1969,7 @@ export default {
 .ybiao_five {
   width: 60%;
   cursor: pointer;
-  font-family: "Inter";
+  font-family: "Poppins";
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -2100,12 +2020,56 @@ export default {
   .someAi {
     width: 100%;
   }
-
+  .car_img {
+    width: 3rem;
+    height: 3rem;
+  }
   .some_one > h2 {
-    font-size: 2.75rem;
+    font-size: 2.25rem;
     line-height: 3rem;
   }
-
+  .yhomey {
+    display: block;
+  }
+  .yhomeyl {
+    width: 100%;
+  }
+  .yhomeyltit {
+    font-size: 2.25rem;
+    line-height: 3rem;
+    text-align: center;
+  }
+  .yhomeyltxt {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    width: 75%;
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+  .ytworight > h2 {
+    font-size: 2.25rem;
+    line-height: 3rem;
+    text-align: center;
+  }
+  .ytworight p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+  .yhomeylas {
+    justify-content: space-between;
+  }
+  .yhomeyr {
+    width: 100%;
+  }
+  .yhomeyr > video {
+    width: 17.5rem;
+    height: 17.5rem;
+    margin: 2rem 0;
+  }
+  .ytwobox {
+    padding-top: 5rem;
+  }
   .some_one > p {
     width: 100%;
   }

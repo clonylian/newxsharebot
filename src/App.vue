@@ -891,44 +891,10 @@ b2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC"
               </svg>
               <img class="hyshow" src="./assets/white.svg" alt=""
             /></router-link>
-            <!-- <router-link to="/Stake">
-              {{ $store.state.txt.tabone }}</router-link
-            > -->
             <router-link to="/Leaderboard">
               {{ $store.state.txt.tabtwo }}</router-link
             >
-            <!-- <router-link to="/Ido">
-              {{ $store.state.txt.tabthree }}</router-link
-            > -->
-            <!-- <router-link to="/Newstake"> NEW Stake</router-link>
-            <router-link to="/Newairdrop"> NEW Aridrop</router-link>
-            <a href="https://myx-seven.vercel.app/#/" target="_blank">app</a> -->
           </div>
-          <!-- <div class="yheade flex">
-            <router-link :to="{ path: '/', hash: '#xShareBot' }"
-              >xShareBot</router-link
-            >
-            <router-link :to="{ path: '/', hash: '#MevBot' }"
-              >MevBot</router-link
-            >
-            <router-link :to="{ path: '/', hash: '#Tokennomics' }"
-              >Tokennomics</router-link
-            >
-            <router-link :to="{ path: '/', hash: '#Roadmap' }"
-              >Roadmap</router-link
-            >
-            <a href="#">Docs</a>
-            <router-link to="/Stake">Stake</router-link>
-            <router-link to="/Ido">Ido</router-link>
-
-            <router-link
-              to="/Airdrop"
-              :class="Twittername == '' ? '' : 'istwdl'"
-              >AIRDROP</router-link
-            >
-            <router-link to="/Airdrop">AIRDROP</router-link>
-            <router-link to="/Leaderboard">Leaderboard</router-link>
-          </div> -->
           <div class="yheads flex">
             <div class="qihuan" @click="hebtqh(1)">
               <svg
@@ -969,18 +935,9 @@ b2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC"
                 <div @click="changelang('ch')">中文</div>
               </div>
             </div>
-            <!-- <button :class="loginan == 0 ? '' : 'anxs'" @click="render()">
-              Connect Wallet
-            </button>
-            <div class="yheaddisc">
-              <button :class="loginan == 1 ? '' : 'anxs'">
-                {{ xxhladdress }}
-              </button>
-              <div class="yheaddc">
-                <span></span>
-                <button @click="qxdl()">DISCONNECT</button>
-              </div>
-            </div> -->
+            <div :class="$route.path == '/' ? 'yheadslau' : 'yheadslaunone'">
+              <router-link to="/launch" target="_blank"> Launch</router-link>
+            </div>
             <div class="yddhshow" @click="ydonshow(1)">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
@@ -2060,7 +2017,6 @@ b2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC"
         <router-link to="/Leaderboard">{{
           $store.state.txt.tabtwo
         }}</router-link>
-        <!-- <router-link to="/Airdrop">AIRDROP</router-link> -->
         <router-link to="/Ido">{{
           $store.state.txt.bxtttabthreetop
         }}</router-link>
@@ -2426,6 +2382,30 @@ logTlgConnect("");
     transform: translateZ(0);
     opacity: 0;
   }
+}
+.yheadslau {
+  display: block;
+  margin-left: 0.25rem;
+}
+.yheadslaunone {
+  display: none;
+}
+
+.yheadslau > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  background: rgb(255 110 48);
+  border-radius: 1rem;
+  font-family: "Poppins";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: rgb(247 247 248);
+}
+.yheadslau:hover > a {
+  background: rgb(252 75 0);
 }
 .yddhshowy {
   display: flex !important;
@@ -3195,6 +3175,9 @@ logTlgConnect("");
 }
 
 @media (max-width: 1225px) {
+  .yfootberiy {
+    margin-bottom: 1rem;
+  }
   .yddhshow {
     display: block;
   }
@@ -3258,17 +3241,14 @@ logTlgConnect("");
     column-gap: 0.25rem;
   }
 
-  .yhomey {
-    width: 100%;
-  }
-
   .yoneboxy {
     display: none;
   }
 
   .yhomey {
     width: 100% !important;
-    padding-top: 2.5rem !important;
+    padding: 2.5rem 1rem !important;
+    box-sizing: border-box;
   }
 
   .yone {
@@ -3286,21 +3266,9 @@ logTlgConnect("");
     right: 2.5% !important;
   }
 
-  .ytworight > h2 {
-    font-size: 1.875rem !important;
-    line-height: 2.25rem !important;
-    text-align: center !important;
-  }
-
   .ybiao_two > h2 {
     font-size: 1.875rem !important;
     line-height: 2.25rem !important;
-  }
-
-  .ytworight p {
-    font-size: 1.125rem !important;
-    line-height: 1.75rem !important;
-    text-align: left !important;
   }
 
   .yhomeyright > p {

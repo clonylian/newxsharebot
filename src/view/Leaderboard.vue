@@ -1104,6 +1104,10 @@ onMounted(() => {
   .yleaderlcon {
     margin-top: 1rem;
   }
+  .yleaderltop > h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
   .yleader {
     padding: 8.5rem 1rem 3.5rem;
     display: block;

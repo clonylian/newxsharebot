@@ -2354,6 +2354,8 @@ let fwc = () => {
 .yairbcon {
   width: 100%;
   padding: 4rem 0;
+  position: relative;
+  z-index: 10;
 }
 
 .yairbcon h2 {
@@ -2769,7 +2771,7 @@ let fwc = () => {
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
   border: 1px solid rgb(169, 169, 169);
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   box-sizing: border-box;
   column-gap: 1rem;
   align-items: center;
@@ -2791,7 +2793,7 @@ let fwc = () => {
 .yarijhbttf {
   margin-top: 1rem;
   border: 1px solid rgb(169, 169, 169);
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
 }
 .yarijhbttw {
   margin-top: 0.5rem;
@@ -2857,7 +2859,7 @@ let fwc = () => {
   left: 0rem;
   width: 100%;
   height: 10.5rem;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   border: 1px solid rgb(169, 169, 169);
   padding: 0.5rem;
   box-sizing: border-box;
@@ -3046,9 +3048,9 @@ let fwc = () => {
   font-weight: 600;
   text-align: center;
   background: transparent;
-  border: 2px solid #f7f7f8bf;
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
   color: #f7f7f8bf;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   font-size: 1rem;
   line-height: 0.5rem;
   cursor: pointer;
@@ -3070,9 +3072,9 @@ let fwc = () => {
   font-weight: 600;
   text-align: center;
   background: transparent;
-  border: 2px solid #f7f7f8bf;
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
   color: #f7f7f8bf;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   font-size: 1rem;
   line-height: 0.5rem;
   cursor: pointer;
@@ -3147,13 +3149,13 @@ let fwc = () => {
 .yarierbyxhlr > .yarierbut {
   width: 7.3625rem;
   font-family: "Poppins";
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   padding: 0.5rem 1rem;
   background: transparent;
   font-weight: 600;
   font-size: 13px;
   color: #f7f7f8bf;
-  border: 2px solid #f7f7f8bf;
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
 
   cursor: pointer;
 }
@@ -3167,7 +3169,7 @@ let fwc = () => {
 .yarierbyxhlr .yarijzcl {
   width: 7.3625rem;
   font-family: "Poppins";
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   padding: 0.5rem 1rem;
   background: transparent;
   font-weight: 600;
@@ -3180,13 +3182,13 @@ let fwc = () => {
 .yarienda > .yarierbut {
   width: 7.3625rem;
   font-family: "Poppins";
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   padding: 0.5rem 1rem;
   background: transparent;
   font-weight: 600;
   font-size: 13px;
   color: #f7f7f8bf;
-  border: 2px solid #f7f7f8bf;
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
   cursor: pointer;
 }
 
@@ -3221,13 +3223,13 @@ let fwc = () => {
   text-align: center;
   cursor: not-allowed;
   font-family: "Poppins";
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   padding: 0.5rem 1rem;
   background: transparent;
   font-weight: 600;
   font-size: 13px;
   color: #f7f7f8bf;
-  border: 2px solid #f7f7f8bf;
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
 }
 
 .yarienda {
@@ -3485,7 +3487,7 @@ let fwc = () => {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   background: rgb(47 46 50);
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   width: 21rem;
   box-sizing: border-box;
 }
@@ -3705,6 +3707,9 @@ let fwc = () => {
 
   .yaritableft > p {
     text-align: center;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   .yaritabright h3 {
@@ -3715,6 +3720,7 @@ let fwc = () => {
     flex-direction: column;
     align-items: center;
     padding: 2rem 0.5rem;
+    margin-top: 1.5rem;
   }
 
   .yaritabright {
@@ -3742,13 +3748,15 @@ let fwc = () => {
     padding: 2.5rem 1rem 1rem;
   } */
   .aroro > h1 {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     line-height: 3rem;
+    margin-top: 1rem;
   }
 
   .aroro > p {
-    font-size: 1.125rem;
-    margin: 1rem 0 2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .aroro {
@@ -3829,12 +3837,12 @@ let fwc = () => {
     height: 2rem !important;
   }
   .yaritctjmbcon > p {
-    font-size: 0.5rem;
-    line-height: 1.25;
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
   .yaritctjmbcon > p > span {
-    font-size: 1.25rem;
-    line-height: 1;
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
   .yariinvl {
     column-gap: 0.25rem;
@@ -3957,7 +3965,7 @@ let fwc = () => {
 .ynewstakebut button {
   font-family: "Poppins";
   width: 11.5rem;
-  border: 2px solid #f7f7f8bf;
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
   border-radius: 1rem;
   height: 3rem;
   font-weight: 600;
@@ -4117,7 +4125,7 @@ let fwc = () => {
   line-height: 1.25rem;
   color: white;
   border: 1px solid rgb(212 212 216);
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   box-sizing: border-box;
   position: relative;
 }
@@ -4189,7 +4197,7 @@ let fwc = () => {
   line-height: 1.5rem;
   background: transparent;
   border: 2px solid rgb(179 187 202);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ynewstayboxfoury > span:nth-child(1) {
@@ -4216,7 +4224,7 @@ let fwc = () => {
   padding: 0.75rem;
   z-index: 10;
   left: 0;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   top: 0;
   box-sizing: border-box;
 }
@@ -4399,13 +4407,16 @@ let fwc = () => {
   line-height: 1.5rem;
   background: transparent;
   border: 2px solid rgb(179 187 202);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 @media (max-width: 1250px) {
   .yairtcbglog {
     display: flex;
     justify-content: center;
+  }
+  .yariboter {
+    margin-top: 2rem;
   }
   .ynewstabox {
     width: 95%;
@@ -4481,10 +4492,12 @@ let fwc = () => {
     padding: 8rem 0 2rem;
   }
   .ynewstableft > h2 {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
   }
   .ynewstableft > p {
-    font-size: 1.125rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
     margin: 0.5rem 0;
   }
   .ynewstaket {
@@ -4495,6 +4508,11 @@ let fwc = () => {
   }
   .ynewstayboxctlbox {
     padding: 0.5rem !important;
+  }
+  .yaritctjmbcon .yaritctjmbcond {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-align: left;
   }
 }
 </style>

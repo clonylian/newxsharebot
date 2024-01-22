@@ -35,6 +35,11 @@ const routes = [
     name: "Newairdrop",
     component: () => import("../view/newairdrop.vue"),
   },
+  {
+    path: "/launch",
+    name: "launch",
+    component: () => import("../view/launch.vue"),
+  },
 ];
 
 const router = VueRouter.createRouter({
