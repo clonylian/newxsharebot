@@ -1685,6 +1685,8 @@ let cgicon = () => {
   console.log(1);
 };
 let twitterlog = async () => {
+  let userId = "1576075868853899264";
+  let bearerToken = "1576075868853899264-Ccxe2k0oHEDQxbUSZ6Mjl3JRqoxCr8";
   hello.init(
     {
       twitter: "Xp9use585A4HXFGurPtCQiagQ",
@@ -1724,10 +1726,11 @@ let twitterlog = async () => {
       }
     );
   const response = await fetch(
-    `https://api.twitter.com/2/users/1576075868853899264`,
+    `https://cors-anywhere.herokuapp.com/https://api.twitter.com/2/users/${userId}`,
     {
       headers: {
-        Authorization: `Bearer 1576075868853899264-Ccxe2k0oHEDQxbUSZ6Mjl3JRqoxCr8`,
+        Authorization: `Bearer ${bearerToken}`,
+        "X-Requested-With": "XMLHttpRequest",
       },
     }
   );

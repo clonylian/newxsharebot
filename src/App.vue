@@ -3491,7 +3491,7 @@ logTlgConnect("");
   }
 
   .yheadbox {
-    width: 58%;
+    width: 67.5%;
   }
 
   .yhomey {
