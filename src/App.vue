@@ -896,6 +896,13 @@ b2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC"
             >
           </div>
           <div class="yheads flex">
+            <div class="yheadapps flex">
+              <a href="" target="_blank">Docs</a>
+              <a href="" target="_blank">Twitter</a>
+              <a href="" target="_blank">Discord</a>
+              <a href="" target="_blank">Telegram</a>
+              <a href="" target="_blank">Medium</a>
+            </div>
             <div class="qihuan" @click="hebtqh(1)">
               <svg
                 class="btshow"
@@ -944,7 +951,9 @@ b2JlIEltYWdlUmVhZHlxyWU8AAAAAElFTkSuQmCC"
               </div>
             </div>
             <div :class="$route.path == '/' ? 'yheadslau' : 'yheadslaunone'">
-              <router-link to="/launch" target="_blank"> Launch</router-link>
+              <router-link to="/launch" target="_blank">
+                Launch app</router-link
+              >
             </div>
             <div :class="Twittername == '' ? 'twxnamenone' : 'twxname'">
               <svg
@@ -2362,6 +2371,19 @@ logTlgConnect("");
   box-shadow: inset 0 0 0 2px #f7f7f8bf;
   color: #f7f7f8bf;
 }
+.yheadapps {
+  align-items: center;
+  column-gap: 1rem;
+  margin-right: 2rem;
+}
+.yheadapps > a {
+  font-family: "Inter";
+  font-size: 1rem;
+  color: rgb(110 117 124);
+}
+.ymainbt .yheadapps > a:hover {
+  color: rgb(238 239 242);
+}
 .twxname > svg {
   width: 2rem;
 }
@@ -3245,6 +3267,14 @@ logTlgConnect("");
 }
 
 @media (max-width: 1225px) {
+  .yheadapps {
+    display: none;
+  }
+  .yheadslau > a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 0.65rem;
+  }
   .yfootberiy {
     margin-bottom: 1rem;
   }
