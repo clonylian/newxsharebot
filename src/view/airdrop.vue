@@ -1704,10 +1704,13 @@ let twitterlog = async () => {
         xlogin.value = "0";
         xloginzt = "CONNECTED";
         bus.$emit("Twname", Twname.value);
-        twitteruid.value = res.authResponse.user_id;
-        console.log("id", twitteruid.value);
+        let params = {
+          usernames: Twname.value,
+          expansions: "profile_image_url",
+        };
         axios
-          .get(`https://api.twitter.com/2/users/${twitteruid.value}`, {
+          .get(`https://api.twitter.com/2/users/by?usernames=`, {
+            params,
             headers: {
               "User-Agent": "v2UserLookupJS",
               Authorization:
