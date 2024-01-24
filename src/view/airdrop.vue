@@ -1732,6 +1732,7 @@ let twitterlog = async () => {
     }
   );
   const data = await response.json();
+  console.log("希望", data);
   hello.on("auth.login", (result) => {
     hello(result.network)
       .api("/me")
