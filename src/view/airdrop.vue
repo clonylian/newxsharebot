@@ -1710,7 +1710,7 @@ let twitterlog = async () => {
           .get(`https://api.twitter.com/2/users/${twitteruid.value}`, {
             headers: {
               Authorization:
-                "Bearer  AAAAAAAAAAAAAAAAAAAAAEMjsAEAAAAAY3FSilga0kk4oPzaAEIUVUyK20E%3DHYKq8MVkZPXsdKsylH9xyC9604a92iGZj1q9HYoa6yUHN8fm1a",
+                "Bearer AAAAAAAAAAAAAAAAAAAAAEMjsAEAAAAAY3FSilga0kk4oPzaAEIUVUyK20E%3DHYKq8MVkZPXsdKsylH9xyC9604a92iGZj1q9HYoa6yUHN8fm1a",
             },
           })
           .then((res) => {
