@@ -1706,6 +1706,16 @@ let twitterlog = async () => {
         bus.$emit("Twname", Twname.value);
         twitteruid.value = res.authResponse.user_id;
         console.log("id", twitteruid.value);
+        axios
+          .get(`https://api.twitter.com/2/users/${twitteruid.value}`, {
+            headers: {
+              Authorization:
+                "Bearer  AAAAAAAAAAAAAAAAAAAAAEMjsAEAAAAAY3FSilga0kk4oPzaAEIUVUyK20E%3DHYKq8MVkZPXsdKsylH9xyC9604a92iGZj1q9HYoa6yUHN8fm1a",
+            },
+          })
+          .then((res) => {
+            console.log("用户信息", res);
+          });
         // api
         //   .link({
         //     userId: userlog.value.userId,
