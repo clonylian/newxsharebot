@@ -1704,17 +1704,18 @@ let twitterlog = async () => {
         xlogin.value = "0";
         xloginzt = "CONNECTED";
         bus.$emit("Twname", Twname.value);
-        // let params = {
-        //   usernames: Twname.value,
-        //   expansions: "profile_image_url",
-        // };
+        let params = {
+          usernames: Twname.value,
+          expansions: "profile_image_url",
+        };
+        let headers = {
+          Authorization:
+            "Bearer AAAAAAAAAAAAAAAAAAAAAEMjsAEAAAAAY3FSilga0kk4oPzaAEIUVUyK20E%3DHYKq8MVkZPXsdKsylH9xyC9604a92iGZj1q9HYoa6yUHN8fm1a",
+        };
         axios
-          .get(`https://api.twitter.com/2/users/${Twname.value}`, {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization:
-                "Bearer AAAAAAAAAAAAAAAAAAAAAEMjsAEAAAAAY3FSilga0kk4oPzaAEIUVUyK20E%3DHYKq8MVkZPXsdKsylH9xyC9604a92iGZj1q9HYoa6yUHN8fm1a",
-            },
+          .get(`https://api.twitter.com/2/users/by`, {
+            params,
+            headers,
           })
           .then((res) => {
             console.log("用户信息", res);
