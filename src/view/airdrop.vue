@@ -1704,15 +1704,14 @@ let twitterlog = async () => {
         xlogin.value = "0";
         xloginzt = "CONNECTED";
         bus.$emit("Twname", Twname.value);
-        let params = {
-          usernames: Twname.value,
-          expansions: "profile_image_url",
-        };
+        // let params = {
+        //   usernames: Twname.value,
+        //   expansions: "profile_image_url",
+        // };
         axios
-          .get(`https://api.twitter.com/2/users/by?usernames=`, {
-            params,
+          .get(`https://api.twitter.com/2/users/${Twname.value}`, {
             headers: {
-              "User-Agent": "v2UserLookupJS",
+              "Content-Type": "application/json",
               Authorization:
                 "Bearer AAAAAAAAAAAAAAAAAAAAAEMjsAEAAAAAY3FSilga0kk4oPzaAEIUVUyK20E%3DHYKq8MVkZPXsdKsylH9xyC9604a92iGZj1q9HYoa6yUHN8fm1a",
             },
