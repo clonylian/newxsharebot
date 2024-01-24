@@ -1685,8 +1685,6 @@ let cgicon = () => {
   console.log(1);
 };
 let twitterlog = async () => {
-  let userId = "1576075868853899264";
-  let bearerToken = "1576075868853899264-Ccxe2k0oHEDQxbUSZ6Mjl3JRqoxCr8";
   hello.init(
     {
       twitter: "Xp9use585A4HXFGurPtCQiagQ",
@@ -1707,6 +1705,7 @@ let twitterlog = async () => {
         xloginzt = "CONNECTED";
         bus.$emit("Twname", Twname.value);
         twitteruid.value = res.authResponse.user_id;
+        console.log("id", twitteruid.value);
         // api
         //   .link({
         //     userId: userlog.value.userId,
@@ -1725,17 +1724,6 @@ let twitterlog = async () => {
         console.log("err", err);
       }
     );
-  const response = await fetch(
-    `https://cors-anywhere.herokuapp.com/https://api.twitter.com/2/users/${userId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${bearerToken}`,
-        "X-Requested-With": "XMLHttpRequest",
-      },
-    }
-  );
-  const data = await response.json();
-  console.log("希望", data);
   hello.on("auth.login", (result) => {
     hello(result.network)
       .api("/me")
