@@ -72,13 +72,28 @@
       </div>
     </div>
   </div>
+  <div
+    @click="isnoneroutc('0')"
+    :class="isrouter == '0' ? 'yerrornone' : 'yerror flex'"
+  >
+    <div @click.stop="conerror()" class="yerrbox">
+      <img @click="isnoneroutc('0')" src="../assets/close-line.svg" alt="" />
+      <h4>Invite Code Error</h4>
+      <p>
+        Invite code not accepted. Check that you input it correctly and try
+        again.
+      </p>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import md5 from "blueimp-md5";
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
+let isrouter = ref("0");
+const route = useRoute();
 const router = useRouter();
 const store = useStore();
 let yzminpy = ref("");
@@ -100,6 +115,26 @@ onMounted(() => {
   console.log(input3.value);
   console.log(input2.value);
   console.log(input1.value);
+  console.log("ref", route.query.ref);
+  if (route.query.ref != undefined) {
+    yzminpy.value = route.query.ref.substring(0, 1);
+    yzminpt.value = route.query.ref.substring(1, 2);
+    yzminpthr.value = route.query.ref.substring(2, 3);
+    yzminpf.value = route.query.ref.substring(3, 4);
+    yzminpw.value = route.query.ref.substring(4, 5);
+    let values =
+      yzminpy.value +
+      yzminpt.value +
+      yzminpthr.value +
+      yzminpf.value +
+      yzminpw.value;
+    let length = values.length;
+    if (length == 5) {
+      anntxt.value = "REDEEM INVITE CODE";
+    } else {
+      anntxt.value = "ENTER INVITE CODE";
+    }
+  }
 });
 let routz = () => {
   let values =
@@ -141,8 +176,18 @@ let routz = () => {
   // } else {
   //   alert("Please link the wallet first!!!");
   // }
-  router.push("/Airdrop");
-  localStorage.setItem("istrue", "1");
+  if (length == 5) {
+    router.push("/Airdrop");
+    localStorage.setItem("istrue", "1");
+  } else {
+    isnoneroutc("1");
+  }
+};
+let conerror = () => {
+  console.log("error");
+};
+let isnoneroutc = (str) => {
+  isrouter.value = str;
 };
 let yzminp = (event, currentInput) => {
   const key = event.keyCode || event.which;
@@ -191,9 +236,93 @@ let xiqian = (index, val) => {
   background: url("../assets/homebgw.png");
   overflow: auto;
 }
-
+.yerror {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+.yerrbox {
+  width: 30rem;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+  background: #2c353d;
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+.yerrornone {
+  display: none;
+}
+.yerrbox::before {
+  top: -280px;
+  left: -280px;
+  width: 560px;
+  height: 560px;
+  opacity: 0.6;
+  filter: blur(278.261px);
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+}
+.yerrbox::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
+}
+.yerrbox > img {
+  width: 1.5rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  z-index: 15;
+}
+.yerrbox > h4 {
+  text-align: left;
+  font-family: "Poppins";
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: rgb(186 195 202);
+  position: relative;
+  z-index: 10;
+}
+.yerrbox > p {
+  font-family: "Inter";
+  font-weight: 500;
+  color: #b3bbca;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  position: relative;
+  z-index: 10;
+  margin-top: 0.5rem;
+}
 .yhome {
   width: 100%;
+  height: calc(100vh - 6rem);
   overflow: auto;
   padding-top: 6rem;
   background: rgb(30, 37, 43);
@@ -289,9 +418,9 @@ let xiqian = (index, val) => {
 .ymainhy .yhomey_but button:hover {
   border: 2px solid rgb(17 11 11);
 }
-.yhomey_but .shiactive {
+/* .yhomey_but .shiactive {
   cursor: not-allowed;
-}
+} */
 .ymainbt .yhomey_but button {
   color: #f7f7f8bf;
   box-shadow: inset 0 0 0 2px #f7f7f8bf;
@@ -450,7 +579,10 @@ let xiqian = (index, val) => {
   .someAi {
     width: 100%;
   }
-
+  .yerrbox {
+    width: 90%;
+    padding: 1.5rem;
+  }
   .some_one > h2 {
     font-size: 2.75rem;
     line-height: 3rem;

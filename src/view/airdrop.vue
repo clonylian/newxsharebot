@@ -2199,16 +2199,16 @@ let tcbgshow = (str, success) => {
     //     invitationcode.value = res.data.data.invitationCode;
     //   });
     invitationcode.value = [
-      "ASDG13",
-      "ASDG14",
-      "ASDG15",
-      "ASDG16",
-      "ASDG17",
-      "ASDG18",
-      "ASDG19",
-      "AWDG1A",
-      "AWERXZ",
-      "ALDEAV",
+      "ASDG3",
+      "ASDG4",
+      "ASDG5",
+      "ASDG6",
+      "ASDG7",
+      "ASDG8",
+      "ASDG9",
+      "AWDGA",
+      "AWERZ",
+      "ALDEV",
     ];
   }
   // if (invitationcode.value.length != 0 && str == "0" && success == "1") {
@@ -2260,9 +2260,11 @@ let wtccon = () => {
 };
 let qriscopy = (str, item, index) => {
   if (item != "" && str == "1") {
-    navigator.clipboard.writeText(item).then(() => {
-      alert("Text successfully copied to clipboard");
-    });
+    navigator.clipboard
+      .writeText(`http://localhost:8080/#/launch?ref=${item}`)
+      .then(() => {
+        alert("Text successfully copied to clipboard");
+      });
     iscopy.value = index;
   } else if (item == "") {
     alert("Failed to copy text");
@@ -2627,8 +2629,8 @@ let fwc = () => {
 }
 
 .yaritclogbox {
-  width: 25.75rem;
-  padding: 2rem;
+  width: 32.75rem;
+  padding: 3rem 2rem;
   box-sizing: border-box;
   background: #2c353d;
   position: relative;
@@ -2677,7 +2679,7 @@ let fwc = () => {
   cursor: pointer;
 }
 .yaritctjmbox {
-  width: 42.75rem;
+  width: 51.75rem;
   padding: 2rem;
   background: #2c353d;
   position: relative;
@@ -3022,8 +3024,8 @@ let fwc = () => {
   column-gap: 0.5rem;
 }
 .yariinvl > img {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 .yariinvl > span {
   font-family: "Poppins";
@@ -3604,6 +3606,10 @@ let fwc = () => {
     width: 92.5%;
     margin: 0 auto;
     padding: 1rem;
+  }
+  .yariinvl > img {
+    width: 2rem;
+    height: 2rem;
   }
   .yarijhboxtop {
     margin: 0.5rem 0 0.25rem;

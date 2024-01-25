@@ -1,4 +1,21 @@
 <template>
+  <div class="yleadtop">
+    <h2>Supply Reward</h2>
+    <div class="yleadtbox flex">
+      <div class="yleadbtcon">
+        <h4>$304.06K</h4>
+        <p>This Week's Rewards</p>
+      </div>
+      <div class="yleadbtcon">
+        <h4>$0</h4>
+        <p>Available to claim</p>
+      </div>
+      <div class="yleadbtcon yleadbtcons">
+        <h4>$79.54K</h4>
+        <p>Total Rewards Distributed</p>
+      </div>
+    </div>
+  </div>
   <div class="yleader flex jus">
     <div class="yleaderleft">
       <div class="yleaderltop flex jus">
@@ -64,7 +81,7 @@
       <div class="yleaderrcon">
         <div
           class="yleaderjoins flex jus"
-          v-for="(item, i) in joinlist"
+          v-for="(item, i) in huanlist"
           :key="i"
         >
           <div class="yleaderjoleft">
@@ -732,53 +749,140 @@ let fourlist = ref([
 ]);
 let valqh = ref(0);
 let reglist = ref([]);
-onMounted(() => {
-  let i = 0;
-
-  // api
-  //   .registers({
-  //     appId: "xbot",
-  //   })
-  //   .then((res) => {
-  //     // reglist.value=res.data.data.userRegisterList
-  //     console.log("11111", res.data.data.userRegisterList);
-  //   });
-  // api
-  //   .toppoint({
-  //     appId: "xbot",
-  //   })
-  //   .then((res) => {
-  //     console.log(res.data.data);
-  //     // leadlist.value = res.data.data.topPointList;
-  //   });
-  setInterval(() => {
-    if (i > 3) {
-      i = 0;
-    }
-    i++;
-    if (i == 1) {
-      joinlist.value = huanlist.value;
-    } else if (i == 2) {
-      joinlist.value = joinlistt.value;
-    } else if (i == 3) {
-      joinlist.value = thrlist.value;
-    } else if (i == 4) {
-      joinlist.value = fourlist.value;
-    }
-  }, 3000);
-});
+// onMounted(() => {
+//   let i = 0;
+//   api
+//     .registers({
+//       appId: "xbot",
+//     })
+//     .then((res) => {
+//       // reglist.value=res.data.data.userRegisterList
+//       console.log("11111", res.data.data.userRegisterList);
+//     });
+//   api
+//     .toppoint({
+//       appId: "xbot",
+//     })
+//     .then((res) => {
+//       console.log(res.data.data);
+//       // leadlist.value = res.data.data.topPointList;
+//     });
+//   setInterval(() => {
+//     if (i > 3) {
+//       i = 0;
+//     }
+//     i++;
+//     if (i == 1) {
+//       joinlist.value = huanlist.value;
+//     } else if (i == 2) {
+//       joinlist.value = joinlistt.value;
+//     } else if (i == 3) {
+//       joinlist.value = thrlist.value;
+//     } else if (i == 4) {
+//       joinlist.value = fourlist.value;
+//     }
+//   }, 3000);
+// });
 </script>
 
 <style scoped>
 .yleader {
   width: 100%;
-  padding: 8.5rem 4rem 3.5rem 4rem;
+  padding: 3.5rem 4rem;
   box-sizing: border-box;
   background: rgb(30, 37, 43);
   align-items: center;
 }
+.yleadtop {
+  width: 100%;
+  padding: 8.5rem 4rem 0;
+  background: rgb(30, 37, 43);
+  box-sizing: border-box;
+}
+.yleadtop > h2 {
+  display: inline-block;
+  color: #fff;
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 600;
+  font-family: "Poppins";
+  padding: 1rem 0;
+  border-bottom: 3px solid rgb(255 110 48);
+  margin-bottom: 3rem;
+}
 .yleaderlcttiao {
   align-items: center;
+}
+.yleadtbox {
+  width: 100%;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+.yleadbtcon {
+  width: 25%;
+  padding: 2.75rem 1.875rem;
+  border: 1px solid #323338;
+  background: rgb(40, 48, 54);
+  box-shadow: 0 8px 32px #0000001a;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.yleadbtcon::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 80px;
+  height: 80px;
+  filter: blur(160px);
+  opacity: 0.6;
+}
+.yleadbtcon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  top: -280px;
+  left: -280px;
+  width: 560px;
+  height: 560px;
+  opacity: 0.6;
+  filter: blur(278.261px);
+}
+.yleadbtcon > h4 {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+  font-family: "Poppins";
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 10;
+}
+.yleadbtcon > p {
+  display: block;
+  font-family: "Inter";
+  color: #9999a7;
+  font-weight: 500;
+  line-height: 18px;
+  margin-top: 4px;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 10;
 }
 .yleaderlctty {
   padding: 0.5rem 1rem 0.5rem 0;
@@ -1042,9 +1146,9 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  animation-duration: 3s;
+  /* animation-duration: 3s;
   animation-name: enter-fade;
-  animation-iteration-count: infinite;
+  animation-iteration-count: infinite; */
   opacity: 1;
 }
 @keyframes enter-fade {
@@ -1104,9 +1208,35 @@ onMounted(() => {
   .yleaderlcon {
     margin-top: 1rem;
   }
+  .yleadtop {
+    padding: 8.5rem 1rem 0;
+  }
+  .yleadtop > h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .yleadtbox {
+    display: block;
+  }
+  .yleadbtcon {
+    width: 100%;
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .yleadbtcons {
+    margin: 0;
+  }
+  .yleadbtcon > h4 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
   .yleaderltop > h1 {
     font-size: 2.5rem;
     line-height: 3rem;
+  }
+  .yleadbtcon > p {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
   }
   .yleader {
     padding: 8.5rem 1rem 3.5rem;
