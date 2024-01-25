@@ -591,7 +591,7 @@
               <img
                 class="car_img"
                 style="margin-right: 1rem"
-                src="../assets/toplogo.png"
+                src="../assets/toplogo.jpg"
               />
               <div class="car_txt">
                 <p>{{ item.user }}</p>
@@ -1538,6 +1538,12 @@ export default {
   font-family: "Poppins";
   margin-bottom: 1.5rem;
 }
+.ymainhy .yhomeyltit {
+  color: #000;
+}
+.ymainhy .yhomeyltxt {
+  color: #6e757c;
+}
 .yhomeyltit > span {
   display: block;
 }
@@ -1567,6 +1573,19 @@ export default {
   background: transparent;
   box-shadow: inset 0 0 0 2px #f7f7f8bf;
   color: #f7f7f8bf;
+}
+.ymainhy .yhomeylasbut {
+  box-shadow: inset 0 0 0 2px #272e35bf;
+  color: #272e35;
+}
+.ymainhy .yhomeylasbut:hover {
+  background: #272e35;
+  box-shadow: none;
+  color: #f7f7f8;
+}
+.ymainhy .ytwo {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
 }
 .yhomeylasbut:hover {
   background: #f7f7f8bf;
@@ -1671,7 +1690,7 @@ export default {
   color: #000;
 }
 
-.ymainhy .some_two > button svg {
+.ymainhy .some_two > button svg path {
   fill: #000 !important;
 }
 
@@ -2480,7 +2499,7 @@ export default {
   box-shadow: 0 8px 32px #0000001a;
 }
 .ytwoy {
-  width: 60%;
+  width: 63.5%;
   margin: 0 auto;
   align-items: center;
   border-radius: 1.5rem;
@@ -2526,7 +2545,7 @@ export default {
   position: relative;
 }
 .yaudbox {
-  width: 60%;
+  width: 63.5%;
   margin: 10rem auto 0;
   padding: 4.375rem 5rem 5.25rem 5rem;
   box-sizing: border-box;
@@ -2616,9 +2635,31 @@ export default {
 }
 
 .ymainhy .ytworight p {
+  color: #6e757c;
+}
+.ymainhy .yaudbox {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
+}
+.ymainhy .yaudbox > h2 {
   color: #000;
 }
-
+.ymainhy .yauddfbox {
+  background-color: rgb(36 35 37);
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 2px 0px inset,
+    rgba(0, 0, 0, 0.72) 0px 8px 12px 0px;
+}
+.ymainhy .yauddfbox:hover {
+  background: rgb(36 35 37);
+  outline: 2px solid hsla(0, 0%, 100%, 0.1);
+  transform: scale(1.01);
+}
+.ymainhy .yfootbimg {
+  background: #2c353d;
+}
+.ymainhy .yfoottit {
+  color: #000;
+}
 .ybiao {
   width: 100%;
   opacity: 0.05;
@@ -3192,7 +3233,9 @@ export default {
     column-gap: 2rem;
     width: 60%;
   }
-
+  .ytwoy {
+    width: 60%;
+  }
   .ytworight {
     width: 50%;
   }

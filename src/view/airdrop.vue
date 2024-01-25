@@ -2259,12 +2259,14 @@ let wtccon = () => {
   console.log();
 };
 let qriscopy = (str, item, index) => {
+  const protocol = window.location.protocol;
+  const hostname = window.location.hostname;
+  const port = window.location.port;
+  console.log(protocol, hostname, port);
   if (item != "" && str == "1") {
-    navigator.clipboard
-      .writeText(`http://localhost:8080/#/launch?ref=${item}`)
-      .then(() => {
-        alert("Text successfully copied to clipboard");
-      });
+    navigator.clipboard.writeText(
+      `${protocol}${hostname}:${port}/#/launch?ref=${item}`
+    );
     iscopy.value = index;
   } else if (item == "") {
     alert("Failed to copy text");
@@ -2538,10 +2540,6 @@ let fwc = () => {
 }
 
 .ymainhy .aroro > h1 {
-  color: black;
-}
-
-.ymainhy .aroro > p {
   color: black;
 }
 
@@ -3372,9 +3370,14 @@ let fwc = () => {
 }
 
 .ymainhy .yariboter .yaritabactive {
-  border-color: rgb(17, 11, 11);
+  box-shadow: inset 0 0 0 2px #272e35bf;
+  color: #272e35;
 }
-
+.ymainhy .yariboter .yaritabactive:hover {
+  background: #272e35;
+  box-shadow: none;
+  color: #f7f7f8;
+}
 .yariboter .yaritabactive {
   background: #f7f7f8bf;
   box-shadow: none;
@@ -3395,6 +3398,10 @@ let fwc = () => {
   background: rgb(40, 48, 54);
   box-shadow: 0 8px 32px #0000001a;
   box-sizing: border-box;
+}
+.ymainhy .yaritabcon {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
 }
 .yaritabcon::before {
   content: "";
@@ -3460,8 +3467,8 @@ let fwc = () => {
 }
 
 .ymainhy .yaritableft > p {
-  color: #000;
   opacity: 1;
+  color: #6e757c;
 }
 
 .yaritabright {

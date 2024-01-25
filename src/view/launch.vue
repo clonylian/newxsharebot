@@ -415,8 +415,14 @@ let xiqian = (index, val) => {
   background: transparent;
   cursor: pointer;
 }
+.ymainhy .yhomey_but button {
+  box-shadow: inset 0 0 0 2px #272e35bf;
+  color: #272e35;
+}
 .ymainhy .yhomey_but button:hover {
-  border: 2px solid rgb(17 11 11);
+  background: #272e35;
+  box-shadow: none;
+  color: #f7f7f8;
 }
 /* .yhomey_but .shiactive {
   cursor: not-allowed;

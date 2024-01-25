@@ -946,6 +946,36 @@ let reglist = ref([]);
 .ymainhy .yleader {
   background: url("../assets/homebgw.png");
 }
+.ymainhy .yleadtop {
+  background: url("../assets/homebgw.png");
+}
+.ymainhy .yleadtop > h2 {
+  color: #000;
+}
+.ymainhy .yleadbtcon {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
+  border-color: transparent;
+}
+.ymainhy .yleadbtcon > h4 {
+  color: #000;
+}
+.ymainhy .yleadbtcon > p {
+  color: #6e757c;
+}
+.ymainhy .yleaderleft {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
+  border-color: transparent;
+}
+.ymainhy .yleaderltop > h1 {
+  color: #000;
+}
+.ymainhy .yleaderright {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
+  border-color: transparent;
+}
 .yleaderleft {
   width: 78.4047%;
   padding: 2rem;
@@ -1115,7 +1145,7 @@ let reglist = ref([]);
   color: rgb(179 187 202);
 }
 .ymainhy .yleaderright > h2 {
-  color: rgb(105 111 122);
+  color: #000;
 }
 .ymainhy .yleaderjrt > div {
   color: rgb(17, 11, 11);
