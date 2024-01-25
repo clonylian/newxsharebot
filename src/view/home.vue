@@ -87,7 +87,7 @@
         voloSUI liquid staking has been audited by the leading SUI based
         security experts
       </p>
-      <div class="yauddf flex">
+      <div class="yauddf flex jus">
         <div class="yauddfbox">
           <div class="yauddftop flex jus">
             <img src="../assets/ottersec.png" alt="" />
@@ -106,18 +106,6 @@
             <span class="yaudgree">Ready</span>
           </div>
           <p class="yauddftxt">voloSUI audit report by MoveBit</p>
-          <span class="yauddftime">Aug 2023</span>
-          <span class="yauddfjt flex"
-            ><span>Review the audit</span
-            ><img height="12" width="6" src="../assets/arrow.svg" alt=">"
-          /></span>
-        </div>
-        <div class="yauddfbox">
-          <div class="yauddftop flex jus">
-            <img src="../assets/hacken.svg" alt="" />
-            <span class="yaudgree">Ready</span>
-          </div>
-          <p class="yauddftxt">voloSUI audit report by Hacken</p>
           <span class="yauddftime">Aug 2023</span>
           <span class="yauddfjt flex"
             ><span>Review the audit</span
@@ -2349,7 +2337,7 @@ export default {
 
 .ymainhy .yhome {
   background: rgb(235 235 235);
-  background: url("../assets/homebgw.png");
+  /* background: url("../assets/homebgw.png"); */
   overflow: auto;
 }
 
@@ -2881,6 +2869,7 @@ export default {
   line-height: 24px;
 }
 .yauddf {
+  width: 100%;
   align-items: center;
   column-gap: 1.25rem;
   margin-top: 4.875rem;

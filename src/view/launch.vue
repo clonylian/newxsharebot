@@ -233,7 +233,7 @@ let xiqian = (index, val) => {
 <style scoped>
 .ymainhy .yhome {
   background: rgb(235 235 235);
-  background: url("../assets/homebgw.png");
+  /* background: url("../assets/homebgw.png"); */
   overflow: auto;
 }
 .yerror {
