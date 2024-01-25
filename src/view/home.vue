@@ -591,7 +591,7 @@
               <img
                 class="car_img"
                 style="margin-right: 1rem"
-                src="../assets/toplogo.jpg"
+                src="../assets/logos.png"
               />
               <div class="car_txt">
                 <p>{{ item.user }}</p>
@@ -1712,6 +1712,7 @@ export default {
 }
 .ymainhy .carousel-card {
   background: transparent;
+  border-color: transparent;
 }
 .carousel-card {
   width: 450px;
@@ -2505,6 +2506,43 @@ export default {
   border-radius: 1.5rem;
   position: relative;
   overflow: hidden;
+}
+.ymainhy .ytwoy {
+  position: relative;
+}
+.ymainhy .ytwoy::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
+}
+.ymainhy .ytwoy::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  top: -280px;
+  left: -280px;
+  width: 560px;
+  height: 560px;
+  opacity: 0.6;
+  filter: blur(278.261px);
 }
 .ytwo::before {
   content: "";
