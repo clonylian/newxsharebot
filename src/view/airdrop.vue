@@ -2587,7 +2587,7 @@ let fwc = () => {
 }
 
 .ymainhy .yair {
-  background: rgb(235 235 235);
+  background: white;
   /* background: url("../assets/homebgw.png"); */
 }
 

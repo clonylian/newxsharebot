@@ -1204,7 +1204,7 @@ logTlgConnect("");
 }
 
 .ymainhy .yfoot {
-  background: rgb(235, 235, 235);
+  background: white;
   background: url("./assets/homebgw.png");
   color: rgb(0, 0, 0) !important;
 }

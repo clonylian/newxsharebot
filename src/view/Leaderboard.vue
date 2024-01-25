@@ -944,11 +944,11 @@ let reglist = ref([]);
   color: rgb(179 187 202);
 }
 .ymainhy .yleader {
-  background: rgb(235 235 235);
+  background: white;
   /* background: url("../assets/homebgw.png"); */
 }
 .ymainhy .yleadtop {
-  background: rgb(235 235 235);
+  background: white;
   /* background: url("../assets/homebgw.png"); */
 }
 .ymainhy .yleadtop > h2 {
