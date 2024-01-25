@@ -2265,7 +2265,7 @@ let qriscopy = (str, item, index) => {
   console.log(protocol, hostname, port);
   if (item != "" && str == "1") {
     navigator.clipboard.writeText(
-      `${protocol}${hostname}:${port}/#/launch?ref=${item}`
+      `${protocol}${hostname}/#/launch?ref=${item}`
     );
     iscopy.value = index;
   } else if (item == "") {

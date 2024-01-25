@@ -2596,6 +2596,9 @@ export default {
   margin: 0 auto;
   border-radius: 3.125rem;
 }
+.ymainhy .ytwolimg {
+  content: url("../assets/htwoimg.jpg");
+}
 .ytwolimgy {
   display: block;
   width: 20rem;
