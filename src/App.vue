@@ -437,6 +437,11 @@ logTlgConnect("");
   box-shadow: inset 0 0 0 2px #f7f7f8bf;
   color: #f7f7f8bf;
 }
+.twxname > img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
 .ymainhy .twxname {
   box-shadow: inset 0 0 0 2px #272e35bf;
   color: #272e35;
