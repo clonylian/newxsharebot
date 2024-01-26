@@ -3009,7 +3009,7 @@ let fwc = () => {
 .yariinvs {
   width: 100%;
   align-items: center;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
   cursor: pointer;
   padding: 0.5rem 1rem;
   box-sizing: border-box;
