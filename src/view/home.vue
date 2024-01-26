@@ -3006,6 +3006,7 @@ export default {
 .yfootbcon {
   width: 100%;
   overflow: hidden;
+  padding-bottom: 2rem;
 }
 @media screen and (max-width: 1200px) {
   .someAi {
