@@ -18,6 +18,7 @@ export default {};
 .ynewfoot {
   width: 100%;
   background: rgb(30, 37, 43);
+  padding-top: 8.75rem;
 }
 .ymainhy .ynewfoot {
   background: white;
@@ -55,6 +56,9 @@ export default {};
     width: 95%;
     display: block;
     text-align: center;
+  }
+  .ynewfoot {
+    padding-top: 2rem;
   }
 }
 </style>

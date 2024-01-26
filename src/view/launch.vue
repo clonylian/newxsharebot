@@ -88,9 +88,9 @@
 </template>
 
 <script setup>
-import md5 from "blueimp-md5";
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
+import api from "../common/api";
 import { useRouter, useRoute } from "vue-router";
 let isrouter = ref("0");
 const route = useRoute();
@@ -102,7 +102,6 @@ let yzminpthr = ref("");
 let yzminpf = ref("");
 let yzminpw = ref("");
 let logari = ref("0");
-let xhladd = ref("");
 let input5 = ref(null);
 let input4 = ref(null);
 let input3 = ref(null);
@@ -115,7 +114,6 @@ onMounted(() => {
   console.log(input3.value);
   console.log(input2.value);
   console.log(input1.value);
-  console.log("ref", route.query.ref);
   if (route.query.ref != undefined) {
     yzminpy.value = route.query.ref.substring(0, 1);
     yzminpt.value = route.query.ref.substring(1, 2);
@@ -145,9 +143,25 @@ let routz = () => {
     yzminpw.value;
   logari.value = "1";
   let length = values.length;
-  let sign = md5(xhladd.value + "88888888");
-  let walletadd = xhladd;
-  // if (length == 5 && localStorage.getItem("xhladd")) {
+  // let sign = md5(xhladd.value + "88888888");
+  // let walletadd = xhladd.value;
+  // if (length == 5) {
+  //   api
+  //     .verifyinvitation({
+  //       invitationCode: values,
+  //       appId: "xbot",
+  //       // userId: res.data.data.userId,
+  //       // token: res.data.data.token,
+  //     })
+  //     .then((res) => {
+  //       if (res.data.status == "success") {
+  //         router.push("/Airdrop");
+  //         localStorage.setItem("istrue", "1");
+  //       } else {
+  //         isnoneroutc("1");
+  //       }
+  //     });
+  //不要
   //   api
   //     .login({
   //       appId: "xbot",
@@ -155,26 +169,10 @@ let routz = () => {
   //       walletAddress: walletadd,
   //     })
   //     .then((res) => {
-  //       console.log(res);
   //       localStorage.setItem("user", JSON.stringify(res.data.data));
-  //       api
-  //         .verifyinvitation({
-  //           invitationCode: "ZVKMN",
-  //           appId: "xbot",
-  //           userId: res.data.data.userId,
-  //           token: res.data.data.token,
-  //         })
-  //         .then((res) => {
-  //           console.log("verifyinvitation", res.data.status);
-  //           if (res.data.status == "success") {
-  //             $router.push("/Airdrop");
-  //           }
-  //         });
   //     });
-  // } else if (localStorage.getItem("xhladd") && length != 5) {
-  //   alert("Please enter the correct invitation code!!!");
   // } else {
-  //   alert("Please link the wallet first!!!");
+  //   isnoneroutc("1");
   // }
   if (length == 5) {
     router.push("/Airdrop");
@@ -322,8 +320,7 @@ let xiqian = (index, val) => {
 }
 .yhome {
   width: 100%;
-  height: calc(100vh - 6rem);
-  overflow: auto;
+  height: calc(100vh - 18.4rem);
   padding-top: 6rem;
   background: rgb(30, 37, 43);
 }
@@ -584,6 +581,9 @@ let xiqian = (index, val) => {
 @media screen and (max-width: 1200px) {
   .someAi {
     width: 100%;
+  }
+  .yhome {
+    height: auto;
   }
   .yerrbox {
     width: 90%;

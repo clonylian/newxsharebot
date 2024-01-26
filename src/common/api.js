@@ -2,7 +2,10 @@ import Axios from "axios";
 
 export default {
   registers: function (data) {
-    return Axios.post("api/common/register-list", data);
+    return Axios.post(
+      "https://xbotx.site/moon-server/api/common/register-list",
+      data
+    );
   },
   login: function (data) {
     return Axios.post(

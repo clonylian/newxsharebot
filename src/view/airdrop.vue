@@ -1130,12 +1130,12 @@
             <div class="yarierbyxhtxt">CONNECT WALLET</div>
           </div>
           <div class="yarierbyxhlr flex">
-            <button :class="xhllogin == '0' ? 'yarijzcl' : 'yaributsjnone'">
+            <button :class="butshow == '1' ? 'yarijzcl' : 'yaributsjnone'">
               {{ xhlloginzt }}
             </button>
             <button
-              @click="sgin()"
-              :class="xhllogin == '1' ? 'yarierbut' : 'yaributsjnone'"
+              @click="render()"
+              :class="butshow == '0' ? 'yarierbut' : 'yaributsjnone'"
             >
               CONNECT
             </button>
@@ -1238,7 +1238,7 @@
         </div>
       </div>
       <div class="ynewstabright">
-        <img @click="jydaib('0')" src="../assets/close-line.svg" alt="" />
+        <img @click="fwc()" src="../assets/close-line.svg" alt="" />
         <div class="ynewstabrbox flex flexcol">
           <h1>Stake Solana</h1>
           <p>Choose how much you want to stake and earn rewards</p>
@@ -1479,7 +1479,6 @@ import { ref, onMounted } from "vue";
 import Web3Modal from "web3modal";
 import hello from "hellojs/dist/hello.all";
 import { ethers } from "ethers";
-import { Buffer } from "buffer";
 import api from "../common/api";
 import md5 from "blueimp-md5";
 import bus from "../utils/bus";
@@ -1561,7 +1560,7 @@ let pointsthr = ref(0);
 let viewsf = ref(0);
 let viewsw = ref(0);
 let viewssix = ref(0);
-let iscopy = ref("10");
+let iscopy = ref("-1");
 let pointsf = ref(0);
 let addpoints = ref(0);
 const xhladdress = ref("");
@@ -1580,16 +1579,21 @@ let userlog = ref({});
 let signature = ref("");
 let message = ref("");
 let twitteruid = ref("");
+let tasklist = ref([]);
 // let airtc = ref(0);
 // let airtcshow = (str) => {
 //   airtc.value = str;
 // };
 onMounted(() => {
   if (localStorage.getItem("xhlbalance")) {
-    console.log(111);
     xethbalance.value = localStorage.getItem("xhlbalance");
     dqyue.value = localStorage.getItem("xhlbalance");
     butshow.value = "1";
+    xlogin.value = "1";
+    xhlloginzt.value = "CONNECTED";
+  }
+  if (localStorage.getItem("xhladd")) {
+    xhladdress.value = localStorage.getItem("xhladd");
   }
   if (localStorage.getItem("Twname")) {
     alllogin.value = "1";
@@ -1603,28 +1607,29 @@ onMounted(() => {
       butshow.value = "0";
     }
   });
-  console.log("MD5", md5(localStorage.getItem("xhladd")));
-  userlog.value = JSON.parse(localStorage.getItem("user"));
-  // api
-  //   .task({
-  //     userId: userlog.value.userId,
-  //     token: userlog.value.token,
-  //     appId: "xbot",
-  //   })
-  //   .then((res) => {
-  //     console.log(res.data.data.userTaskList);
-  //     res.data.data.userTaskList.map((res) => {
-  //       if (res.taskName == "register" && res.completed == true) {
-  //         isgy.value = "1";
-  //       } else if (res.taskName == "tell" && res.completed == true) {
-  //         isgt.value = "1";
-  //       } else if (res.taskName == "follow" && res.completed == true) {
-  //         isgthr.value = "1";
-  //       } else if (res.taskName == "swap" && res.completed == true) {
-  //         isgf.value = "1";
-  //       }
-  //     });
-  //   });
+  if (localStorage.getItem("user")) {
+    userlog.value = JSON.parse(localStorage.getItem("user"));
+  }
+  api
+    .task({
+      userId: userlog.value.userId,
+      token: userlog.value.token,
+      appId: "xbot",
+    })
+    .then((res) => {
+      tasklist.value = res.data.data.userTaskList;
+      tasklist.value.map((res) => {
+        if (res.taskName == "register" && res.completed == true) {
+          isgy.value = "1";
+        } else if (res.taskName == "tell" && res.completed == true) {
+          isgt.value = "1";
+        } else if (res.taskName == "follow" && res.completed == true) {
+          isgthr.value = "1";
+        } else if (res.taskName == "swap" && res.completed == true) {
+          isgf.value = "1";
+        }
+      });
+    });
   // console.log(window);
   // console.log(handle.value);
   // console.log(handley.value);
@@ -1697,42 +1702,25 @@ let twitterlog = async () => {
     .login()
     .then(
       function (res) {
-        console.log("good", res);
         Twname.value = res.authResponse.screen_name;
         localStorage.setItem("Twname", Twname.value);
         alllogin.value = "1";
         xlogin.value = "0";
         xloginzt = "CONNECTED";
         bus.$emit("Twname", Twname.value);
-        let params = {
-          usernames: Twname.value,
-          expansions: "profile_image_url",
-        };
-        let headers = {
-          Authorization:
-            "Bearer AAAAAAAAAAAAAAAAAAAAAEMjsAEAAAAAY3FSilga0kk4oPzaAEIUVUyK20E%3DHYKq8MVkZPXsdKsylH9xyC9604a92iGZj1q9HYoa6yUHN8fm1a",
-        };
-        axios
-          .get(`https://api.twitter.com/2/users/by`, {
-            params,
-            headers,
+        api
+          .link({
+            userId: userlog.value.userId,
+            token: userlog.value.token,
+            uid: res.authResponse.user_id,
+            userName: res.authResponse.screen_name,
+            imgUrl: "tfsa",
+            appId: "xbot",
+            invitationCode: "DIR5D",
           })
           .then((res) => {
-            console.log("用户信息", res);
+            console.log("link", res);
           });
-        // api
-        //   .link({
-        //     userId: userlog.value.userId,
-        //     token: userlog.value.token,
-        //     uid: res.authResponse.user_id,
-        //     userName: res.authResponse.screen_name,
-        //     imgUrl: "tfsa",
-        //     appId: "xbot",
-        //     invitationCode: "",
-        //   })
-        //   .then((res) => {
-        //     console.log("link", res);
-        //   });
       },
       function (err) {
         console.log("err", err);
@@ -1794,8 +1782,21 @@ const render = async () => {
       xhladdress.value.length - 4,
       xhladdress.value.length
     );
+  let sign = md5(xhladdress.value + "88888888");
+  let walletadd = xhladdress.value;
+  api
+    .login({
+      appId: "xbot",
+      sign: sign,
+      walletAddress: walletadd,
+    })
+    .then((res) => {
+      localStorage.setItem("user", JSON.stringify(res.data.data));
+    });
   localStorage.setItem("xhladd", xhladdress.value);
   butshow.value = "1";
+  xlogin.value = "1";
+  xhlloginzt.value = "CONNECTED";
   const rawBalance = await provider.getBalance(xhladdress.value);
   xethbalance.value = ethers.utils.formatEther(rawBalance);
   dqyue.value = xethbalance.value;
@@ -1808,7 +1809,8 @@ let qxdl = async () => {
   }
   butshow.value = "0";
   xxhladdress.value = "";
-  localStorage.clear();
+  localStorage.removeItem("xhlbalance");
+  localStorage.removeItem("xhladd");
   bus.$emit("qbbalance", "0.00");
 };
 const startDragsix = (event) => {
@@ -2167,7 +2169,9 @@ let twpltxt = () => {
       taskValue: "",
     })
     .then((res) => {
-      isgt.value = "1";
+      if (res.data.status == "success") {
+        isgt.value = "1";
+      }
     });
 };
 let followyh = () => {
@@ -2182,49 +2186,52 @@ let followyh = () => {
       taskValue: "",
     })
     .then((res) => {
-      isgthr.value = "1";
+      if (res.data.status == "success") {
+        isgthr.value = "1";
+      }
     });
 };
 let tcbgshow = (str, success) => {
   yaritcbg.value = str;
   if (str == "1") {
-    // api
-    //   .createinvitation({
-    //     userId: userlog.value.userId,
-    //     token: userlog.value.token,
-    //     appId: "xbot",
-    //   })
-    //   .then((res) => {
-    //     console.log("createinvitation", res.data.data.invitationCode);
-    //     invitationcode.value = res.data.data.invitationCode;
-    //   });
-    invitationcode.value = [
-      "ASDG3",
-      "ASDG4",
-      "ASDG5",
-      "ASDG6",
-      "ASDG7",
-      "ASDG8",
-      "ASDG9",
-      "AWDGA",
-      "AWERZ",
-      "ALDEV",
-    ];
+    api
+      .createinvitation({
+        userId: userlog.value.userId,
+        token: userlog.value.token,
+        appId: "xbot",
+      })
+      .then((res) => {
+        invitationcode.value[0] = res.data.data.invitationCode;
+      });
+    // invitationcode.value = [
+    //   "ASDG3",
+    //   "ASDG4",
+    //   "ASDG5",
+    //   "ASDG6",
+    //   "ASDG7",
+    //   "ASDG8",
+    //   "ASDG9",
+    //   "AWDGA",
+    //   "AWERZ",
+    //   "ALDEV",
+    // ];
   }
-  // if (invitationcode.value.length != 0 && str == "0" && success == "1") {
-  //zhu api
-  //   .submit({
-  //     userId: userlog.value.userId,
-  //     token: userlog.value.token,
-  //     appId: "xbot",
-  //     taskName: "swap",
-  //     taskValue: "",
-  //   })
-  //   .then((res) => {
-  //     isgw.value = "1";
-  //   });
-  //   isgw.value = "1";
-  // }
+  if (success == "1" && iscopy.value != "-1") {
+    console.log(iscopy.value);
+    api
+      .submit({
+        userId: userlog.value.userId,
+        token: userlog.value.token,
+        appId: "xbot",
+        taskName: "swap",
+        taskValue: "",
+      })
+      .then((res) => {
+        if (res.data.status == "success") {
+          isgw.value = "1";
+        }
+      });
+  }
 };
 
 let logtcbgshow = (str) => {
@@ -2239,7 +2246,9 @@ let logtcbgshow = (str) => {
         taskValue: "",
       })
       .then((res) => {
-        isgy.value = "1";
+        if (res.data.status == "success") {
+          isgy.value = "1";
+        }
       });
   }
 };
@@ -2268,8 +2277,6 @@ let qriscopy = (str, item, index) => {
       `${protocol}${hostname}/#/launch?ref=${item}`
     );
     iscopy.value = index;
-  } else if (item == "") {
-    alert("Failed to copy text");
   }
 };
 let dblistbox = (str) => {
@@ -2295,19 +2302,22 @@ let isnum = () => {
   inpval.value = inpval.value.replace(/[^\d.]/g, "");
 };
 let fwc = () => {
-  api
-    .submit({
-      userId: userlog.value.userId,
-      token: userlog.value.token,
-      appId: "xbot",
-      taskName: "swap",
-      taskValue: "",
-    })
-    .then((res) => {
-      console.log(res);
-      isgf.value = "1";
-    });
-  yarijyb.value = "0";
+  if (xhladdress.value != "") {
+    api
+      .submit({
+        userId: userlog.value.userId,
+        token: userlog.value.token,
+        appId: "xbot",
+        taskName: "swap",
+        taskValue: "",
+      })
+      .then((res) => {
+        if (res.data.status == "success") {
+          isgf.value = "1";
+        }
+      });
+  }
+  jydaib("0");
 };
 </script>
 

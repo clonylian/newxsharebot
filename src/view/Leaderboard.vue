@@ -41,34 +41,26 @@
               class="yleaderlcttiao flex"
             >
               <div style="width: 13.71%" class="yleaderlctty">
-                <span>{{ item.rank }}</span>
+                <span>{{ item.rankingNum }}</span>
               </div>
               <div style="width: 44.231%" class="yleaderlcttt flex">
                 <div>
                   <img
-                    :class="
-                      item.twitter.profileImageUrl == null
-                        ? 'yleaderjolnone'
-                        : ''
-                    "
-                    :src="item.twitter.profileImageUrl"
+                    :class="item.userImg == null ? 'yleaderjolnone' : ''"
+                    :src="item.userImg"
                     alt=""
                   />
                 </div>
-                <div>{{ item.displayName }}</div>
+                <div>{{ item.userName }}</div>
               </div>
               <div style="width: 25.2747%" class="yleaderlcttthr">
-                {{
-                  item.referrerDisplayName == null
-                    ? "-"
-                    : item.referrerDisplayName
-                }}
+                {{ item.invited == null ? "-" : item.invited }}
               </div>
               <div
                 style="width: 16.7842%; text-align: right"
                 class="yleaderlcttf"
               >
-                {{ item.points.toFixed(0) }}
+                {{ parseFloat(item.totalPoint).toFixed(0) }}
               </div>
             </div>
           </div>
@@ -86,27 +78,26 @@
         >
           <div class="yleaderjoleft">
             <img
-              :class="
-                item.twitter.profileImageUrl == null ? 'yleaderjolnone' : ''
-              "
-              :src="item.twitter.profileImageUrl"
+              :class="item.userImg == null ? 'yleaderjolnone' : ''"
+              :src="item.userImg"
               alt=""
             />
           </div>
           <div class="yleaderjoright">
             <div class="yleaderjrt flex jus">
-              <div>{{ item.displayName }}</div>
+              <div>{{ item.userName }}</div>
               <span
                 >{{
                   Math.floor(
-                    (new Date().getTime() - Date.parse(regtime)) / 60000
+                    (new Date().getTime() - Date.parse(item.registerTime)) /
+                      60000
                   )
                 }}
                 minutes age</span
               >
             </div>
             <div class="yleaderjtb">
-              Invited by {{ item.referrerDisplayName }}
+              Invited by {{ item.invited.substring(0, 8) + "..." }}
             </div>
           </div>
         </div>
@@ -120,682 +111,27 @@ import { ref, onMounted } from "vue";
 import api from "../common/api";
 import Axios from "axios";
 let regtime = ref("2023-11-28 11:11:11");
-let leadlist = ref([
-  {
-    rank: 1,
-    displayName: "SQUAD-5QM96",
-    points: 61708.81488753732,
-    referrerDisplayName: "USE_CODE-8M2N5",
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 2,
-    displayName: "CODE-HLCDF",
-    points: 23738.328184466598,
-    referrerDisplayName: null,
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 3,
-    displayName: "inqy-FFJAV",
-    points: 19233.53955274682,
-    referrerDisplayName: "@hamzah_eth",
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 4,
-    displayName: "USE_CODE-8M2N5",
-    points: 14720.652135509947,
-    referrerDisplayName: "SQUAD-5QM96",
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 5,
-    displayName: "SQUAD-5QM96",
-    points: 61708.81488753732,
-    referrerDisplayName: "USE_CODE-8M2N5",
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 6,
-    displayName: "CODE-HLCDF",
-    points: 23738.328184466598,
-    referrerDisplayName: null,
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 7,
-    displayName: "inqy-FFJAV",
-    points: 19233.53955274682,
-    referrerDisplayName: "@hamzah_eth",
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 8,
-    displayName: "USE_CODE-8M2N5",
-    points: 14720.652135509947,
-    referrerDisplayName: "SQUAD-5QM96",
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 9,
-    displayName: "SQUAD-5QM96",
-    points: 61708.81488753732,
-    referrerDisplayName: "USE_CODE-8M2N5",
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 10,
-    displayName: "CODE-HLCDF",
-    points: 23738.328184466598,
-    referrerDisplayName: null,
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 11,
-    displayName: "inqy-FFJAV",
-    points: 19233.53955274682,
-    referrerDisplayName: "@hamzah_eth",
-    twitter: { profileImageUrl: null },
-  },
-  {
-    rank: 12,
-    displayName: "USE_CODE-8M2N5",
-    points: 14720.652135509947,
-    referrerDisplayName: "SQUAD-5QM96",
-    twitter: {
-      profileImageUrl: null,
-    },
-  },
-  {
-    displayName: "@sgsand1",
-    points: 7637.817621408086,
-    rank: 13,
-    referrerDisplayName: "@GrantlandOG",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1605732108235849728/2PQG7Lea_normal.jpg",
-    },
-  },
-]);
-let joinlist = ref([
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl: null,
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-]);
-let huanlist = ref([
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Baby_Flattershy",
-    referrerDisplayName: "@lil_guziii",
-    registeredOn: "2023-11-21T08:26:47.859Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1540780534741159936/23IMrf6G_normal.jpg",
-    },
-  },
-]);
-let joinlistt = ref([
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl: null,
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-  {
-    displayName: "@KangjunLin",
-    referrerDisplayName: "@tanwanyouxi",
-    registeredOn: "2023-11-21T08:26:49.077Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1693235790837682176/kJJRDVlm_normal.jpg",
-    },
-  },
-]);
-let thrlist = ref([
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-  {
-    displayName: "@Allen71328859",
-    referrerDisplayName: "NINO",
-    registeredOn: "2023-11-22T01:41:44.792Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1722889433970802688/UGLo9ext_normal.jpg",
-    },
-  },
-]);
-let fourlist = ref([
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-  {
-    displayName: "@ilmeaalim",
-    referrerDisplayName: "@mooncat2878",
-    registeredOn: "2023-11-22T01:41:37.079Z",
-    twitter: {
-      profileImageUrl:
-        "https://pbs.twimg.com/profile_images/1589495465808199683/HI99uMpx_normal.jpg",
-    },
-  },
-]);
+let leadlist = ref([]);
+let huanlist = ref([]);
 let valqh = ref(0);
 let reglist = ref([]);
-
 onMounted(() => {
   api
-    .login({
+    .toppoint({
       appId: "xbot",
-      sign: "5786429fc75a6cf8950e7d148bcdbebc",
-      walletAddress: "0xbfdb4a228092d28854bd9d97d31ee1c840fb14c0",
     })
     .then((res) => {
-      console.log("res", res);
+      leadlist.value = res.data.data.topPointList;
+    });
+  api
+    .registers({
+      appId: "xbot",
+    })
+    .then((res) => {
+      console.log("registers", res.data.data.userRegisterList);
+      huanlist.value = res.data.data.userRegisterList;
     });
 });
-// onMounted(() => {
-//   let i = 0;
-//   api
-//     .registers({
-//       appId: "xbot",
-//     })
-//     .then((res) => {
-//       // reglist.value=res.data.data.userRegisterList
-//       console.log("11111", res.data.data.userRegisterList);
-//     });
-//   api
-//     .toppoint({
-//       appId: "xbot",
-//     })
-//     .then((res) => {
-//       console.log(res.data.data);
-//       // leadlist.value = res.data.data.topPointList;
-//     });
-//   setInterval(() => {
-//     if (i > 3) {
-//       i = 0;
-//     }
-//     i++;
-//     if (i == 1) {
-//       joinlist.value = huanlist.value;
-//     } else if (i == 2) {
-//       joinlist.value = joinlistt.value;
-//     } else if (i == 3) {
-//       joinlist.value = thrlist.value;
-//     } else if (i == 4) {
-//       joinlist.value = fourlist.value;
-//     }
-//   }, 3000);
-// });
 </script>
 
 <style scoped>
@@ -804,7 +140,7 @@ onMounted(() => {
   padding: 3.5rem 4rem;
   box-sizing: border-box;
   background: rgb(30, 37, 43);
-  align-items: center;
+  /* align-items: center; */
 }
 .yleadtop {
   width: 100%;

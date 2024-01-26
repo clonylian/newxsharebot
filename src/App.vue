@@ -114,7 +114,13 @@
                 <div @click="changelang('ch')">中文</div>
               </div>
             </div> -->
-            <div :class="$route.path == '/' ? 'yheadslau' : 'yheadslaunone'">
+            <div
+              :class="
+                $route.path == '/' || $route.path == '/Leaderboard'
+                  ? 'yheadslau'
+                  : 'yheadslaunone'
+              "
+            >
               <router-link to="/launch" target="_blank">
                 Launch app</router-link
               >
