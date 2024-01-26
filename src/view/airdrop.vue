@@ -1629,7 +1629,7 @@ let tasklis = () => {
       appId: "xbot",
     })
     .then((res) => {
-      console.log("xbot", res.data.data);
+      console.log("xbot", res.data);
       tasklist.value = res.data.data.userTaskList;
       tasklist.value.map((res) => {
         if (res.taskName == "register" && res.completed == true) {
