@@ -990,7 +990,7 @@
           class="yariinvs flex jus"
         >
           <div class="yariinvl flex">
-            <img src="../assets/smalllogo.png" alt="" />
+            <img src="../assets/logos.png" alt="" />
             <span>Available Invite Code</span>
           </div>
           <div class="yaritctinpb flex">
@@ -3356,25 +3356,16 @@ let fwc = () => {
   font-size: 16px;
   font-weight: 600;
   transition: all 0.2s;
-  box-shadow: inset 0 0 0 2px #f7f7f8bf;
   color: #f7f7f8bf;
+  box-shadow: inset 0 0 0 1px #f7f7f8bf;
   background: transparent;
 }
-.yariboter button:hover {
-  background: #f7f7f8bf;
-  box-shadow: none;
-  color: #272e35;
-}
 .ymainhy .yariboter button {
-  color: rgb(17, 11, 11);
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 0 1px #272e35bf;
+  color: #272e35;
 }
 
 .ymainhy .yariboter .yaritabactive {
-  box-shadow: inset 0 0 0 2px #272e35bf;
-  color: #272e35;
-}
-.ymainhy .yariboter .yaritabactive:hover {
   background: #272e35;
   box-shadow: none;
   color: #f7f7f8;

@@ -3266,6 +3266,9 @@ export default {
   .ytwoy {
     width: 60%;
   }
+  .yaudbox {
+    width: 60%;
+  }
   .ytworight {
     width: 50%;
   }

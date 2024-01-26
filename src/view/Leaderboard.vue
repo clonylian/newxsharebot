@@ -1349,4 +1349,15 @@ let reglist = ref([]);
     width: 85%;
   }
 }
+@media (min-width: 1251px) and (max-width: 1900px) {
+  .yleaderleft {
+    width: 71%;
+  }
+  .yleaderright {
+    width: 28%;
+  }
+  .yleaderjoins {
+    justify-content: normal !important;
+  }
+}
 </style>
