@@ -1609,27 +1609,7 @@ onMounted(() => {
   });
   if (localStorage.getItem("user")) {
     userlog.value = JSON.parse(localStorage.getItem("user"));
-    api
-      .task({
-        userId: userlog.value.userId,
-        token: userlog.value.token,
-        appId: "xbot",
-      })
-      .then((res) => {
-        tasklist.value = res.data.data.userTaskList;
-        console.log(res.data);
-        tasklist.value.map((res) => {
-          if (res.taskName == "register" && res.completed == true) {
-            isgy.value = "1";
-          } else if (res.taskName == "tell" && res.completed == true) {
-            isgt.value = "1";
-          } else if (res.taskName == "follow" && res.completed == true) {
-            isgthr.value = "1";
-          } else if (res.taskName == "swap" && res.completed == true) {
-            isgf.value = "1";
-          }
-        });
-      });
+    tasklis();
   }
 
   // console.log(window);
@@ -1641,7 +1621,28 @@ onMounted(() => {
   // console.log(handlew.value);
   // console.log(handlesix.value);
 });
-
+let tasklis = () => {
+  api
+    .task({
+      userId: userlog.value.userId,
+      token: userlog.value.token,
+      appId: "xbot",
+    })
+    .then((res) => {
+      tasklist.value = res.data.data.userTaskList;
+      tasklist.value.map((res) => {
+        if (res.taskName == "register" && res.completed == true) {
+          isgy.value = "1";
+        } else if (res.taskName == "tell" && res.completed == true) {
+          isgt.value = "1";
+        } else if (res.taskName == "follow" && res.completed == true) {
+          isgthr.value = "1";
+        } else if (res.taskName == "swap" && res.completed == true) {
+          isgf.value = "1";
+        }
+      });
+    });
+};
 let changetctab = (str) => {
   tctab.value = str;
 };
@@ -1794,6 +1795,8 @@ const render = async () => {
     })
     .then((res) => {
       localStorage.setItem("user", JSON.stringify(res.data.data));
+      userlog.value = res.data.data;
+      tasklis();
     });
   localStorage.setItem("xhladd", xhladdress.value);
   butshow.value = "1";
