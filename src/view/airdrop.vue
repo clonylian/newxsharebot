@@ -1609,28 +1609,29 @@ onMounted(() => {
   });
   if (localStorage.getItem("user")) {
     userlog.value = JSON.parse(localStorage.getItem("user"));
+    api
+      .task({
+        userId: userlog.value.userId,
+        token: userlog.value.token,
+        appId: "xbot",
+      })
+      .then((res) => {
+        tasklist.value = res.data.data.userTaskList;
+        console.log(res.data);
+        tasklist.value.map((res) => {
+          if (res.taskName == "register" && res.completed == true) {
+            isgy.value = "1";
+          } else if (res.taskName == "tell" && res.completed == true) {
+            isgt.value = "1";
+          } else if (res.taskName == "follow" && res.completed == true) {
+            isgthr.value = "1";
+          } else if (res.taskName == "swap" && res.completed == true) {
+            isgf.value = "1";
+          }
+        });
+      });
   }
-  api
-    .task({
-      userId: userlog.value.userId,
-      token: userlog.value.token,
-      appId: "xbot",
-    })
-    .then((res) => {
-      // tasklist.value = res.data.data.userTaskList;
-      console.log(res.data);
-      // tasklist.value.map((res) => {
-      //   if (res.taskName == "register" && res.completed == true) {
-      //     isgy.value = "1";
-      //   } else if (res.taskName == "tell" && res.completed == true) {
-      //     isgt.value = "1";
-      //   } else if (res.taskName == "follow" && res.completed == true) {
-      //     isgthr.value = "1";
-      //   } else if (res.taskName == "swap" && res.completed == true) {
-      //     isgf.value = "1";
-      //   }
-      // });
-    });
+
   // console.log(window);
   // console.log(handle.value);
   // console.log(handley.value);
