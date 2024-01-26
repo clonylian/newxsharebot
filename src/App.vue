@@ -528,9 +528,6 @@ logTlgConnect("");
 .ymainbt .yheadapps > a:hover {
   color: rgb(238 239 242);
 }
-.twxname > svg {
-  width: 2rem;
-}
 .twxnamenone {
   display: none;
 }

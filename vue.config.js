@@ -5,7 +5,7 @@ module.exports = defineConfig({
     devServer: {
       proxy: {
         "/moon-server": {
-          target: "http://moon.xiaoliumang.com.cn/moon-server/",
+          target: "https://xbotx.site/moon-server/",
           changeOrigin: true,
           ws: true,
           pathRewrite: { "^/moon-server": "" },

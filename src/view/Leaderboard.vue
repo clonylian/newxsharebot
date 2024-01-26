@@ -118,6 +118,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import api from "../common/api";
+import Axios from "axios";
 let regtime = ref("2023-11-28 11:11:11");
 let leadlist = ref([
   {
@@ -749,6 +750,18 @@ let fourlist = ref([
 ]);
 let valqh = ref(0);
 let reglist = ref([]);
+
+onMounted(() => {
+  api
+    .login({
+      appId: "xbot",
+      sign: "5786429fc75a6cf8950e7d148bcdbebc",
+      walletAddress: "0xbfdb4a228092d28854bd9d97d31ee1c840fb14c0",
+    })
+    .then((res) => {
+      console.log("res", res);
+    });
+});
 // onMounted(() => {
 //   let i = 0;
 //   api
