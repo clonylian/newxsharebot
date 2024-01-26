@@ -1796,6 +1796,7 @@ const render = async () => {
       walletAddress: walletadd,
     })
     .then((res) => {
+      console.log("renderres", res);
       localStorage.setItem("user", JSON.stringify(res.data.data));
       userlog.value = res.data.data;
       tasklis();
