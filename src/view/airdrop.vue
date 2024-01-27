@@ -2258,6 +2258,7 @@ let logtcbgshow = (str) => {
         taskValue: "",
       })
       .then((res) => {
+        console.log("register", res);
         if (res.data.status == "success") {
           isgy.value = "1";
         }
