@@ -1597,6 +1597,7 @@ onMounted(() => {
     firstlogin();
   }
   if (localStorage.getItem("Twname")) {
+    Twname.value = localStorage.getItem("Twname");
     alllogin.value = "1";
     xlogin.value = "0";
     xloginzt = "CONNECTED";
