@@ -1608,9 +1608,7 @@ onMounted(() => {
     }
   });
   if (localStorage.getItem("user")) {
-    userlog.value = JSON.parse(localStorage.getItem("user"));
-    console.log(userlog.value.userId);
-    tasklis();
+    firstlogin();
   }
 
   // console.log(window);
@@ -1787,6 +1785,19 @@ const render = async () => {
       xhladdress.value.length - 4,
       xhladdress.value.length
     );
+
+  firstlogin();
+  localStorage.setItem("xhladd", xhladdress.value);
+  butshow.value = "1";
+  xlogin.value = "1";
+  xhlloginzt.value = "CONNECTED";
+  const rawBalance = await provider.getBalance(xhladdress.value);
+  xethbalance.value = ethers.utils.formatEther(rawBalance);
+  dqyue.value = xethbalance.value;
+  localStorage.setItem("xhlbalance", xethbalance.value);
+  bus.$emit("qbbalance", xethbalance.value);
+};
+let firstlogin = () => {
   let sign = md5(xhladdress.value + "88888888");
   let walletadd = xhladdress.value;
   api
@@ -1801,15 +1812,6 @@ const render = async () => {
       userlog.value = res.data.data;
       tasklis();
     });
-  localStorage.setItem("xhladd", xhladdress.value);
-  butshow.value = "1";
-  xlogin.value = "1";
-  xhlloginzt.value = "CONNECTED";
-  const rawBalance = await provider.getBalance(xhladdress.value);
-  xethbalance.value = ethers.utils.formatEther(rawBalance);
-  dqyue.value = xethbalance.value;
-  localStorage.setItem("xhlbalance", xethbalance.value);
-  bus.$emit("qbbalance", xethbalance.value);
 };
 let qxdl = async () => {
   if (xhladdress.value != "") {

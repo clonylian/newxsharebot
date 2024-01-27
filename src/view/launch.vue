@@ -389,7 +389,7 @@ let xiqian = (index, val) => {
 .yhome {
   width: 100%;
   height: auto;
-  padding-top: 4rem;
+  padding-top: 8.3rem;
   background: rgb(30, 37, 43);
 }
 .yhomey {
@@ -652,6 +652,7 @@ let xiqian = (index, val) => {
   }
   .yhome {
     height: auto;
+    padding-top: 5rem;
   }
   .yerrbox {
     width: 90%;

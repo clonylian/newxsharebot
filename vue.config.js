@@ -8,6 +8,7 @@ module.exports = defineConfig({
           target: "https://xbotx.site/moon-server/",
           changeOrigin: true,
           ws: true,
+          secure: false,
           pathRewrite: { "^/moon-server": "" },
         },
       },

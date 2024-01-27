@@ -125,7 +125,13 @@
                 Launch app</router-link
               >
             </div>
-            <div :class="Twittername == '' ? 'twxnamenone' : 'twxname'">
+            <div
+              :class="
+                Twittername == '' || $route.path == '/'
+                  ? 'twxnamenone'
+                  : 'twxname'
+              "
+            >
               <svg
                 version="1.1"
                 id="Layer_1"
@@ -149,9 +155,12 @@
                 ></image>
               </svg>
 
-              <span>
-                {{ Twittername }}
-              </span>
+              <div class="txxxandxhl flex flexcol">
+                <p>
+                  {{ Twittername }}
+                </p>
+                <span> {{ xxhladdress }}</span>
+              </div>
             </div>
             <div class="yddhshow" @click="ydonshow(1)">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -426,7 +435,7 @@ let ongb = () => {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  column-gap: 0.5rem;
+  column-gap: 0.75rem;
   height: 3.5rem;
   padding: 0 1.5rem;
   border-radius: 1rem;
@@ -435,8 +444,19 @@ let ongb = () => {
   transition: all 0.2s;
   box-sizing: border-box;
   background: transparent;
-  box-shadow: inset 0 0 0 2px #f7f7f8bf;
   color: #f7f7f8bf;
+}
+.txxxandxhl {
+  gap: 0.35rem;
+}
+.txxxandxhl > p {
+  font-size: 1rem;
+  line-height: 1;
+  font-family: "Poppins";
+}
+.txxxandxhl > span {
+  font-size: 0.75rem;
+  font-family: "Inter";
 }
 .twxname > svg {
   width: 2.5rem;
