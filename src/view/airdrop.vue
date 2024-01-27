@@ -2211,7 +2211,12 @@ let tcbgshow = (str, success) => {
         appId: "xbot",
       })
       .then((res) => {
-        invitationcode.value[0] = res.data.data.invitationCode;
+        console.log("cg");
+        if (res.data.status == "success") {
+          invitationcode.value[0] = res.data.data.invitationCode;
+        } else {
+          invitationcode.value[0] = "FFBSO";
+        }
       });
     // invitationcode.value = [
     //   "ASDG3",
@@ -2227,7 +2232,6 @@ let tcbgshow = (str, success) => {
     // ];
   }
   if (success == "1" && iscopy.value != "-1") {
-    console.log(iscopy.value);
     api
       .submit({
         userId: userlog.value.userId,
