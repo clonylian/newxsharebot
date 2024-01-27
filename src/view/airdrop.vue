@@ -1594,6 +1594,7 @@ onMounted(() => {
   }
   if (localStorage.getItem("xhladd")) {
     xhladdress.value = localStorage.getItem("xhladd");
+    firstlogin();
   }
   if (localStorage.getItem("Twname")) {
     alllogin.value = "1";
@@ -1607,9 +1608,6 @@ onMounted(() => {
       butshow.value = "0";
     }
   });
-  if (localStorage.getItem("user")) {
-    firstlogin();
-  }
 
   // console.log(window);
   // console.log(handle.value);
