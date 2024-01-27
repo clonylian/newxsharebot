@@ -1234,7 +1234,6 @@ let ongb = () => {
 
 .ymainhy .yfoot {
   background: white;
-  background: url("./assets/homebgw.png");
   color: rgb(0, 0, 0) !important;
 }
 
