@@ -2249,6 +2249,7 @@ let tcbgshow = (str, success) => {
 let logtcbgshow = (str) => {
   yarilog.value = str;
   if (Twname.value != "") {
+    console.log("大苏打");
     api
       .submit({
         userId: userlog.value.userId,
@@ -2258,11 +2259,13 @@ let logtcbgshow = (str) => {
         taskValue: "",
       })
       .then((res) => {
-        console.log("register", res);
+        console.log("registe萨法说法r", res);
         if (res.data.status == "success") {
           isgy.value = "1";
         }
       });
+  } else {
+    console.log("打算大苏打");
   }
 };
 let jydaib = (str) => {
