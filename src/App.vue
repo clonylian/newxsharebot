@@ -464,7 +464,6 @@ let ongb = () => {
   border-radius: 50%;
 }
 .ymainhy .twxname {
-  box-shadow: inset 0 0 0 2px #272e35bf;
   color: #272e35;
 }
 .yheadapps {
