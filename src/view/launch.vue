@@ -145,7 +145,7 @@ let routz = () => {
     yzminpthr.value +
     yzminpf.value +
     yzminpw.value;
-  logari.value = "1";
+
   let length = values.length;
   // if (length == 5) {
   //   api
@@ -159,6 +159,7 @@ let routz = () => {
   //       console.log(res);
   //       if (res.data.status == "success") {
   //         router.push("/Airdrop");
+  // logari.value = "1";
   //         localStorage.setItem("istrue", "1");
   //         logTlgConnect("");
   //       } else {
@@ -170,6 +171,7 @@ let routz = () => {
   // }
   if (length == 5) {
     router.push("/Airdrop");
+    logari.value = "1";
     localStorage.setItem("istrue", "1");
   } else {
     isnoneroutc("1");
@@ -490,9 +492,9 @@ let xiqian = (index, val) => {
   box-shadow: none;
   color: #f7f7f8;
 }
-/* .yhomey_but .shiactive {
+.yhomey_but .shiactive {
   cursor: not-allowed;
-} */
+}
 .ymainbt .yhomey_but button {
   color: #f7f7f8bf;
   box-shadow: inset 0 0 0 2px #f7f7f8bf;

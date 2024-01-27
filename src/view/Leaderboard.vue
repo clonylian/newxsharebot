@@ -122,6 +122,9 @@ onMounted(() => {
     })
     .then((res) => {
       leadlist.value = res.data.data.topPointList;
+    })
+    .catch((err) => {
+      console.log(err);
     });
   api
     .registers({
@@ -130,6 +133,9 @@ onMounted(() => {
     .then((res) => {
       console.log("registers", res.data.data.userRegisterList);
       huanlist.value = res.data.data.userRegisterList;
+    })
+    .catch((err) => {
+      console.log(err);
     });
 });
 </script>

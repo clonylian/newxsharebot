@@ -55,8 +55,25 @@
 
               <!-- <img class="hyshowimg" src="./assets/blacklogo.png" alt=""/> -->
             </router-link>
-            <router-link to="/Leaderboard">
+            <router-link
+              :class="
+                $route.path == '/' || $route.path == '/launch'
+                  ? 'yleadanone'
+                  : ''
+              "
+              to="/Leaderboard"
+            >
               {{ $store.state.txt.tabtwo }}</router-link
+            >
+            <router-link
+              :class="
+                $route.path == '/' || $route.path == '/launch'
+                  ? 'yleadanone'
+                  : ''
+              "
+              to="/Airdrop"
+            >
+              {{ $store.state.txt.tabAirdrop }}</router-link
             >
           </div>
           <div class="yheads flex">
@@ -114,13 +131,7 @@
                 <div @click="changelang('ch')">中文</div>
               </div>
             </div> -->
-            <div
-              :class="
-                $route.path == '/' || $route.path == '/Leaderboard'
-                  ? 'yheadslau'
-                  : 'yheadslaunone'
-              "
-            >
+            <div :class="$route.path == '/' ? 'yheadslau' : 'yheadslaunone'">
               <router-link to="/launch" target="_blank">
                 Launch app</router-link
               >
@@ -429,6 +440,9 @@ let ongb = () => {
 <style>
 .ymainbt {
   position: relative;
+}
+.yleadanone {
+  display: none;
 }
 .twxname {
   font-family: "Poppins";
