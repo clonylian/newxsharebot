@@ -388,8 +388,9 @@ let xiqian = (index, val) => {
 }
 .yhome {
   width: 100%;
-  height: auto;
-  padding-top: 8.3rem;
+  height: calc(100vh - 10.3125rem);
+  padding: 8.3rem 0 0;
+  box-sizing: border-box;
   background: rgb(30, 37, 43);
 }
 .yhomey {
