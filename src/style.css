@@ -18,6 +18,9 @@
   font-family: "Inter";
   src: url("./assets/GT-Pressura-Mono-Regular.woff2");
 }
+:root {
+  --onboard-modal-z-index: 550;
+}
 * {
   padding: 0;
   margin: 0;

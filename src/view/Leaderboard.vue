@@ -104,6 +104,7 @@
       </div>
     </div>
   </div>
+  <img src="../assets/logoxb.png" style="display: none" alt="" />
 </template>
 
 <script setup>

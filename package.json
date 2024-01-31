@@ -18,6 +18,8 @@
     "vue-router": "^4.0.3",
     "vue3-apexcharts": "^1.4.4",
     "vuex": "^4.0.0",
+    "@web3-onboard/injected-wallets": "^2.10.11",
+    "@web3-onboard/vue": "^2.7.12",
     "web3modal": "^1.9.12"
   },
   "devDependencies": {

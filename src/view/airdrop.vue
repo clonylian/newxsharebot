@@ -1229,7 +1229,6 @@
               Connect Wallet
             </button>
             <button
-              @click="qxdl()"
               :class="butshow == '1' ? 'ynewstakebutshow' : 'ynewstakebutnone'"
             >
               Connected
@@ -1385,7 +1384,6 @@
                   Connect Wallet
                 </button>
                 <button
-                  @click="qxdl()"
                   :class="
                     butshow == '1' ? 'ynewstakebutshow' : 'ynewstakebutnone'
                   "
@@ -1477,6 +1475,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Web3Modal from "web3modal";
+import { init, useOnboard } from "@web3-onboard/vue";
+import injectedModule from "@web3-onboard/injected-wallets";
 import hello from "hellojs/dist/hello.all";
 import { ethers } from "ethers";
 import api from "../common/api";
@@ -1584,6 +1584,9 @@ let tasklist = ref([]);
 // let airtcshow = (str) => {
 //   airtc.value = str;
 // };
+const injected = injectedModule();
+const infuraKey = "34071ed776e84b2f85e9b2c3d33929b5";
+const rpcUrl = `https://mainnet.infura.io/v3/${infuraKey}`;
 onMounted(() => {
   if (localStorage.getItem("xhlbalance")) {
     xethbalance.value = localStorage.getItem("xhlbalance");
@@ -1741,42 +1744,50 @@ let twitterlog = async () => {
       );
   });
 };
-let web3Modal = {};
-const connect = async () => {
-  const WalletConnect = window.WalletConnectProvider.default;
-  const Fortmatic = window.Fortmatic;
-  const providerOptions = {
-    fortmatic: {
-      package: Fortmatic,
-      options: {
-        // Mikko's TESTNET api key
-        key: "pk_test_391E26A3B43A3350",
-      },
+const web3Onboard = init({
+  wallets: [injected],
+  chains: [
+    {
+      id: "0x1",
+      token: "ETH",
+      label: "Ethereum Mainnet",
+      rpcUrl,
     },
-    walletconnect: {
-      package: WalletConnect,
-      options: {
-        rpc: {
-          56: "https://bsc-dataseed.binance.org/",
-          97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
-        },
-        network: "binance",
-      },
+    {
+      id: 42161,
+      token: "ARB-ETH",
+      label: "Arbitrum One",
+      rpcUrl: "https://rpc.ankr.com/arbitrum",
     },
-  };
+    {
+      id: "0xa4ba",
+      token: "ARB",
+      label: "Arbitrum Nova",
+      rpcUrl: "https://nova.arbitrum.io/rpc",
+    },
+    {
+      id: "0x2105",
+      token: "ETH",
+      label: "Base",
+      rpcUrl: "https://mainnet.base.org",
+    },
+  ],
+  appMetadata: {
+    name: "Blex",
+    description: "Your App Description",
+    icon: "../assets/logoxb.png",
+  },
+});
+const { connectWallet } = useOnboard();
 
-  web3Modal = new Web3Modal({
-    network: "mainnet", // optional
-    cacheProvider: true, // optional
-    providerOptions, // required
-  });
-  const externalProvider = await web3Modal.connect();
-  return new ethers.providers.Web3Provider(externalProvider);
-};
 const render = async () => {
-  const provider = await connect();
-  const signer = provider.getSigner(0);
+  connectWallet().then((res) => {});
+};
+let getaddress = async () => {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
   xhladdress.value = await signer.getAddress();
+  console.log(xhladdress.value);
   xxhladdress.value =
     xhladdress.value.substring(0, 4) +
     "..." +
@@ -1784,7 +1795,6 @@ const render = async () => {
       xhladdress.value.length - 4,
       xhladdress.value.length
     );
-
   firstlogin();
   localStorage.setItem("xhladd", xhladdress.value);
   butshow.value = "1";
@@ -1813,9 +1823,6 @@ let firstlogin = () => {
     });
 };
 let qxdl = async () => {
-  if (xhladdress.value != "") {
-    web3Modal.clearCachedProvider();
-  }
   butshow.value = "0";
   xxhladdress.value = "";
   localStorage.removeItem("xhlbalance");
@@ -2403,7 +2410,7 @@ let fwc = () => {
   width: 100%;
   padding: 4rem 0;
   position: relative;
-  z-index: 10;
+  z-index: 0;
 }
 
 .yairbcon h2 {
