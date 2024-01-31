@@ -1775,13 +1775,15 @@ const web3Onboard = init({
   appMetadata: {
     name: "Blex",
     description: "Your App Description",
-    icon: "../assets/logoxb.png",
+    icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA4CAYAAACsc+sjAAAAAXNSR0IArs4c6QAABBFJREFUaEPtmM9rXFUUx8+dlzCZmRiwYu1GsYvBX23T2iQFcaGWirgSBPcGsUnbFH9QM800qWIhmdEM8R/o1pUWd0oXYrW1mczkR2MLbtx1pVBKrea9e37IfUMlEZpk+s4zk+Q9GAZm7jvvfM73nO+9PAPb5DLbhBMS0K2mdKJoougmrUDSuptUuPumnSiaKLpJK6DWuh99eO5PD3ZkYY3DVqrNACMCyV0oV4ZT/1fd1ECLhfIiY/Y5kHWHNACO08iOR823pwpHX48Tet1ZrZVEsVBeYMzubQJ0RUgRhonKUGwKK4KW5hlz+x4UtEFtYHzyWCyweqDDpTmmXHc0UAAkgs+mTqrDaoLOMuX2RwV1unZ2Qb149njvWuPSzP+aoHWm3AEN0DhaWA30TKFcI8w+rwHKQlCq6LavGmjxdGmGbe6gBigYhlf6nn74yFtHbjfTnqutVQM9UyhXCbM9WqD5J3KP9Z/s/73lQEcKE1XBTjXQ8c9191Q1RYunS9Nsc70ainqeB+fKA6pbTEuC+ngbKl+MbHFQScN45R1VyMaZS+kqDpemmaK37s5d7eX3T71bUErr3zAtBJqCdNa/8PGn772pDamt6AxTuI8uL56snrTrUAZjPHj76OFMPp/3D71wmLse6rp18bsLj2gCqyk6Upj4VbAz34zrtrV7sPvJXXv6B9644aD6XnyVPWgHZATBAGrV79VmVQ00SvVfevk1ZkmDiACzAIoFQgRhC/XqDyqwaqAijVcLxphV29WtO3/+y+rXX31zUNgDY9Lwl70DhBZYBGQZqCUL7R5B7epPkWHVQE8MjF1nzD4ToDUiBEQExEvAzOHHWgsCCMwIAQXuN3FrBBisgySCwM2r5VBRCe9zMXxYqF1pHdChwdGq9TM9JAgsDiwAAAQil7CAtf5/QcNirAbqXq+4AhnDvFC/3BZlPDQVrWPQcSAOUBELi3NXI6mqBzo4Nod+R7cDJXZKErgENRSlFMP12uWtD4qG4EY92pxqK7qfBEVbUfYEfpmJ5rzqoAwk5NySXPv6oRGFeyMGwGJD10V07stg2Tnx/V33nhll0ubm9M+XHm8RMxqdxyDTrQuKxlor12ajzafqWXdocGzB+h37FEGNCIII/z1bvZSNoqYq6InBsUX0O/awsULkWtWucN0mW9e4AwNaX+brP0Zy23sF0pvRY6PXcCmzNyKoMZYAhSAFLNNXLqpAKis6+hv6md1sGnunM5zl++h6FU2hSF/Psx9MTZWnorbr8vv1FB345K4N0lkyjcPCSlACDB3YHQctIDVcl8i1t7hvCewSHOp9aufk5OQfmoDqrRtHcpox1RTVTCqOWAloHFXdyJiJohtZ/TienSgaR1U3Mmai6EZWP45nbxtF/wFadSV1KYAmpgAAAABJRU5ErkJggg==",
   },
 });
 const { connectWallet } = useOnboard();
 
 const render = async () => {
-  connectWallet().then((res) => {});
+  connectWallet().then((res) => {
+    getaddress();
+  });
 };
 let getaddress = async () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
