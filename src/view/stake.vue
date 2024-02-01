@@ -181,7 +181,13 @@
                   <div>Eligible: 0</div>
                 </div>
               </div>
-              <button class="yscbrbcnrs">Stake</button>
+              <button
+                :class="
+                  yeslog == '0' ? 'yscbrbcnrs yscbrbcnrsno' : 'yscbrbcnrs'
+                "
+              >
+                Stake
+              </button>
             </div>
           </div>
           <div :class="statab == '1' ? 'yscbrbcon' : 'yscbrbconnone'">
@@ -211,7 +217,13 @@
                   <div>Staked: 0</div>
                 </div>
               </div>
-              <button class="yscbrbcnrs">Unstake</button>
+              <button
+                :class="
+                  yeslog == '0' ? 'yscbrbcnrs yscbrbcnrsno' : 'yscbrbcnrs'
+                "
+              >
+                Unstake
+              </button>
             </div>
           </div>
         </div>
@@ -686,6 +698,9 @@ let isstop = () => {
   background: transparent;
   cursor: pointer;
   color: #f7f7f8bf;
+}
+.yscbrbcnrsno {
+  cursor: not-allowed;
 }
 .yscbrbcnrs:hover {
   background: #f7f7f8bf;

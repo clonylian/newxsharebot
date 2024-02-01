@@ -141,7 +141,10 @@
               </div>
             </div> -->
             <div :class="$route.path == '/' ? 'yheadslau' : 'yheadslaunone'">
-              <router-link to="/launch" target="_blank">
+              <router-link
+                :to="xhladdress == '' ? '/launch' : '/Airdrop'"
+                target="_blank"
+              >
                 Launch app</router-link
               >
             </div>
@@ -401,6 +404,7 @@ onMounted(() => {
   bus.$on("qbbalance", (val) => {
     if (val != "" && val != "0.00") {
       loginan.value = "1";
+      xhladdress.value = localStorage.getItem("xhladd");
       xxhladdress.value =
         localStorage.getItem("xhladd").substring(0, 4) +
         "..." +
@@ -413,6 +417,7 @@ onMounted(() => {
     }
   });
   if (localStorage.getItem("xhladd")) {
+    xhladdress.value = localStorage.getItem("xhladd");
     xxhladdress.value =
       localStorage.getItem("xhladd").substring(0, 4) +
       "..." +
@@ -529,8 +534,8 @@ let ongb = () => {
   position: absolute;
   bottom: -5.75rem;
   left: 0.5rem;
-  width: 6.5625rem;
-  padding: 1rem 0.5rem;
+  width: 100%;
+  padding: 1rem;
   box-sizing: border-box;
   background: #2c353d;
   border-radius: 0.5rem;
@@ -557,7 +562,7 @@ let ongb = () => {
 .twxnametc > a {
   font-family: "Inter";
   font-size: 1rem;
-  text-align: center;
+  text-align: left;
   padding: 0.25rem;
   cursor: pointer;
   z-index: 10;
@@ -566,7 +571,7 @@ let ongb = () => {
 .twxnametc > span {
   font-family: "Inter";
   font-size: 1rem;
-  text-align: center;
+  text-align: left;
   padding: 0.25rem;
   cursor: pointer;
   z-index: 10;
