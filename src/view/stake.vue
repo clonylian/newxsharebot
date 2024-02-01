@@ -245,6 +245,11 @@ onMounted(() => {
       userbla.value = val;
     }
   });
+  bus.$on("logout", (val) => {
+    if (val == "out") {
+      yeslog.value = "0";
+    }
+  });
   if (localStorage.getItem("xhladd")) {
     yeslog.value = "1";
   }

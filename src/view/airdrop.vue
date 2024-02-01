@@ -1603,7 +1603,7 @@ onMounted(() => {
     Twname.value = localStorage.getItem("Twname");
     alllogin.value = "1";
     xlogin.value = "0";
-    xloginzt = "CONNECTED";
+    xloginzt.value = "CONNECTED";
   }
   bus.$on("qbbalance", (val) => {
     if (val != "" && val != "0.00") {
@@ -1612,7 +1612,15 @@ onMounted(() => {
       butshow.value = "0";
     }
   });
-
+  bus.$on("logout", (val) => {
+    if (val == "out") {
+      butshow.value = "0";
+      xlogin.value = "0";
+      alllogin.value = "0";
+      xloginzt.value = "CONNECT  ";
+      xhlloginzt.value = "CONNECT  ";
+    }
+  });
   // console.log(window);
   // console.log(handle.value);
   // console.log(handley.value);
