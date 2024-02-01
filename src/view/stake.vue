@@ -1,5 +1,5 @@
 <template>
-  <div class="yscon">
+  <div class="yscon flex">
     <div class="yscbox flex jus">
       <div :class="yeslog == '0' ? 'yscbl flex' : 'yscblnone'">
         <div class="yscblcon flex flexcol">
@@ -278,16 +278,19 @@ let isstop = () => {
 <style scoped>
 .yscon {
   width: 100%;
+  height: calc(100vh - 4rem);
   background: rgb(30, 37, 43);
   padding-top: 10.5rem;
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 .ymainhy .yscon {
   background: white;
 }
 .yscbox {
   width: 98rem;
-  height: 100%;
+  height: auto;
   padding: 2rem 2rem 2rem 2.5rem;
   box-sizing: border-box;
   margin: 0 auto;
