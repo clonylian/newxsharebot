@@ -59,7 +59,12 @@ const router = VueRouter.createRouter({
 
 router.beforeEach((to, from, next) => {
   const isTrue = localStorage.getItem("istrue") == "1";
-  if ((to.path == "/Airdrop" || to.path == "/Leaderboard") && !isTrue) {
+  if (
+    (to.path == "/Airdrop" ||
+      to.path == "/Leaderboard" ||
+      to.path == "/Stake") &&
+    !isTrue
+  ) {
     next("/");
   } else {
     next();

@@ -1,6 +1,6 @@
 <template>
   <div class="yscon">
-    <div class="yscbox flex">
+    <div class="yscbox flex jus">
       <div :class="yeslog == '0' ? 'yscbl flex' : 'yscblnone'">
         <div class="yscblcon flex flexcol">
           <div class="yscbltop flex">
@@ -136,7 +136,6 @@
         </div>
       </div>
       <div class="yscbr flex">
-        <div class="yscbrlg"></div>
         <div class="yscbrbox">
           <div class="yscbrbtop flex">
             <button
@@ -278,36 +277,45 @@ let isstop = () => {
 
 <style scoped>
 .yscon {
-  height: calc(100vh - 10.3rem);
   width: 100%;
   background: rgb(30, 37, 43);
-  padding-top: 7.5rem;
+  padding-top: 10.5rem;
   box-sizing: border-box;
 }
 .ymainhy .yscon {
   background: white;
 }
 .yscbox {
+  width: 98rem;
   height: 100%;
+  padding: 2rem 2rem 2rem 2.5rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  align-items: center;
+  position: relative;
+  background: #2c353d;
+}
+.ymainhy .yscbox {
+  background: white;
 }
 .yscbl {
   justify-content: center;
   align-items: center;
-  flex: 3 1 500px;
-  padding: 0 2.5rem;
   box-sizing: border-box;
 }
 .yscblnone {
   display: none;
 }
 .yscbr {
-  padding: 0 2.5rem;
+  width: 43.875rem;
   backdrop-filter: blur(12px);
   justify-content: center;
   align-items: center;
-  flex: 1 1 500px;
   box-sizing: border-box;
   position: relative;
+  z-index: 10;
 }
 .yscblcon {
   gap: 0.75rem;
@@ -443,7 +451,8 @@ let isstop = () => {
   color: #6e757c;
 }
 .yscblkje > .fontblue {
-  color: rgb(255 110 48) !important;
+  color: rgb(117 117 117) !important;
+  z-index: 10;
 }
 .yscbltcon {
   font-family: "Inter";
@@ -474,14 +483,14 @@ let isstop = () => {
 }
 .yscbrbox {
   width: 100%;
-  background: #2c353d;
+  background-color: rgb(36 35 37);
   box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 2px 0px inset,
     rgba(0, 0, 0, 0.72) 0px 8px 12px 0px;
   border-radius: 0.5rem;
   overflow: hidden;
   position: relative;
 }
-.yscbrbox::before {
+.yscbox::before {
   top: -280px;
   left: -280px;
   width: 560px;
@@ -498,7 +507,7 @@ let isstop = () => {
     #8084dc 65.46%
   );
 }
-.yscbrbox::after {
+.yscbox::after {
   content: "";
   position: absolute;
   border-radius: 50%;
@@ -537,14 +546,12 @@ let isstop = () => {
   padding: 0.375rem 0.75rem;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  background-color: hsla(0, 0%, 100%, 0.1);
+  background: rgb(48, 48, 48);
   box-sizing: border-box;
 }
 .yscbrbttabactive {
-  border-bottom: 1px solid rgb(255 110 48);
   color: white;
   background-color: rgb(36 35 37);
-  box-shadow: 0 0 #0000, 0 0 #0000, inset 0 -2px 0px rgb(255 110 48);
 }
 .yscbrbcon {
   width: 100%;
@@ -683,11 +690,47 @@ let isstop = () => {
 .yscbltinpxy {
   width: 100%;
   align-items: center;
-  border: 1px solid hsl(216 10% 20%);
   border-radius: 0.5rem;
-  background-color: hsla(0, 0%, 100%, 0.1);
+  background: rgb(40, 48, 54);
+  box-shadow: 0 8px 32px #0000001a;
   padding: 1rem;
+  position: relative;
   box-sizing: border-box;
+  overflow: hidden;
+}
+.yscbltinpxy::before {
+  top: -280px;
+  left: -280px;
+  width: 560px;
+  height: 560px;
+  opacity: 0.6;
+  filter: blur(278.261px);
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+}
+.yscbltinpxy::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
 }
 .yscbltinpxy > span {
   font-family: "Inter";
@@ -700,7 +743,8 @@ let isstop = () => {
   font-family: "Poppins";
   font-size: 1.5rem;
   line-height: 2rem;
-  color: rgb(255 110 48);
+  color: rgb(117 117 117);
+  z-index: 10;
 }
 .yscbltinpxt {
   width: 100%;
@@ -717,11 +761,47 @@ let isstop = () => {
 .yscbltinpxs {
   width: 100%;
   align-items: center;
-  border: 1px solid hsl(216 10% 20%);
   border-radius: 0.5rem;
-  background-color: hsla(0, 0%, 100%, 0.1);
+  background: rgb(40, 48, 54);
+  box-shadow: 0 8px 32px #0000001a;
   padding: 1rem;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.yscbltinpxs::before {
+  top: -280px;
+  left: -280px;
+  width: 560px;
+  height: 560px;
+  opacity: 0.6;
+  filter: blur(278.261px);
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+}
+.yscbltinpxs::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
 }
 .yscbltinpxsr {
   gap: 0.25rem;
@@ -744,7 +824,8 @@ let isstop = () => {
   font-family: "Poppins";
   font-size: 1.5rem;
   line-height: 2rem;
-  color: rgb(255 110 48);
+  color: rgb(117 117 117);
+  z-index: 10;
 }
 .yscbltinpxs > span {
   font-family: "Inter";
@@ -868,6 +949,9 @@ let isstop = () => {
   }
   .yscbox {
     display: block;
+    width: 100%;
+    height: auto;
+    padding: 0rem;
   }
   .yscblcon {
     width: 100%;
@@ -893,6 +977,7 @@ let isstop = () => {
   }
   .yscbr {
     padding: 1rem;
+    width: 100%;
   }
   .yscbrlg {
     display: none;
@@ -909,6 +994,40 @@ let isstop = () => {
   }
   .ysbgtcbox {
     width: 95%;
+  }
+  .ysbgtcbox::before {
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    opacity: 0.6;
+    filter: blur(278.261px);
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(
+      135.15deg,
+      #ae80dc 1.17%,
+      #dc83c3 31.88%,
+      #8084dc 65.46%
+    );
+  }
+  .yscbltinpxy::before {
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    opacity: 0.6;
+    filter: blur(278.261px);
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(
+      135.15deg,
+      #ae80dc 1.17%,
+      #dc83c3 31.88%,
+      #8084dc 65.46%
+    );
   }
 }
 </style>
