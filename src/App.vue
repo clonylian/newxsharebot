@@ -75,6 +75,16 @@
             >
               {{ $store.state.txt.tabAirdrop }}</router-link
             >
+            <router-link
+              :class="
+                $route.path == '/' || $route.path == '/launch'
+                  ? 'yleadanone'
+                  : ''
+              "
+              to="/Stake"
+            >
+              {{ $store.state.txt.tabStake }}</router-link
+            >
           </div>
           <div class="yheads flex">
             <div class="yheadapps flex">
