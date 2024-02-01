@@ -1719,7 +1719,7 @@ let twitterlog = async () => {
         localStorage.setItem("Twname", Twname.value);
         alllogin.value = "1";
         xlogin.value = "0";
-        xloginzt = "CONNECTED";
+        xloginzt.value = "CONNECTED";
         bus.$emit("Twname", Twname.value);
         api
           .link({
