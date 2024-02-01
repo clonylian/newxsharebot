@@ -318,6 +318,8 @@ let logout = () => {
   Twittername.value = "";
   localStorage.removeItem("xhlbalance");
   localStorage.removeItem("xhladd");
+  localStorage.removeItem("Twname");
+  localStorage.removeItem("user");
   // disconnect();
   bus.$emit("logout", "out");
 };
