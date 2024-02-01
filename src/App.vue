@@ -526,7 +526,7 @@ let ongb = () => {
   display: none;
   position: absolute;
   bottom: -5.75rem;
-  left: 0rem;
+  left: 0.5rem;
   width: 6.5625rem;
   padding: 1rem 0.5rem;
   box-sizing: border-box;
