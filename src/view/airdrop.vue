@@ -6,23 +6,25 @@
         {{ $store.state.txt.yaridroptxt }}
       </p>
     </div>
-    <div class="ydjtime flex flexcol">
-      <span>Expires in</span>
-      <div class="ydjtimebox flex flexcol">
-        <div class="ydjtimeby flex">
-          <div>days</div>
-          <div>hours</div>
-          <div>minutes</div>
-          <div>seconds</div>
-        </div>
-        <div class="ydjtimebt flex">
-          <div>{{ days }}</div>
-          <span>:</span>
-          <div>{{ hours }}</div>
-          <span>:</span>
-          <div>{{ mins }}</div>
-          <span>:</span>
-          <div>{{ secs }}</div>
+    <div class="ydjtimebcon">
+      <div class="ydjtime flex flexcol">
+        <span>Expires in</span>
+        <div class="ydjtimebox flex flexcol">
+          <div class="ydjtimeby flex">
+            <div>days</div>
+            <div>hours</div>
+            <div>minutes</div>
+            <div>seconds</div>
+          </div>
+          <div class="ydjtimebt flex">
+            <div>{{ days }}</div>
+            <span>:</span>
+            <div>{{ hours }}</div>
+            <span>:</span>
+            <div>{{ mins }}</div>
+            <span>:</span>
+            <div>{{ secs }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -286,7 +288,7 @@
                     stroke="currentColor"
                   ></path>
                 </svg>
-                <span>4</span>
+                <span style="left: 48%">4</span>
                 <svg
                   class="yairrjt"
                   viewBox="0 0 19 58"
@@ -1629,6 +1631,7 @@ let addpoints = ref(0);
 const xhladdress = ref("");
 const xxhladdress = ref("");
 const xethbalance = ref("");
+let xusdtbalance = ref("");
 let invitationcode = ref([]);
 let Twname = ref("");
 let xloginzt = ref("CONNECT  ");
@@ -1648,7 +1651,18 @@ let hours = ref("");
 let mins = ref("");
 let secs = ref("");
 let oldtime = new Date("2024-2-5");
-
+const usdtContractAddress = "0xdac17f958d2ee523a2206206994597c13d831ec7";
+const usdtContractABI = [
+  {
+    constant: true,
+    inputs: [{ name: "_owner", type: "address" }],
+    name: "balanceOf",
+    outputs: [{ name: "balance", type: "uint256" }],
+    payable: false,
+    stateMutability: "view",
+    type: "function",
+  },
+];
 // let airtc = ref(0);
 // let airtcshow = (str) => {
 //   airtc.value = str;
@@ -1897,6 +1911,8 @@ let getaddress = async () => {
       xhladdress.value.length - 4,
       xhladdress.value.length
     );
+
+  userxxlog();
   firstlogin();
   localStorage.setItem("xhladd", xhladdress.value);
   butshow.value = "1";
@@ -1904,9 +1920,23 @@ let getaddress = async () => {
   xhlloginzt.value = "CONNECTED";
   const rawBalance = await provider.getBalance(xhladdress.value);
   xethbalance.value = ethers.utils.formatEther(rawBalance);
+  const usdtContract = new ethers.Contract(
+    usdtContractAddress,
+    usdtContractABI,
+    provider
+  );
+  const balance = await usdtContract.balanceOf(xhladdress.value);
+  xusdtbalance.value = ethers.utils.formatEther(balance);
   dqyue.value = xethbalance.value;
   localStorage.setItem("xhlbalance", xethbalance.value);
+  localStorage.setItem("xhlusdtbalance", xusdtbalance.value);
   bus.$emit("qbbalance", xethbalance.value);
+  bus.$emit("qbusdtbalance", xusdtbalance.value);
+};
+let userxxlog = () => {
+  yarilog.value = "0";
+  bus.$emit("Twname", "dasdas");
+  localStorage.setItem("Twname", "dasdas");
 };
 let firstlogin = () => {
   let sign = md5(xhladdress.value + "88888888");
@@ -2369,9 +2399,7 @@ let logtcbgshow = (str) => {
         taskValue: "",
       })
       .then((res) => {
-        if (res.data.status == "success") {
-          isgy.value = "1";
-        }
+        isgy.value = "1";
       });
   }
 };
@@ -2448,10 +2476,59 @@ let fwc = () => {
 .yairlsytysvgw {
   cursor: not-allowed !important;
 }
-.ydjtime {
+.ydjtimebcon {
   width: 68.5%;
-  gap: 0.75rem;
   margin: 0 auto 3rem;
+}
+.ydjtime {
+  width: 30.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem;
+  position: relative;
+  gap: 0.75rem;
+  box-sizing: border-box;
+  background: rgb(40, 48, 54);
+  box-shadow: 0 8px 32px #0000001a;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.ymainhy .ydjtime {
+  background: rgb(247 247 247);
+  border-color: rgb(179 187 202);
+}
+.ydjtime::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
+}
+.ydjtime::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  top: -280px;
+  left: -280px;
+  width: 560px;
+  height: 560px;
+  opacity: 0.6;
+  filter: blur(278.261px);
 }
 .ydjtime > span {
   color: #6e757c;
@@ -4669,6 +4746,15 @@ let fwc = () => {
 .ynewstayboxtfive {
   width: 100%;
   margin: 1rem 0;
+}
+.ymainhy .yairlsypoint {
+  border-color: #000;
+}
+.ymainhy .ydjtimeby {
+  color: #000;
+}
+.ymainhy .ydjtimebt {
+  color: #000;
 }
 .ynewstayboxtfive > button {
   width: 100%;

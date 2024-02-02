@@ -171,7 +171,9 @@
                   <input @input="sinput()" type="text" v-model="inpval" />
                   <span @click="stabalance()">MAX</span>
                 </div>
-                <span style="margin: 0.5rem 0 0">Available: 0 SUPER</span>
+                <span style="margin: 0.5rem 0 0"
+                  >Available: {{ userbla }} SUPER</span
+                >
               </div>
               <div class="yscbrbcnry">
                 <p>Stake SUPER</p>
@@ -179,10 +181,12 @@
                   >Stake your SUPER tokens to start earning ETH rewards.</span
                 >
                 <div class="yscbrbinp">
-                  <input @input="sinput()" type="text" v-model="inpval" />
-                  <span @click="stabalance()">MAX</span>
+                  <input @input="sinput()" type="text" v-model="inpvalt" />
+                  <span @click="statbalance()">MAX</span>
                 </div>
-                <span style="margin: 0.5rem 0 0">Available: 0 SUPER</span>
+                <span style="margin: 0.5rem 0 0"
+                  >Available: {{ userusdtbla }} SUPER</span
+                >
               </div>
               <!-- <div class="yscbrbcnrt flex flexcol">
                 <div class="yscbrbcnrttop">
@@ -215,10 +219,12 @@
                   the same transaction.</span
                 >
                 <div class="yscbrbinp">
-                  <input @input="unsinput()" type="text" v-model="inpvalt" />
-                  <span @click="statbalance()">MAX</span>
+                  <input @input="unsinput()" type="text" v-model="inpval" />
+                  <span @click="stabalance()">MAX</span>
                 </div>
-                <span style="margin: 0.5rem 0 0">Staked: 0 SUPER</span>
+                <span style="margin: 0.5rem 0 0"
+                  >Staked: {{ userbla }} SUPER</span
+                >
               </div>
               <div class="yscbrbcnry">
                 <p>Unstake SUPER</p>
@@ -230,7 +236,9 @@
                   <input @input="unsinput()" type="text" v-model="inpvalt" />
                   <span @click="statbalance()">MAX</span>
                 </div>
-                <span style="margin: 0.5rem 0 0">Staked: 0 SUPER</span>
+                <span style="margin: 0.5rem 0 0"
+                  >Staked: {{ userusdtbla }} SUPER</span
+                >
               </div>
               <!-- <div class="yscbrbcnrt flex flexcol">
                 <div class="yscbrbcnrttop">
@@ -277,12 +285,19 @@ let statab = ref("0");
 let inpval = ref("0");
 let inpvalt = ref("0");
 let userbla = ref("0");
+let userusdtbla = ref("0");
 let istcshow = ref("0");
 onMounted(() => {
   bus.$on("qbbalance", (val) => {
-    if (val != "" && val != "0.00") {
+    if (val != "") {
       yeslog.value = "1";
-      userbla.value = val;
+      userbla.value = Number(val).toFixed(2);
+    }
+  });
+  bus.$on("qbusdtbalance", (val) => {
+    if (val != "") {
+      yeslog.value = "1";
+      userusdtbla.value = Number(val).toFixed(2);
     }
   });
   bus.$on("logout", (val) => {
@@ -294,7 +309,12 @@ onMounted(() => {
     yeslog.value = "1";
   }
   if (localStorage.getItem("xhlbalance")) {
-    userbla.value = localStorage.getItem("xhlbalance");
+    userbla.value = Number(localStorage.getItem("xhlbalance")).toFixed(2);
+  }
+  if (localStorage.getItem("xhlusdtbalance")) {
+    userusdtbla.value = Number(localStorage.getItem("xhlusdtbalance")).toFixed(
+      2
+    );
   }
 });
 let changetab = (str) => {
@@ -304,7 +324,7 @@ let stabalance = () => {
   inpval.value = Number(userbla.value).toFixed(2);
 };
 let statbalance = () => {
-  inpvalt.value = Number(userbla.value).toFixed(2);
+  inpvalt.value = Number(userusdtbla.value).toFixed(2);
 };
 let unsinput = () => {
   inpvalt.value = inpvalt.value.replace(/[^\d.]/g, "");
@@ -1045,6 +1065,17 @@ let isstop = () => {
 }
 .ysbgtcnone {
   display: none;
+}
+.ymainhy .ysconf > h1 {
+  color: #000;
+}
+.ymainhy .yscbltinpxy {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
+}
+.ymainhy .yscbltinpxs {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
 }
 @media (max-width: 1250px) {
   .yscon {

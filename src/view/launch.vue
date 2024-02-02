@@ -82,10 +82,9 @@
   >
     <div @click.stop="conerror()" class="yerrbox">
       <img @click="isnoneroutc('0')" src="../assets/close-line.svg" alt="" />
-      <h4>Invite Code Error</h4>
+      <h4>{{ inverr }}</h4>
       <p>
-        Invite code not accepted. Check that you input it correctly and try
-        again.
+        {{ inverrtxt }}
       </p>
     </div>
   </div>
@@ -113,8 +112,13 @@ let logari = ref("0");
 let signxx = ref("");
 let userlog = ref({});
 let isair = ref("0");
+let inverr = ref("Invite Code Error");
+let inverrtxt = ref(
+  "Invite code not accepted. Check that you input it correctly and try again."
+);
 let xhladdress = ref("");
 let xethbalance = ref("");
+let xusdtbalance = ref("");
 let input5 = ref(null);
 let input4 = ref(null);
 let input3 = ref(null);
@@ -187,6 +191,18 @@ const web3Onboard = init({
     icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA4CAYAAACsc+sjAAAAAXNSR0IArs4c6QAABBFJREFUaEPtmM9rXFUUx8+dlzCZmRiwYu1GsYvBX23T2iQFcaGWirgSBPcGsUnbFH9QM800qWIhmdEM8R/o1pUWd0oXYrW1mczkR2MLbtx1pVBKrea9e37IfUMlEZpk+s4zk+Q9GAZm7jvvfM73nO+9PAPb5DLbhBMS0K2mdKJoougmrUDSuptUuPumnSiaKLpJK6DWuh99eO5PD3ZkYY3DVqrNACMCyV0oV4ZT/1fd1ECLhfIiY/Y5kHWHNACO08iOR823pwpHX48Tet1ZrZVEsVBeYMzubQJ0RUgRhonKUGwKK4KW5hlz+x4UtEFtYHzyWCyweqDDpTmmXHc0UAAkgs+mTqrDaoLOMuX2RwV1unZ2Qb149njvWuPSzP+aoHWm3AEN0DhaWA30TKFcI8w+rwHKQlCq6LavGmjxdGmGbe6gBigYhlf6nn74yFtHbjfTnqutVQM9UyhXCbM9WqD5J3KP9Z/s/73lQEcKE1XBTjXQ8c9191Q1RYunS9Nsc70ainqeB+fKA6pbTEuC+ngbKl+MbHFQScN45R1VyMaZS+kqDpemmaK37s5d7eX3T71bUErr3zAtBJqCdNa/8PGn772pDamt6AxTuI8uL56snrTrUAZjPHj76OFMPp/3D71wmLse6rp18bsLj2gCqyk6Upj4VbAz34zrtrV7sPvJXXv6B9644aD6XnyVPWgHZATBAGrV79VmVQ00SvVfevk1ZkmDiACzAIoFQgRhC/XqDyqwaqAijVcLxphV29WtO3/+y+rXX31zUNgDY9Lwl70DhBZYBGQZqCUL7R5B7epPkWHVQE8MjF1nzD4ToDUiBEQExEvAzOHHWgsCCMwIAQXuN3FrBBisgySCwM2r5VBRCe9zMXxYqF1pHdChwdGq9TM9JAgsDiwAAAQil7CAtf5/QcNirAbqXq+4AhnDvFC/3BZlPDQVrWPQcSAOUBELi3NXI6mqBzo4Nod+R7cDJXZKErgENRSlFMP12uWtD4qG4EY92pxqK7qfBEVbUfYEfpmJ5rzqoAwk5NySXPv6oRGFeyMGwGJD10V07stg2Tnx/V33nhll0ubm9M+XHm8RMxqdxyDTrQuKxlor12ajzafqWXdocGzB+h37FEGNCIII/z1bvZSNoqYq6InBsUX0O/awsULkWtWucN0mW9e4AwNaX+brP0Zy23sF0pvRY6PXcCmzNyKoMZYAhSAFLNNXLqpAKis6+hv6md1sGnunM5zl++h6FU2hSF/Psx9MTZWnorbr8vv1FB345K4N0lkyjcPCSlACDB3YHQctIDVcl8i1t7hvCewSHOp9aufk5OQfmoDqrRtHcpox1RTVTCqOWAloHFXdyJiJohtZ/TienSgaR1U3Mmai6EZWP45nbxtF/wFadSV1KYAmpgAAAABJRU5ErkJggg==",
   },
 });
+const usdtContractAddress = "0xdac17f958d2ee523a2206206994597c13d831ec7";
+const usdtContractABI = [
+  {
+    constant: true,
+    inputs: [{ name: "_owner", type: "address" }],
+    name: "balanceOf",
+    outputs: [{ name: "balance", type: "uint256" }],
+    payable: false,
+    stateMutability: "view",
+    type: "function",
+  },
+];
 const { connectWallet } = useOnboard();
 let routz = () => {
   let values =
@@ -220,10 +236,6 @@ let routz = () => {
   //   isnoneroutc("1");
   // }
   if (length == 5) {
-    router.push("/Airdrop");
-    logari.value = "1";
-    localStorage.setItem("istrue", "1");
-  } else if (isair.value == "1") {
     router.push("/Airdrop");
     logari.value = "1";
     localStorage.setItem("istrue", "1");
@@ -360,16 +372,36 @@ let sgin = async () => {
   });
   signxx.value = signatures;
   if (signxx.value != "") {
-    isair.value = "1";
-    console.log("大苏打", isair.value);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     xhladdress.value = await signer.getAddress();
     localStorage.setItem("xhladd", xhladdress.value);
     const rawBalance = await provider.getBalance(xhladdress.value);
     xethbalance.value = ethers.utils.formatEther(rawBalance);
+    const usdtContract = new ethers.Contract(
+      usdtContractAddress,
+      usdtContractABI,
+      provider
+    );
+    const balance = await usdtContract.balanceOf(xhladdress.value);
+    xusdtbalance.value = ethers.utils.formatEther(balance);
+    console.log("balance", xethbalance.value, xusdtbalance.value);
     localStorage.setItem("xhlbalance", xethbalance.value);
+    localStorage.setItem("xhlusdtbalance", xusdtbalance.value);
     bus.$emit("qbbalance", xethbalance.value);
+    bus.$emit("qbusdtbalance", xusdtbalance.value);
+    //接口请求
+    if (xhladdress.value == "") {
+      isnoneroutc("1");
+      inverr.value = "user error";
+      inverrtxt.value = "User does not exist";
+    } else {
+      router.push("/Airdrop");
+      logari.value = "1";
+      localStorage.setItem("istrue", "1");
+      bus.$emit("Twname", "dasdas");
+      localStorage.setItem("Twname", "dasdas");
+    }
   }
 };
 let logwith = () => {
