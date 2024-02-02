@@ -288,7 +288,7 @@
                     stroke="currentColor"
                   ></path>
                 </svg>
-                <span style="left: 48%">4</span>
+                <span>4</span>
                 <svg
                   class="yairrjt"
                   viewBox="0 0 19 58"
@@ -2569,7 +2569,7 @@ let fwc = () => {
   line-height: 0.5rem;
   padding: 0.25rem;
   position: absolute;
-  bottom: 1rem;
+  bottom: 1.65rem;
   left: 50%;
   border: 0.5px solid white;
   transform: translateX(-50%);
@@ -2840,7 +2840,7 @@ let fwc = () => {
   font-weight: 400;
   color: #fff;
   left: 50%;
-  top: 50%;
+  top: 38%;
   font-family: "Poppins";
   transform: translate(-50%, -50%);
   transition: all 0.3s;
@@ -4774,11 +4774,15 @@ let fwc = () => {
     display: flex;
     justify-content: center;
   }
-  .ydjtime {
+  .ydjtimebcon {
     width: 95%;
   }
+  .ydjtime {
+    width: 100%;
+    padding: 1.5rem 1.25rem;
+  }
   .ydjtimeby {
-    column-gap: 1.25rem;
+    column-gap: 0.75rem;
   }
   .ydjtimebt {
     column-gap: 2rem;
