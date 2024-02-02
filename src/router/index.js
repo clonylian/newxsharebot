@@ -40,6 +40,16 @@ const routes = [
     name: "launch",
     component: () => import("../view/launch.vue"),
   },
+  {
+    path: "/terms",
+    name: "terms",
+    component: () => import("../view/terms.vue"),
+  },
+  {
+    path: "/eigenlayer",
+    name: "eigenlayer",
+    component: () => import("../view/eigenlayer.vue"),
+  },
 ];
 
 const router = VueRouter.createRouter({

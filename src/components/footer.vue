@@ -2,9 +2,11 @@
   <div class="ynewfoot">
     <div class="ynfootbox flex jus">
       <span>@2023 NAVl. All rights reserved.</span>
-      <p>
-        <span>Audited by </span>
-        <a href="">otterSec, Movebit</a>
+      <p class="ynfootend flex">
+        <router-link to="/terms" target="_blank">Terms of Service</router-link>
+        <router-link to="/eigenlayer" target="_blank"
+          >Privacy Policy</router-link
+        >
       </p>
     </div>
   </div>
@@ -34,20 +36,18 @@ export default {};
   font-family: "Inter";
   color: #6a7986;
 }
+.ynfootend {
+  column-gap: 1rem;
+}
 .ymainhy .ynfootbox > span {
   color: black;
 }
-.ymainhy .ynfootbox > p {
+
+.ymainhy .ynfootend > a {
   color: black;
 }
-.ymainhy .ynfootbox > p > a {
-  color: black;
-}
-.ynfootbox > p {
-  font-family: "Inter";
-  color: rgb(235, 235, 235);
-}
-.ynfootbox > p > a {
+
+.ynfootend > a {
   font-family: "Poppins";
   color: white;
 }
@@ -59,6 +59,10 @@ export default {};
   }
   .ynewfoot {
     padding-top: 2rem;
+  }
+  .ynfootend {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>

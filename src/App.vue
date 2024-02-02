@@ -56,7 +56,10 @@
             </router-link>
             <router-link
               :class="
-                $route.path == '/' || $route.path == '/launch'
+                $route.path == '/' ||
+                $route.path == '/launch' ||
+                $route.path == '/terms' ||
+                $route.path == '/eigenlayer'
                   ? 'yleadanone'
                   : ''
               "
@@ -66,7 +69,10 @@
             >
             <router-link
               :class="
-                $route.path == '/' || $route.path == '/launch'
+                $route.path == '/' ||
+                $route.path == '/launch' ||
+                $route.path == '/terms' ||
+                $route.path == '/eigenlayer'
                   ? 'yleadanone'
                   : ''
               "
@@ -76,7 +82,10 @@
             >
             <router-link
               :class="
-                $route.path == '/' || $route.path == '/launch'
+                $route.path == '/' ||
+                $route.path == '/launch' ||
+                $route.path == '/terms' ||
+                $route.path == '/eigenlayer'
                   ? 'yleadanone'
                   : ''
               "
@@ -140,7 +149,15 @@
                 <div @click="changelang('ch')">中文</div>
               </div>
             </div> -->
-            <div :class="$route.path == '/' ? 'yheadslau' : 'yheadslaunone'">
+            <div
+              :class="
+                $route.path == '/' ||
+                $route.path == '/terms' ||
+                $route.path == '/eigenlayer'
+                  ? 'yheadslau'
+                  : 'yheadslaunone'
+              "
+            >
               <router-link
                 :to="xhladdress == '' ? '/launch' : '/Airdrop'"
                 target="_blank"
@@ -150,7 +167,10 @@
             </div>
             <div
               :class="
-                Twittername == '' || $route.path == '/'
+                Twittername == '' ||
+                $route.path == '/' ||
+                $route.path == '/terms' ||
+                $route.path == '/eigenlayer'
                   ? 'twxnamenone'
                   : 'twxname'
               "
