@@ -9,8 +9,8 @@
         <p class="yhomey_four">
           {{ $store.state.txt.yhomecont }}
         </p>
-        <h1 class="yhomey_three">{{ $store.state.txt.yhometitlet }}</h1>
-        <p class="yhomey_four">{{ $store.state.txt.yhomecontt }}</p>
+        <!-- <h1 class="yhomey_three">{{ $store.state.txt.yhometitlet }}</h1>
+        <p class="yhomey_four">{{ $store.state.txt.yhomecontt }}</p> -->
         <div class="yhomey_inpbox flex">
           <div class="yhomeyinpy">
             <input
@@ -69,6 +69,10 @@
             {{ anntxt }}
           </button>
         </div>
+        <p class="yhomey_four">Already registered?</p>
+        <div class="yhomey_five">
+          <span @click="logwith()">Log in with your wallet.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -91,6 +95,10 @@
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import api from "../common/api";
+import bus from "../utils/bus";
+import { ethers } from "ethers";
+import { init, useOnboard } from "@web3-onboard/vue";
+import injectedModule from "@web3-onboard/injected-wallets";
 import { useRouter, useRoute } from "vue-router";
 let isrouter = ref("0");
 const route = useRoute();
@@ -102,13 +110,20 @@ let yzminpthr = ref("");
 let yzminpf = ref("");
 let yzminpw = ref("");
 let logari = ref("0");
+let signxx = ref("");
 let userlog = ref({});
+let isair = ref("0");
+let xhladdress = ref("");
+let xethbalance = ref("");
 let input5 = ref(null);
 let input4 = ref(null);
 let input3 = ref(null);
 let input2 = ref(null);
 let input1 = ref(null);
 let anntxt = ref("ENTER INVITE CODE");
+const injected = injectedModule();
+const infuraKey = "34071ed776e84b2f85e9b2c3d33929b5";
+const rpcUrl = `https://mainnet.infura.io/v3/${infuraKey}`;
 onMounted(() => {
   console.log(input5.value);
   console.log(input4.value);
@@ -138,6 +153,41 @@ onMounted(() => {
     }
   }
 });
+const web3Onboard = init({
+  wallets: [injected],
+  chains: [
+    {
+      id: "0x1",
+      token: "ETH",
+      label: "Ethereum Mainnet",
+      rpcUrl,
+    },
+    {
+      id: 42161,
+      token: "ARB-ETH",
+      label: "Arbitrum One",
+      rpcUrl: "https://rpc.ankr.com/arbitrum",
+    },
+    {
+      id: "0xa4ba",
+      token: "ARB",
+      label: "Arbitrum Nova",
+      rpcUrl: "https://nova.arbitrum.io/rpc",
+    },
+    {
+      id: "0x2105",
+      token: "ETH",
+      label: "Base",
+      rpcUrl: "https://mainnet.base.org",
+    },
+  ],
+  appMetadata: {
+    name: "Blex",
+    description: "Your App Description",
+    icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA4CAYAAACsc+sjAAAAAXNSR0IArs4c6QAABBFJREFUaEPtmM9rXFUUx8+dlzCZmRiwYu1GsYvBX23T2iQFcaGWirgSBPcGsUnbFH9QM800qWIhmdEM8R/o1pUWd0oXYrW1mczkR2MLbtx1pVBKrea9e37IfUMlEZpk+s4zk+Q9GAZm7jvvfM73nO+9PAPb5DLbhBMS0K2mdKJoougmrUDSuptUuPumnSiaKLpJK6DWuh99eO5PD3ZkYY3DVqrNACMCyV0oV4ZT/1fd1ECLhfIiY/Y5kHWHNACO08iOR823pwpHX48Tet1ZrZVEsVBeYMzubQJ0RUgRhonKUGwKK4KW5hlz+x4UtEFtYHzyWCyweqDDpTmmXHc0UAAkgs+mTqrDaoLOMuX2RwV1unZ2Qb149njvWuPSzP+aoHWm3AEN0DhaWA30TKFcI8w+rwHKQlCq6LavGmjxdGmGbe6gBigYhlf6nn74yFtHbjfTnqutVQM9UyhXCbM9WqD5J3KP9Z/s/73lQEcKE1XBTjXQ8c9191Q1RYunS9Nsc70ainqeB+fKA6pbTEuC+ngbKl+MbHFQScN45R1VyMaZS+kqDpemmaK37s5d7eX3T71bUErr3zAtBJqCdNa/8PGn772pDamt6AxTuI8uL56snrTrUAZjPHj76OFMPp/3D71wmLse6rp18bsLj2gCqyk6Upj4VbAz34zrtrV7sPvJXXv6B9644aD6XnyVPWgHZATBAGrV79VmVQ00SvVfevk1ZkmDiACzAIoFQgRhC/XqDyqwaqAijVcLxphV29WtO3/+y+rXX31zUNgDY9Lwl70DhBZYBGQZqCUL7R5B7epPkWHVQE8MjF1nzD4ToDUiBEQExEvAzOHHWgsCCMwIAQXuN3FrBBisgySCwM2r5VBRCe9zMXxYqF1pHdChwdGq9TM9JAgsDiwAAAQil7CAtf5/QcNirAbqXq+4AhnDvFC/3BZlPDQVrWPQcSAOUBELi3NXI6mqBzo4Nod+R7cDJXZKErgENRSlFMP12uWtD4qG4EY92pxqK7qfBEVbUfYEfpmJ5rzqoAwk5NySXPv6oRGFeyMGwGJD10V07stg2Tnx/V33nhll0ubm9M+XHm8RMxqdxyDTrQuKxlor12ajzafqWXdocGzB+h37FEGNCIII/z1bvZSNoqYq6InBsUX0O/awsULkWtWucN0mW9e4AwNaX+brP0Zy23sF0pvRY6PXcCmzNyKoMZYAhSAFLNNXLqpAKis6+hv6md1sGnunM5zl++h6FU2hSF/Psx9MTZWnorbr8vv1FB345K4N0lkyjcPCSlACDB3YHQctIDVcl8i1t7hvCewSHOp9aufk5OQfmoDqrRtHcpox1RTVTCqOWAloHFXdyJiJohtZ/TienSgaR1U3Mmai6EZWP45nbxtF/wFadSV1KYAmpgAAAABJRU5ErkJggg==",
+  },
+});
+const { connectWallet } = useOnboard();
 let routz = () => {
   let values =
     yzminpy.value +
@@ -170,6 +220,10 @@ let routz = () => {
   //   isnoneroutc("1");
   // }
   if (length == 5) {
+    router.push("/Airdrop");
+    logari.value = "1";
+    localStorage.setItem("istrue", "1");
+  } else if (isair.value == "1") {
     router.push("/Airdrop");
     logari.value = "1";
     localStorage.setItem("istrue", "1");
@@ -296,6 +350,33 @@ let xiqian = (index, val) => {
     anntxt.value = "ENTER INVITE CODE";
   }
 };
+let sgin = async () => {
+  const accounts = await ethereum.request({ method: "eth_accounts" });
+  const from = accounts[0];
+  const msg = `wallet connect`;
+  const signatures = await ethereum.request({
+    method: "personal_sign",
+    params: [msg, from],
+  });
+  signxx.value = signatures;
+  if (signxx.value != "") {
+    isair.value = "1";
+    console.log("大苏打", isair.value);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    xhladdress.value = await signer.getAddress();
+    localStorage.setItem("xhladd", xhladdress.value);
+    const rawBalance = await provider.getBalance(xhladdress.value);
+    xethbalance.value = ethers.utils.formatEther(rawBalance);
+    localStorage.setItem("xhlbalance", xethbalance.value);
+    bus.$emit("qbbalance", xethbalance.value);
+  }
+};
+let logwith = () => {
+  connectWallet().then(() => {
+    sgin();
+  });
+};
 </script>
 
 <style scoped>
@@ -314,6 +395,22 @@ let xiqian = (index, val) => {
   background: rgba(0, 0, 0, 0.9);
   justify-content: center;
   align-items: center;
+}
+.yhomey_five {
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  width: 75%;
+  margin: 1.5rem auto;
+  text-align: center;
+  color: white;
+}
+.yhomey_five > span {
+  cursor: pointer;
+}
+.ymainhy .yhomey_five {
+  color: #000;
 }
 .yerrbox {
   width: 30rem;
@@ -390,7 +487,7 @@ let xiqian = (index, val) => {
 }
 .yhome {
   width: 100%;
-  height: calc(100vh - 10.3125rem);
+  height: calc(100vh - 7.25rem);
   padding: 8.3rem 0 0;
   box-sizing: border-box;
   background: rgb(30, 37, 43);

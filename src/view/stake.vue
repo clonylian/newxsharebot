@@ -1,5 +1,10 @@
 <template>
-  <div class="yscon flex">
+  <div :class="yeslog == '0' ? 'yscon' : 'ysconf'">
+    <h1>STAKING</h1>
+    <p>
+      Our system is currently processing for the next epoch, please continue to
+      check back.
+    </p>
     <div class="yscbox flex jus">
       <div :class="yeslog == '0' ? 'yscbl flex' : 'yscblnone'">
         <div class="yscblcon flex flexcol">
@@ -16,8 +21,8 @@
               >Staking Terms apply.</a
             >
           </div>
-          <div class="yscblk flex">
-            <div class="yscblkf flex flexcol">
+          <div class="yscblk yscblkh flex jus">
+            <div class="yscblkf yscblkfb flex flexcol">
               <p>If You Staked</p>
               <div class="yscblkje flex">
                 <img src="../assets/logos.png" alt="" />
@@ -25,7 +30,7 @@
               </div>
               <div class="yscblkd">$1,000</div>
             </div>
-            <div class="yscblkf flex flexcol">
+            <div class="yscblkf yscblkfb flex flexcol">
               <p>Est. 24h Rewards</p>
               <div class="yscblkje flex">
                 <img
@@ -168,7 +173,18 @@
                 </div>
                 <span style="margin: 0.5rem 0 0">Available: 0 SUPER</span>
               </div>
-              <div class="yscbrbcnrt flex flexcol">
+              <div class="yscbrbcnry">
+                <p>Stake SUPER</p>
+                <span
+                  >Stake your SUPER tokens to start earning ETH rewards.</span
+                >
+                <div class="yscbrbinp">
+                  <input @input="sinput()" type="text" v-model="inpval" />
+                  <span @click="stabalance()">MAX</span>
+                </div>
+                <span style="margin: 0.5rem 0 0">Available: 0 SUPER</span>
+              </div>
+              <!-- <div class="yscbrbcnrt flex flexcol">
                 <div class="yscbrbcnrttop">
                   <p>Stake NFTs</p>
                   <span
@@ -180,7 +196,7 @@
                   <button>Select NFTs</button>
                   <div>Eligible: 0</div>
                 </div>
-              </div>
+              </div> -->
               <button
                 :class="
                   yeslog == '0' ? 'yscbrbcnrs yscbrbcnrsno' : 'yscbrbcnrs'
@@ -204,7 +220,19 @@
                 </div>
                 <span style="margin: 0.5rem 0 0">Staked: 0 SUPER</span>
               </div>
-              <div class="yscbrbcnrt flex flexcol">
+              <div class="yscbrbcnry">
+                <p>Unstake SUPER</p>
+                <span
+                  >Unstaking SUPER will automatically claim your ETH rewards on
+                  the same transaction.</span
+                >
+                <div class="yscbrbinp">
+                  <input @input="unsinput()" type="text" v-model="inpvalt" />
+                  <span @click="statbalance()">MAX</span>
+                </div>
+                <span style="margin: 0.5rem 0 0">Staked: 0 SUPER</span>
+              </div>
+              <!-- <div class="yscbrbcnrt flex flexcol">
                 <div class="yscbrbcnrttop">
                   <p>Unstake NFTs</p>
                   <span
@@ -216,7 +244,7 @@
                   <button>Select NFTs</button>
                   <div>Staked: 0</div>
                 </div>
-              </div>
+              </div> -->
               <button
                 :class="
                   yeslog == '0' ? 'yscbrbcnrs yscbrbcnrsno' : 'yscbrbcnrs'
@@ -295,15 +323,68 @@ let isstop = () => {
 <style scoped>
 .yscon {
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 7.25rem);
   background: rgb(30, 37, 43);
-  padding-top: 10.5rem;
+  padding-top: 8.5rem;
+}
+.yscblkh {
+  height: 10rem;
+}
+.yscblk > .yscblkfb {
+  flex-grow: 0;
+}
+.yscblkfb {
+  width: 45%;
+  height: 100%;
+}
+.ysconf {
+  width: 100%;
+  background: rgb(30, 37, 43);
+  padding-top: 8.5rem;
+  height: auto;
   box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
 }
 .ymainhy .yscon {
   background: white;
+}
+.ymainhy .ysconf {
+  background: white;
+}
+.yscon > h1 {
+  display: block;
+  font-size: 72px;
+  line-height: 80px;
+  font-family: "Poppins";
+  text-align: center;
+  color: white;
+}
+.yscon > p {
+  display: block;
+  color: #6e757c;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  margin: 1.5rem 0 3rem 0;
+}
+.ysconf > h1 {
+  display: block;
+  font-size: 72px;
+  line-height: 80px;
+  font-family: "Poppins";
+  text-align: center;
+  color: white;
+}
+.ysconf > p {
+  display: block;
+  color: #6e757c;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  margin: 1.5rem 0 3rem 0;
 }
 .yscbox {
   width: 98rem;
@@ -970,6 +1051,24 @@ let isstop = () => {
     height: auto;
     padding-top: 6rem;
   }
+  .yscon > h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .ysconf > h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .yscon > p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .ysconf > p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
   .yscbox {
     display: block;
     width: 100%;
@@ -988,12 +1087,16 @@ let isstop = () => {
   }
   .yscblk {
     display: block;
+    height: auto;
   }
   .yscblk > div:nth-child(1) {
     margin-bottom: 0.75rem;
   }
   .yscblk > div:nth-child(2) {
     margin-bottom: 0.75rem;
+  }
+  .yscblkfb {
+    width: 100%;
   }
   .yscblkd {
     margin-top: -0.5rem;

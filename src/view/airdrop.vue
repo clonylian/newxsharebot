@@ -6,6 +6,26 @@
         {{ $store.state.txt.yaridroptxt }}
       </p>
     </div>
+    <div class="ydjtime flex flexcol">
+      <span>Expires in</span>
+      <div class="ydjtimebox flex flexcol">
+        <div class="ydjtimeby flex">
+          <div>days</div>
+          <div>hours</div>
+          <div>minutes</div>
+          <div>seconds</div>
+        </div>
+        <div class="ydjtimebt flex">
+          <div>{{ days }}</div>
+          <span>:</span>
+          <div>{{ hours }}</div>
+          <span>:</span>
+          <div>{{ mins }}</div>
+          <span>:</span>
+          <div>{{ secs }}</div>
+        </div>
+      </div>
+    </div>
     <div class="yairbox">
       <div class="yairbcon">
         <h2>{{ $store.state.txt.yaridropsamletitle }}</h2>
@@ -44,6 +64,12 @@
                   ></path>
                 </svg>
               </div>
+              <span
+                :class="
+                  isgy == '1' ? 'yairlsypoint yairlsypointtm' : 'yairlsypoint'
+                "
+                >20 Points</span
+              >
               <div
                 style="cursor: not-allowed"
                 :class="
@@ -117,6 +143,12 @@
                   ></path>
                 </svg>
               </div>
+              <span
+                :class="
+                  isgt == '1' ? 'yairlsypoint yairlsypointtm' : 'yairlsypoint'
+                "
+                >20 Points</span
+              >
               <div
                 style="cursor: not-allowed"
                 :class="
@@ -190,6 +222,12 @@
                   ></path>
                 </svg>
               </div>
+              <span
+                :class="
+                  isgthr == '1' ? 'yairlsypoint yairlsypointtm' : 'yairlsypoint'
+                "
+                >20 Points</span
+              >
               <div
                 style="cursor: not-allowed"
                 :class="
@@ -225,6 +263,7 @@
                   ></path>
                 </svg>
               </div>
+
               <div class="yairsyri"></div>
             </div>
             <p>{{ $store.state.txt.yaridroplistthr }}</p>
@@ -233,7 +272,7 @@
             <div class="yairlsytt yairlsyty flex">
               <div class="yairsyle"></div>
               <div
-                @click="jydaib('1')"
+                @click="tcbgshow('1')"
                 :class="isgf == '0' ? 'yairlsytysvg' : 'yairlsytysvgnone'"
               >
                 <svg
@@ -263,6 +302,12 @@
                   ></path>
                 </svg>
               </div>
+              <span
+                :class="
+                  isgf == '1' ? 'yairlsypoint yairlsypointtm' : 'yairlsypoint'
+                "
+                >20 Points</span
+              >
               <div
                 :class="
                   isgf == '1'
@@ -297,16 +342,20 @@
                   ></path>
                 </svg>
               </div>
+
               <div class="yairsyri"></div>
             </div>
             <p>{{ $store.state.txt.yaridroplistf }}</p>
           </div>
           <div class="yairlsy">
-            <div class="yairlsyts yairlsytt yairlsyty flex">
+            <div class="yairlsyts yairlsytt yairlsyty yairlsyw flex">
               <div class="yairsyle"></div>
               <div
-                @click="tcbgshow('1')"
-                :class="isgw == '0' ? 'yairlsytysvg' : 'yairlsytysvgnone'"
+                :class="
+                  isgw == '0'
+                    ? 'yairlsytysvg yairlsytysvgw yairlsywsvg'
+                    : 'yairlsytysvgnone'
+                "
               >
                 <svg
                   viewBox="0 0 114 104"
@@ -334,6 +383,19 @@
                     stroke-linejoin="round"
                   ></path>
                 </svg>
+              </div>
+              <span
+                :class="
+                  isgw == '1' ? 'yairlsypoint yairlsypointtm' : 'yairlsypoint'
+                "
+                >20 Points</span
+              >
+              <div class="yairlsywtxt">
+                <p>
+                  First come, first served. Whoever completes the task first can
+                  claim the reward first.
+                </p>
+                <div class="yairlsywjt"></div>
               </div>
               <div
                 style="cursor: not-allowed"
@@ -370,6 +432,7 @@
                   ></path>
                 </svg>
               </div>
+
               <div class="yairsyri"></div>
             </div>
             <p>{{ $store.state.txt.yaridroplistw }}</p>
@@ -1580,6 +1643,12 @@ let signature = ref("");
 let message = ref("");
 let twitteruid = ref("");
 let tasklist = ref([]);
+let days = ref("");
+let hours = ref("");
+let mins = ref("");
+let secs = ref("");
+let oldtime = new Date("2024-2-5");
+
 // let airtc = ref(0);
 // let airtcshow = (str) => {
 //   airtc.value = str;
@@ -1597,6 +1666,9 @@ onMounted(() => {
   }
   if (localStorage.getItem("xhladd")) {
     xhladdress.value = localStorage.getItem("xhladd");
+    butshow.value = "1";
+    xlogin.value = "1";
+    xhlloginzt.value = "CONNECTED";
     firstlogin();
   }
   if (localStorage.getItem("Twname")) {
@@ -1606,10 +1678,12 @@ onMounted(() => {
     xloginzt.value = "CONNECTED";
   }
   bus.$on("qbbalance", (val) => {
-    if (val != "" && val != "0.00") {
+    if (val != "") {
+      xethbalance.value = val;
+      dqyue.value = val;
       butshow.value = "1";
-    } else if (val == "0.00") {
-      butshow.value = "0";
+      xlogin.value = "1";
+      xhlloginzt.value = "CONNECTED";
     }
   });
   bus.$on("logout", (val) => {
@@ -1621,6 +1695,9 @@ onMounted(() => {
       xhlloginzt.value = "CONNECT  ";
     }
   });
+  setInterval(() => {
+    djstimetxt();
+  }, 1000);
   // console.log(window);
   // console.log(handle.value);
   // console.log(handley.value);
@@ -1630,6 +1707,22 @@ onMounted(() => {
   // console.log(handlew.value);
   // console.log(handlesix.value);
 });
+let djstimetxt = () => {
+  let newtime = new Date();
+  const diff = oldtime - newtime; // 计算剩余时间的毫秒数
+
+  if (diff <= 0) {
+    secs.value = "00";
+    mins.value = "00";
+    hours.value = "00";
+    days.value = "00";
+  }
+
+  secs.value = Math.floor(diff / 1000) % 60;
+  mins.value = Math.floor(diff / 1000 / 60) % 60;
+  hours.value = Math.floor(diff / 1000 / 60 / 60) % 24;
+  days.value = Math.floor(diff / 1000 / 60 / 60 / 24);
+};
 let tasklis = () => {
   api
     .task({
@@ -1648,7 +1741,6 @@ let tasklis = () => {
         } else if (res.taskName == "follow" && res.completed == true) {
           isgthr.value = "1";
         } else if (res.taskName == "swap" && res.completed == true) {
-          isgf.value = "1";
         }
       });
     });
@@ -1837,7 +1929,7 @@ let qxdl = async () => {
   xxhladdress.value = "";
   localStorage.removeItem("xhlbalance");
   localStorage.removeItem("xhladd");
-  bus.$emit("qbbalance", "0.00");
+  bus.$emit("qbbalance", "");
 };
 const startDragsix = (event) => {
   if (event.type === "mousedown" && event.button !== 0) return;
@@ -2248,19 +2340,20 @@ let tcbgshow = (str, success) => {
     // ];
   }
   if (success == "1" && iscopy.value != "-1") {
-    api
-      .submit({
-        userId: userlog.value.userId,
-        token: userlog.value.token,
-        appId: "xbot",
-        taskName: "swap",
-        taskValue: "",
-      })
-      .then((res) => {
-        if (res.data.status == "success") {
-          isgw.value = "1";
-        }
-      });
+    // api
+    //   .submit({
+    //     userId: userlog.value.userId,
+    //     token: userlog.value.token,
+    //     appId: "xbot",
+    //     taskName: "swap",
+    //     taskValue: "",
+    //   })
+    //   .then((res) => {
+    //     if (res.data.status == "success") {
+    //       isgw.value = "1";
+    //     }
+    //   });
+    isgf.value = "1";
   }
 };
 
@@ -2352,8 +2445,121 @@ let fwc = () => {
 </script>
 
 <style scoped>
+.yairlsytysvgw {
+  cursor: not-allowed !important;
+}
+.ydjtime {
+  width: 68.5%;
+  gap: 0.75rem;
+  margin: 0 auto 3rem;
+}
+.ydjtime > span {
+  color: #6e757c;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+.ydjtimebox {
+  gap: 0.5rem;
+}
+.ydjtimeby {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2.25rem;
+  color: white;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.ydjtimebt {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2.75rem;
+  color: white;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.yairlsypoint {
+  font-family: "Inter";
+  font-size: 0.6rem;
+  line-height: 0.5rem;
+  padding: 0.25rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  border: 0.5px solid white;
+  transform: translateX(-50%);
+  border-radius: 0.25rem;
+  transition: all 0.4s;
+}
+.yairlsypointtm {
+  opacity: 0.4;
+}
+.yairlsytysvg:hover + .yairlsypoint {
+  opacity: 0.4;
+}
 .yairlsytysvgnone {
   display: none;
+}
+.yairlsyw {
+  position: relative;
+}
+.yairlsywsvg:hover + span + .yairlsywtxt {
+  display: block;
+}
+.yairlsywtxt {
+  position: absolute;
+  width: 200%;
+  display: none;
+  left: -65%;
+  top: -6rem;
+}
+.yairlsywtxt > p::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
+}
+.yairlsywtxt > p {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  padding: 1rem;
+  background: #2c353d;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Inter";
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+.yairlsywjt {
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -9px;
+  left: 56%;
+  /* transform: translateX(-50%); */
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgb(82 76 103);
 }
 .yimg {
   padding-top: 5rem;
@@ -2468,6 +2674,7 @@ let fwc = () => {
   width: 100%;
   margin-bottom: 1.5rem;
   align-items: center;
+  position: relative;
 }
 
 .yairlsyty .yairsyle {
@@ -2590,7 +2797,7 @@ let fwc = () => {
   font-weight: 500;
   line-height: 24px;
   text-align: center;
-  margin: 1.5rem 0 3rem 0;
+  margin: 1.5rem 0;
 }
 
 .yairtcbox p {
@@ -4480,6 +4687,24 @@ let fwc = () => {
   .yairtcbglog {
     display: flex;
     justify-content: center;
+  }
+  .ydjtime {
+    width: 95%;
+  }
+  .ydjtimeby {
+    column-gap: 1.25rem;
+  }
+  .ydjtimebt {
+    column-gap: 2rem;
+  }
+  .yairlsywtxt {
+    width: 100%;
+    left: 0;
+    top: -8.5rem;
+  }
+  .yairlsywjt {
+    left: 50%;
+    transform: translateX(-50%);
   }
   .yariboter {
     margin-top: 2rem;
