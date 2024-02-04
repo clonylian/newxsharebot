@@ -542,7 +542,7 @@ let inpsshu = () => {
   color: rgb(235, 235, 235);
   text-align: left;
   margin: 2rem 0 0;
-  font-family: "GT Pressura Mono";
+  font-family: "Inter";
 }
 .yarijhbms > span {
   display: block;
@@ -550,7 +550,7 @@ let inpsshu = () => {
   color: rgb(169, 169, 169);
   text-align: left;
   margin: 8rem 0 0;
-  font-family: "GT Pressura Mono";
+  font-family: "Inter";
 }
 .yarijhbbox {
   width: 30%;
@@ -571,7 +571,7 @@ let inpsshu = () => {
 }
 
 .yarijhboxtwo {
-  font-family: "GT Pressura Bold";
+  font-family: "Interl";
   padding: 0 0.5rem;
   font-size: 0.75rem;
   line-height: 160%;
@@ -653,7 +653,7 @@ let inpsshu = () => {
   color: white;
 }
 .ynewstableft > p {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 1.375rem;
   margin: 1rem auto;
   color: #b3bbca;
@@ -687,7 +687,7 @@ let inpsshu = () => {
   color: black;
 }
 .ynewstakethr {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 1rem;
   color: #b3bbca;
 }
@@ -746,7 +746,7 @@ let inpsshu = () => {
 }
 .ynewstabrbox > p {
   width: 100%;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   padding: 0 3.5rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -790,7 +790,7 @@ let inpsshu = () => {
   align-items: center;
 }
 .ynewstayr {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 0.75rem;
   line-height: 1rem;
   color: white;
@@ -814,14 +814,14 @@ let inpsshu = () => {
   box-sizing: border-box;
 }
 .ynewstayboxcyl {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 0.75rem;
   line-height: 1rem;
   margin-bottom: 2px;
   color: #b3bbca;
 }
 .ynewstayboxcyr {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   justify-content: flex-end;
   font-size: 0.75rem;
   line-height: 1rem;
@@ -930,13 +930,13 @@ let inpsshu = () => {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: #999999;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
 }
 .ynewstayboxfoury > span:nth-child(2) {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: white;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
 }
 .ynewstayboxctl:hover .ynewstayboxctlshow {
   display: block;
@@ -1007,13 +1007,13 @@ let inpsshu = () => {
   line-height: 1.25rem;
 }
 .ynewstayboxctlshowty > span {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 0.75rem;
   line-height: 1rem;
   color: #a1a1aa;
 }
 .ynewstayboxctlshowtt {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 0.75rem;
   line-height: 1rem;
   color: #a1a1aa;
@@ -1022,7 +1022,7 @@ let inpsshu = () => {
   padding: 2.5rem 0 0;
   display: block;
   text-align: center;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 0.75rem;
   line-height: 1rem;
   color: #a1a1aa;

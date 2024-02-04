@@ -174,7 +174,7 @@ const render = async () => {
 .cen_two > p {
   margin-top: 1rem;
   margin-bottom: 2rem;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
@@ -197,7 +197,7 @@ const render = async () => {
   /* background-color: rgb(185, 107, 252); */
   margin-right: 1rem;
   align-items: center;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
 }
 
 .cen_tour:hover {
@@ -224,7 +224,7 @@ const render = async () => {
   border: 1px white solid;
   margin-right: 1rem;
   align-items: center;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
 }
 
 .cen_left {
@@ -272,7 +272,7 @@ const render = async () => {
   font-size: 18px;
   line-height: 40px;
   font-weight: 500;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
 }
 
 .claim_three > a {
@@ -288,7 +288,7 @@ const render = async () => {
   color: black;
   font-size: 14px;
   margin: 2rem 0 0.5rem 0;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
 }
 
 .claim_five {
@@ -350,7 +350,7 @@ const render = async () => {
   line-height: 28px;
   font-size: 18px;
   margin-bottom: 3rem;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   color: #b3bbca;
 }
 
@@ -361,7 +361,7 @@ const render = async () => {
   border: 1px white solid;
   text-align: center;
   border-radius: 10px;
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   border: 1px rgb(239, 241, 239) solid;
 }
 

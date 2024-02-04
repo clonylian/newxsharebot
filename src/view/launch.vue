@@ -508,7 +508,7 @@ let logwith = () => {
   z-index: 10;
 }
 .yerrbox > p {
-  font-family: "Inter";
+  font-family: "Interl";
   font-weight: 500;
   color: #b3bbca;
   font-size: 1rem;
@@ -688,7 +688,7 @@ let logwith = () => {
 .yhomey_two {
   width: 100%;
   text-align: center;
-  font-family: "Inter";
+  font-family: "Interl";
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   font-size: 20px;
@@ -724,7 +724,7 @@ let logwith = () => {
 }
 
 .yhomey_four {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
@@ -741,7 +741,7 @@ let logwith = () => {
   margin: 1rem auto;
   width: 10rem;
   color: white;
-  font-family: "Inter";
+  font-family: "Interl";
   border-radius: 10px;
   padding: 1rem 2.5rem;
   border: 1px white solid;
@@ -759,7 +759,7 @@ let logwith = () => {
   color: #b3bbca;
   font-size: 22px;
   text-align: center;
-  font-family: "Inter";
+  font-family: "Interl";
 }
 
 .app_one {

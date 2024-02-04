@@ -381,7 +381,7 @@ let isstop = () => {
 .yscon > p {
   display: block;
   color: #6e757c;
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -399,7 +399,7 @@ let isstop = () => {
 .ysconf > p {
   display: block;
   color: #6e757c;
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -462,7 +462,7 @@ let isstop = () => {
   color: #000;
 }
 .yscbltxt {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 1rem;
   line-height: 1.5rem;
   color: #b3bbca;
@@ -532,7 +532,7 @@ let isstop = () => {
   opacity: 0.6;
 }
 .yscblkf > p {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 1rem;
   line-height: 1.5rem;
   color: white;
@@ -576,7 +576,7 @@ let isstop = () => {
   z-index: 10;
 }
 .yscbltcon {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 0.625rem;
   line-height: 1rem;
   color: #b3bbca;
@@ -654,7 +654,7 @@ let isstop = () => {
 }
 .yscbrbttab {
   width: 50%;
-  font-family: "Inter";
+  font-family: "Interl";
   color: rgb(141, 141, 141);
   outline: 2px solid transparent;
   display: flex;
@@ -730,7 +730,7 @@ let isstop = () => {
   box-sizing: border-box;
 }
 .yscbrbinp > span {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: white;
@@ -783,7 +783,7 @@ let isstop = () => {
   color: #272e35;
 }
 .yscbrbcnrtbot > div {
-  font-family: "Inter";
+  font-family: "Interl";
   color: hsla(0, 0%, 100%, 0.5);
   font-size: 0.75rem;
   line-height: 1rem;
@@ -857,7 +857,7 @@ let isstop = () => {
   opacity: 0.6;
 }
 .yscbltinpxy > span {
-  font-family: "Inter";
+  font-family: "Interl";
   line-height: 1.25rem;
   font-size: 1rem;
   font-weight: 500;
@@ -932,7 +932,7 @@ let isstop = () => {
   align-items: center;
 }
 .yscbltinpxsr > span {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 0.75rem;
   line-height: 1rem;
   color: hsla(0, 0%, 100%, 0.5);

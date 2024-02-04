@@ -5,7 +5,7 @@ const store = createStore({
     txt: {
       tabzero: "HOME",
       tabone: "Stake",
-      tabtwo: "LEADERBOARD",
+      tabtwo: "REWARDS",
       tabAirdrop: "AIRDROP",
       tabStake: "STAKE",
       tabthree: "Ido",
@@ -208,7 +208,7 @@ const store = createStore({
       yaridropswaprf: "Balance",
       yaridropswaprwy: "You will receive",
       yaridropswaprwt: "ETH + Yield + Spins for Points",
-      yaridropcopyy: "Invitation code",
+      yaridropcopyy: "Invite friends to unlock exclusive rewards!",
       yaridropcopyt: "COPY",
       yaridropcopythr: "COPYED",
       yaridropcopyf:
@@ -218,7 +218,7 @@ const store = createStore({
     ch: {
       tabzero: "首页",
       tabone: "赌注",
-      tabtwo: "排行榜",
+      tabtwo: "奖励",
       tabAirdrop: "空投",
       tabStake: "赌注",
       tabthree: "我愿意",
@@ -410,7 +410,7 @@ const store = createStore({
       yaridropswaprf: "Balance",
       yaridropswaprwy: "您将收到",
       yaridropswaprwt: "ETH  + 收益 + 旋转积分",
-      yaridropcopyy: "邀请代码",
+      yaridropcopyy: "邀请好友解锁专属奖励！",
       yaridropcopyt: "复制",
       yaridropcopythr: "已复制",
       yaridropcopyf:
@@ -420,7 +420,7 @@ const store = createStore({
     en: {
       tabzero: "HOME",
       tabone: "Stake",
-      tabtwo: "LEADERBOARD",
+      tabtwo: "REWARDS",
       tabAirdrop: "AIRDROP",
       tabStake: "STAKE",
       tabthree: "Ido",
@@ -623,7 +623,7 @@ const store = createStore({
       yaridropswaprf: "Balance",
       yaridropswaprwy: "You will receive",
       yaridropswaprwt: "ETH + Yield + Spins for Points",
-      yaridropcopyy: "Invitation code",
+      yaridropcopyy: "Invite friends to unlock exclusive rewards!",
       yaridropcopyt: "COPY",
       yaridropcopythr: "COPYED",
       yaridropcopyf:

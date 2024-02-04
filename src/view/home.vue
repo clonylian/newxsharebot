@@ -1797,7 +1797,7 @@ export default {
 }
 
 .car_txt > span {
-  font-family: "Inter";
+  font-family: "Interl";
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
@@ -1857,7 +1857,7 @@ export default {
   width: 65%;
   margin: 1.5rem auto;
   color: #6e757c;
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -1878,7 +1878,7 @@ export default {
 .yhomey_two {
   width: 100%;
   text-align: center;
-  font-family: "Inter";
+  font-family: "Interl";
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   font-size: 20px;
@@ -1914,7 +1914,7 @@ export default {
 }
 
 .yhomey_four {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
@@ -1931,7 +1931,7 @@ export default {
   margin: 1rem auto;
   width: 10rem;
   color: white;
-  font-family: "Inter";
+  font-family: "Interl";
   border-radius: 10px;
   padding: 1rem 2.5rem;
   border: 1px white solid;
@@ -1949,7 +1949,7 @@ export default {
   color: #b3bbca;
   font-size: 22px;
   text-align: center;
-  font-family: "Inter";
+  font-family: "Interl";
 }
 
 .app_one {
@@ -2061,7 +2061,7 @@ export default {
   margin-right: -2px;
   font-size: 18px;
   line-height: 26px;
-  font-family: "Inter";
+  font-family: "Interl";
   font-weight: 400;
   text-transform: uppercase;
   width: 450px;
@@ -2131,7 +2131,7 @@ export default {
   margin-left: -2px;
   font-size: 18px;
   line-height: 26px;
-  font-family: "Inter";
+  font-family: "Interl";
   font-weight: 400;
   text-transform: uppercase;
   width: 450px;
@@ -2656,7 +2656,7 @@ export default {
 
 .ytworight p {
   color: #6e757c;
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -2787,14 +2787,14 @@ export default {
   color: rgba(232, 90, 67, 0.8);
   font-size: 1rem;
   line-height: 24px;
-  font-family: "Inter";
+  font-family: "Interl";
 }
 
 .ybiao_four > b {
   color: rgba(232, 90, 67, 0.8);
   font-size: 1rem;
   line-height: 24px;
-  font-family: "Inter";
+  font-family: "Interl";
 }
 
 .ybiao_four {
@@ -2863,7 +2863,7 @@ export default {
 }
 .yaudbox > p {
   color: #6e757c;
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -2900,7 +2900,7 @@ export default {
   width: 6.25rem;
 }
 .yauddftop > span {
-  font-family: "Inter";
+  font-family: "Interl";
   font-weight: 500;
   font-size: 14px;
   line-height: 100%;
@@ -2936,7 +2936,7 @@ export default {
 }
 .yauddftime {
   display: block;
-  font-family: "Inter";
+  font-family: "Interl";
   color: #9999a7;
   font-weight: 500;
   line-height: 18px;

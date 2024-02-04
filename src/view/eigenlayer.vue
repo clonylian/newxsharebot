@@ -279,7 +279,7 @@
   color: #000;
 }
 .yeigenbox > p {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 1rem;
   line-height: 1.625rem;
   margin-bottom: 1.25rem;
@@ -316,7 +316,7 @@
   color: rgb(70, 67, 67);
 }
 .yeigenbox > ul p {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 1rem;
   line-height: 1.625rem;
   color: rgb(110, 117, 124);

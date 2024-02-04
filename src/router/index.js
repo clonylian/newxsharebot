@@ -21,8 +21,8 @@ const routes = [
     component: () => import("../view/ido.vue"),
   },
   {
-    path: "/Leaderboard",
-    name: "Leaderboard",
+    path: "/Rewards",
+    name: "Rewards",
     component: () => import("../view/Leaderboard.vue"),
   },
   {

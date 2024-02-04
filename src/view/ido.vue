@@ -159,7 +159,7 @@ let isnumber = (value) => {
   padding-bottom: 0.625rem;
 }
 .ydipcniyleft {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   justify-content: center;
   align-items: center;
   background-color: #000;
@@ -174,7 +174,7 @@ let isnumber = (value) => {
   color: #000;
 }
 .ydipcniyright {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 0.7rem;
 }
 .ymainhy .ydipcniyright {
@@ -184,7 +184,7 @@ let isnumber = (value) => {
   align-items: center;
 }
 .yidocbinpt > input {
-  font-family: "GT Pressura Bold";
+  font-family: "Interl";
   width: 90%;
   border: none;
   padding-top: 0.3125rem;
@@ -217,7 +217,7 @@ let isnumber = (value) => {
   align-items: center;
 }
 .yidocbtxtt > span:nth-child(1) {
-  font-family: "GT Pressura Mono";
+  font-family: "Interl";
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.6em;
@@ -237,7 +237,7 @@ let isnumber = (value) => {
   color: #000;
 }
 .yidoconbox > button {
-  font-family: "GT Pressura Bold";
+  font-family: "Interl";
   box-sizing: border-box;
   margin: 0;
   border: none;

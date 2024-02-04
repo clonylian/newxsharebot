@@ -1675,7 +1675,7 @@
   color: #000;
 }
 .ytermbox > p {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 1.25rem;
   line-height: 1.625rem;
   color: #6e757c;
@@ -1711,7 +1711,7 @@
   color: #6e757c;
 }
 .ytermblist h3 {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 1.25rem;
   line-height: 1.5rem;
   color: #6e757c;
@@ -1727,14 +1727,14 @@
   color: #000;
 }
 .ytermblist h4 {
-  font-family: "Inter";
+  font-family: "Interl";
   margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.25rem;
   color: #6e757c;
 }
 .ytermbox > h3 {
-  font-family: "Inter";
+  font-family: "Interl";
   font-size: 1.5rem;
   line-height: 1.875rem;
   color: #6e757c;
