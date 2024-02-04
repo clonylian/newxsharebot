@@ -238,6 +238,12 @@
       </div>
     </div>
   </div>
+  <img style="display: none" src="../assets/c1-df62b591.png" alt="" />
+  <img style="display: none" src="../assets/c2-62e2c101.png" alt="" />
+  <img style="display: none" src="../assets/c3-e9b17bd8.png" alt="" />
+  <img style="display: none" src="../assets/p1-1b6bec58.png" alt="" />
+  <img style="display: none" src="../assets/p2-0c482e2f.png" alt="" />
+  <img style="display: none" src="../assets/p3-b44b24a0.png" alt="" />
 </template>
 
 <script setup>
@@ -462,15 +468,14 @@ onMounted(() => {
         if (res.data.status == "success") {
           let invitas = res.data.data.invitationCode.split(",");
           invitationcode.value[0] = invitas[0];
-          copyurl.value = `${protocol}${hostname}/#/launch?ref=`;
-          console.log("invitationcode", invitationcode.value, invitas);
+          copyurl.value = `${protocol}//${hostname}/#/launch?ref=`;
         } else {
-          copyurl.value = `${protocol}${hostname}/#/launch?ref=`;
+          copyurl.value = `${protocol}//${hostname}/#/launch?ref=`;
           invitationcode.value[0] = "FFBSO";
         }
       });
   } else {
-    copyurl.value = `${protocol}${hostname}/#/launch?ref=`;
+    copyurl.value = `${protocol}//${hostname}/#/launch?ref=`;
     invitationcode.value[0] = "FFBSO";
   }
 });
@@ -480,8 +485,9 @@ onMounted(() => {
 .yward {
   width: 100%;
   height: calc(100vh - 7.25rem);
-  padding: 8.3rem 0 0;
+  padding: 10rem 0 0;
   background: rgb(30, 37, 43);
+  box-sizing: border-box;
 }
 .ymainhy .yward {
   background: white;

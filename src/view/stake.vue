@@ -360,7 +360,7 @@ let isstop = () => {
 .ysconf {
   width: 100%;
   background: rgb(30, 37, 43);
-  padding-top: 8.5rem;
+  padding-top: 10rem;
   height: auto;
   box-sizing: border-box;
 }
