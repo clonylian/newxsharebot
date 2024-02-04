@@ -292,8 +292,8 @@ onMounted(() => {
 <style scoped>
 .yward {
   width: 100%;
-  height: auto;
-  padding-top: 10.5rem;
+  height: calc(100vh - 7.25rem);
+  padding: 8.3rem 0 0;
   background: rgb(30, 37, 43);
 }
 .ymainhy .yward {
@@ -305,7 +305,6 @@ onMounted(() => {
 }
 .ywardbf {
   width: 37.573%;
-  align-content: flex-end;
 }
 .ywardbfcon {
   width: 100%;

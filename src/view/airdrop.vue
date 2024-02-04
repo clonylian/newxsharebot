@@ -2262,13 +2262,14 @@ let tcbgshow = (str, success) => {
         appId: "xbot",
       })
       .then((res) => {
-        console.log("cg");
+        console.log("cg", res);
         if (res.data.status == "success") {
           let invitas = res.data.data.invitationCode.split(",");
           invitationcode.value[0] = invitas[0];
           copyurl.value = `${protocol}${hostname}/#/launch?ref=`;
           console.log("invitationcode", invitationcode.value, invitas);
         } else {
+          copyurl.value = `${protocol}${hostname}/#/launch?ref=`;
           invitationcode.value[0] = "FFBSO";
         }
       });
