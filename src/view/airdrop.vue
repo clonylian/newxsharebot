@@ -2407,48 +2407,8 @@ let fwc = () => {
   position: relative;
   gap: 0.75rem;
   box-sizing: border-box;
-  background: rgb(40, 48, 54);
-  box-shadow: 0 8px 32px #0000001a;
   margin: 0 auto;
   overflow: hidden;
-}
-.ymainhy .ydjtime {
-  background: rgb(247 247 247);
-  border-color: rgb(179 187 202);
-}
-.ydjtime::before {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(
-    135.15deg,
-    #ae80dc 1.17%,
-    #dc83c3 31.88%,
-    #8084dc 65.46%
-  );
-  right: -194px;
-  bottom: -181px;
-  width: 390px;
-  height: 390px;
-  filter: blur(160px);
-  opacity: 0.6;
-}
-.ydjtime::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(
-    135.15deg,
-    #ae80dc 1.17%,
-    #dc83c3 31.88%,
-    #8084dc 65.46%
-  );
-  top: -280px;
-  left: -280px;
-  width: 560px;
-  height: 560px;
-  opacity: 0.6;
-  filter: blur(278.261px);
 }
 .ydjtime > span {
   color: #6e757c;

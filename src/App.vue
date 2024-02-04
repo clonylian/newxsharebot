@@ -1565,7 +1565,11 @@ let ongb = () => {
   .yheadapps {
     display: none;
   }
-
+  .yht {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
   .anidh > img {
     width: 4.5rem;
   }
