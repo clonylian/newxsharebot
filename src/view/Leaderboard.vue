@@ -4,7 +4,8 @@
       <div class="ywardbf flex">
         <div class="ywardbfcon">
           <h2 class="ywardbfctit flex">
-            <img src="../assets/gift.png" alt="" /> <span>My Rewards</span>
+            <img class="giftimg" src="../assets/gift.png" alt="" />
+            <span>My Rewards</span>
           </h2>
           <div class="ywardbfl flex">
             <div class="ywardbfly flex">
@@ -39,7 +40,7 @@
                 />
               </div>
               <div class="moneytxt flex flexcol">
-                <div>{{ Commissions }}</div>
+                <div>{{ stakeCommissions }}</div>
                 <span>Commissions</span>
               </div>
             </div>
@@ -51,7 +52,7 @@
                 />
               </div>
               <div class="moneytxt flex flexcol">
-                <div>{{ points }}</div>
+                <div>{{ invitepoints }}</div>
                 <span>Points</span>
               </div>
             </div>
@@ -60,13 +61,14 @@
       </div>
       <div class="ywardbfcr">
         <h2 class="ywardbfctit flex">
-          <img src="../assets/user.png" alt="" /> <span>My Referrals</span>
+          <img class="userimg" src="../assets/user.png" alt="" />
+          <span>My Referrals</span>
         </h2>
         <div class="ywardbfcrbox">
           <div class="ywardbfcrbc">
             <div class="ywardbfcrbctop flex jus">
               <p>{{ `${copyurl}${invitationcode[0]}` }}</p>
-              <button>COPY LINK</button>
+              <button @click="copyurlcli()">COPY LINK</button>
             </div>
             <p>
               Join the referral program and get rewards for transfers made from
@@ -98,6 +100,7 @@
         <div class="ywardleafl">
           <h2 class="ywardbfctit flex">
             <img
+              class="jbimg"
               src="data:image/png;base64,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"
               alt=""
             />
@@ -118,20 +121,20 @@
                 <div class="leftlsl">
                   <img
                     :class="
-                      item.rank == '1'
+                      index == '0'
                         ? 'leftlslb'
-                        : item.rank == '2'
+                        : index == '1'
                         ? 'leftlslb'
-                        : item.rank == '3'
+                        : index == '2'
                         ? 'leftlslb'
                         : 'leftlslnone'
                     "
                     :src="
-                      item.rank == '1'
+                      index == '0'
                         ? '/img/c1-df62b591.e2294152.png'
-                        : item.rank == '2'
+                        : index == '1'
                         ? '/img/c2-62e2c101.977b500d.png'
-                        : item.rank == '3'
+                        : index == '2'
                         ? '/img/c3-e9b17bd8.dcbb4829.png'
                         : ''
                     "
@@ -139,28 +142,31 @@
                   />
                   <span
                     :class="
-                      item.rank == '1'
+                      index == '0'
                         ? 'leftlslnone'
-                        : item.rank == '2'
+                        : index == '1'
                         ? 'leftlslnone'
-                        : item.rank == '3'
+                        : index == '2'
                         ? 'leftlslnone'
                         : 'leftlsltxt'
                     "
-                    >{{ item.rank }}</span
+                    >{{ index }}</span
                   >
                 </div>
                 <div class="leftlsc">
                   {{
-                    item.address.substring(0, 4) +
+                    String(item.userName).substring(0, 4) +
                     "..." +
-                    item.address.substring(
-                      item.address.length - 4,
-                      item.address.length
+                    String(item.userName).substring(
+                      String(item.userName).length - 4,
+                      String(item.userName).length
                     )
                   }}
                 </div>
-                <div class="leftlsr">{{ item.totals }} ETH</div>
+                <div class="leftlsr">
+                  {{ Number(item.totalCommission).toFixed(2) }}
+                  {{ item.commissionUnit }}
+                </div>
               </div>
             </div>
           </div>
@@ -168,6 +174,7 @@
         <div class="ywardleafl">
           <h2 class="ywardbfctit flex">
             <img
+              class="poingimg"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAG1BMVEUAAAD////////////////////////////////rTT7CAAAACXRSTlMA/0Cf378gYH8uqrsGAAAFI0lEQVR4nO2aOZPUMBCFh2shZNhdIAQSUo4/wF2ELL+AMweqyCHhd2N1q60+XntseYoi8MvssWWpv6dnybu7TZs2bdr0T/TpwWLdm2rv5365zt7n7V3uaG9oMe/jpa4G98/SBr/3NXgrbfB5X4PnWXvX+9rb77MiXult8NFxmeRUiMlTrXLitB0+LscvzRV0SUalMDkNRb3Zjq+V43f2povhVEKFbH0nFFUViK5w3aFhYSp0u+rPbne1nPnWjk/K8V1718ecCjExP9HTP6gTv4fjM9ANTCXcTvebot6P40NlqCrlNbcTJVNUouLGl1KJTHblzG194gYYX0olMvGuqVTc+FIqhNT84F0zCIyPyoCoxK5719SLHOaUSnw4PcJeROOzz0ipRCZl6lrscPIlVAigIRBdg8eXUIlMomvw5EuoxI5H1wwqZZhHhbLOnAGugZMvoRKZUFj4YqPJR17yF9L4bMGAa/DkIyq/3IWACXANnnyQCqgNcM2gmEmYSmSCXDMITD5IpdxtH0xVjX6lgjkCgApggngmkw9QAXdD19RHOwKACjGJSRVcUzEfnuGACXTNIEQgnguLhsw1ePLR61W/MAETcIqF5kU4B9AlrsFv9kCFiFomdI0LexKaF+EcMbHbDyrVD7QxoXrbUw/LOU2lc3Ftpah0L66tGpXuxbVVo0JhuF7t/XOkBptrySLr1XpIE3691Hwsc3G1tA/pXbY/0/sPsqbdkqS/lLBxU5e6aFI83y6UH0wyccVsfH2lc2/UmXRhGmOImdq8OKFx6EhLtwsxmWjEfunwxT8FRT0pJBN30L+XuQ66NOW5/gVcFN41FFWx3Px5QKVuRsW/LdghcSycOGotmVAJWUrBGdZKg9g5LoIiFb+d4U8zaNHOXX8xHidU/BaTBuKXEtwA02/OwVTcFpNhInjinGZu9AIOyzlkamduO5gwFlcInsbJdxYux1gftPr1WwNsahEDG52D9iR+6ZyYWuTMjahYu7N50QRlsXPGTiEqdpnGps4+LA2ysUjYHRUz43NTi2wsUod1RvowzE0tsuYGVMzS2fsMycZipGLCkD1jhwBX0GNVIhUqshxMmlpkzE0lNSXSYThtapGJRaLS8qf+Kk3wy/xAB+UyNnegosPQzatUJhY9FWJSZ9JBU1ed0Fyo5vZUVBgeNrVIm9u/g1UYHjY1ikWCoKi0KKhTYEZ7xtxEpeWzYsKe0Q44ZG5uxlJRYTjL1CIVi5ZKC0Ne5h8ytUjFoqXSwpDdijZaUByL5XIzNRqTuaaO5jZUWhiyqed4hqViUVMZwxAtWafV3vmayvg1kk2d/6FnytyayshkgalFYyxqKhKG84LQaoxFRWVse5GpRaO52xdIWTAuM7WInfNWf9GRFxQ/a7apRfLOb1RqGLKp0RedaUksNio1DJeaWiRboZFKXSIvN7VIYlGo1DAMO6T5Xay1kvlRw9CvxBeobkDkqxGHYY+pRdXcQqUM/bzP1CJO0T+VCjFhe/Z1cIxFpsJhGHaEi1RjkecKFe9Jp6lFbO5XRIWa5UX/clNbc3PZuK1eU4s4FmmYre0eU1tzW03808AMgX8D6PUMi51jtKqD4CNWvg+bp8++wV5Ti9jcTWs8w+L8G9Vv6rGL5gvy+g5qc680tch8k17pGZZyzjpTi5S5j9JB1cW1phZxLA46vA+bJ3HOMTzDquZeb2rR1BezPlEsTn9cWCYy95E8wxqccxxTiy5fvO5aH23atGnTpv9XfwEcAVUR549mdAAAAABJRU5ErkJggg=="
               alt=""
             />
@@ -176,8 +183,8 @@
           <div class="ywardleafltxt">
             <div class="th">
               <div class="th_item">Rank</div>
-              <div class="th_item">Address</div>
-              <div class="th_item">Totals</div>
+              <div class="th_item">userName</div>
+              <div class="th_item">points</div>
             </div>
             <div class="scrool">
               <div
@@ -188,20 +195,20 @@
                 <div class="leftlsl">
                   <img
                     :class="
-                      item.rank == '1'
+                      item.rankingNum == '1'
                         ? 'leftlsllead'
-                        : item.rank == '2'
+                        : item.rankingNum == '2'
                         ? 'leftlsllead'
-                        : item.rank == '3'
+                        : item.rankingNum == '3'
                         ? 'leftlsllead'
                         : 'leftlslnone'
                     "
                     :src="
-                      item.rank == '1'
+                      item.rankingNum == '1'
                         ? '/img/p1-1b6bec58.7a5996d9.png'
-                        : item.rank == '2'
+                        : item.rankingNum == '2'
                         ? '/img/p2-0c482e2f.187ef979.png'
-                        : item.rank == '3'
+                        : item.rankingNum == '3'
                         ? '/img/p3-b44b24a0.7af46794.png'
                         : ''
                     "
@@ -209,28 +216,21 @@
                   />
                   <span
                     :class="
-                      item.rank == '1'
+                      item.rankingNum == '1'
                         ? 'leftlslnone'
-                        : item.rank == '2'
+                        : item.rankingNum == '2'
                         ? 'leftlslnone'
-                        : item.rank == '3'
+                        : item.rankingNum == '3'
                         ? 'leftlslnone'
                         : 'leftlsltxt'
                     "
-                    >{{ item.rank }}</span
+                    >{{ item.rankingNum }}</span
                   >
                 </div>
                 <div class="leftlsc">
-                  {{
-                    item.address.substring(0, 4) +
-                    "..." +
-                    item.address.substring(
-                      item.address.length - 4,
-                      item.address.length
-                    )
-                  }}
+                  {{ item.userName }}
                 </div>
-                <div class="leftlsr">{{ item.totals }}</div>
+                <div class="leftlsr">{{ item.totalPoint }}</div>
               </div>
             </div>
           </div>
@@ -253,6 +253,8 @@ import Axios from "axios";
 let regtime = ref("2023-11-28 11:11:11");
 let Commissions = ref("—");
 let points = ref("—");
+let stakeCommissions = ref("—");
+let invitepoints = ref("—");
 let textvalue = ref(
   "@Owlto_Finance is my favorite bridge. It is 'safe, fast, cheap, and easy-to-use'.%0a%0a"
 );
@@ -262,132 +264,30 @@ let textver = ref(
 let textsan = ref("👉 https://owlto.finance/?ref=null");
 let leadlist = ref([
   {
-    rank: "1",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
+    totalPoint: "65432",
+    rankingNum: "1",
+    userName: "MUSK",
+    invited: "Lebron",
+    userImg: "http://aaaa.com/a.jpg",
   },
   {
-    rank: "2",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "3",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "4",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "5",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "6",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "7",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "8",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "9",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "10",
-    url: "https://owlto.finance/assets/p1-1b6bec58.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
+    totalPoint: "65422",
+    rankingNum: "2",
+    userName: "James",
+    invited: "Haden",
+    userImg: "http://aaaa.com/b.jpg",
   },
 ]);
 let huanlist = ref([
   {
-    rank: "1",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
+    userName: "MUSK",
+    totalCommission: "0.1789789789",
+    commissionUnit: "ETH",
   },
   {
-    rank: "2",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "3",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "4",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "5",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "6",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "7",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "8",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "9",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "10",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
-  },
-  {
-    rank: "11",
-    url: "https://owlto.finance/assets/c1-df62b591.png",
-    address: "0xF8EA74CCEDd1112a2deeB39F95891c78F89F9bE0",
-    totals: "0.111",
+    userName: "MUSK",
+    totalCommission: "0.1789789789",
+    commissionUnit: "ETH",
   },
 ]);
 let valqh = ref(0);
@@ -434,29 +334,46 @@ let linetxt = () => {
       textsan.value
   );
 };
+let copyurlcli = () => {
+  navigator.clipboard.writeText(`${copyurl.value}${invitationcode.value[0]}`);
+};
 onMounted(() => {
-  // api
-  //   .toppoint({
-  //     appId: "xbot",
-  //   })
-  //   .then((res) => {
-  //     leadlist.value = res.data.data.topPointList;
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-  // api
-  //   .registers({
-  //     appId: "xbot",
-  //   })
-  //   .then((res) => {
-  //     console.log("registers", res.data.data.userRegisterList);
-  //     huanlist.value = res.data.data.userRegisterList;
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+  api
+    .toppoint({
+      appId: "xbot",
+    })
+    .then((res) => {
+      leadlist.value = res.data.data.topPointList;
+      console.log("toppoint", res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  api
+    .registers({
+      appId: "xbot",
+    })
+    .then((res) => {
+      console.log("registers", res.data.data.userCommissionsList);
+      huanlist.value = res.data.data.userCommissionsList;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   if (localStorage.getItem("user")) {
+    api
+      .getpoints({
+        userId: JSON.parse(localStorage.getItem("user")).userId,
+        token: JSON.parse(localStorage.getItem("user")).token,
+        appId: "xbot",
+      })
+      .then((res) => {
+        console.log("points", res);
+        Commissions.value = res.data.data.totalPoint;
+        points.value = res.data.data.taskPoint;
+        stakeCommissions.value = res.data.data.invitePoint;
+        invitepoints.value = res.data.data.stakePoint;
+      });
     api
       .createinvitation({
         userId: JSON.parse(localStorage.getItem("user")).userId,
@@ -527,6 +444,18 @@ onMounted(() => {
   box-shadow: 0 8px 32px #0000001a;
   background: #f7f7f8;
 }
+.ymainhy .userimg {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAG1BMVEUAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD4RAlZAAAACXRSTlMA/yDfv3+fYEA9X/DUAAAEqUlEQVR4nO1aO28TQRCG45WSxRAoQRDSAiZAySOk5hWgBBSJFiRIXEIRJT8bX/ab3bvz7sw3Z0tIkOnsW3+3O/PNc33mVE5FpDma3Vwd2uHe/TCX6c7XlcBtfG7Rojz6tjRc8y7DzWWy9WtJvGc9vBZyKcSmc1yR9SWs07xexAthazxiEW+OOBbvVhkvhAfj8NZqeGHyahRg5cCtXBuDd76OF8JTP94iA3uH9lv6t4YXwhP3Bk/igexnZ3d29DOGiLFb7GpQ/Lfn1/ecgFmDkzf52828yXUf3oUK5zYyoo+L2SSD322kB9c9eE362QLhEqIrjiWTLGoqRyCPWb7LjwohP6nXc2ZRfZG+t+XMPN4l2URRTYnzn2jAs/jFjfJjiZN8WBS9V6gmB+C5jR9cNV5IE+eiFfTuOJV4TjNJK8J7lolgoaIipOuK0WrLr9RXwM5VJQ8EPFM0BDuT1Jb0qcRk4TZnZjiryjIQhzMzjKz6PuIlZ2Y43mXipZyZwRr1OOA+F8EAqFa/MBxXkkDhauKFr3CA4LW+KKZZjtkR0FjrAYykNYJdfCvnKhRgVDQHSOmbsRwEBjQoBldhnJljBMjq2OHqjgwdUlY2yNoDNCjmAYy0MRiBgpQCjGsNQOqtEJxGZ4SndoAB1ZIXWYqLNuCs2iy5AiySrpovkCaU1N0R1MNqvoCjqHknCdKoSkQYjkujyBdasSbVEjd1kdWKVaTgo/CSFyhKhN3YEha8UZSIV7KNhRSoVSVKOcUZORfl1SpfGi22fxSrVF1fel+6CZcBVYVmYmO+rZDOpuL70vtyjteKKLE88EkDIr4FTyOW4pRLWlVH85gb+sImUnvLNhWtpAZ8cZqSB0Se6VKe2jwePpJu2UGaVvKkb9CDixf5TtxpwUP40v0+D0WcY5bE7bka8/S6Ocx4bFsmko8WwsOP2F53YOcd+PWnffMh+25vlubeYH+LBfHO0syBpBuvZ9BFGTEyXf1QVxk7k33yUN7WAUfN2pUTj0JU8QpBwxJj6uyeOxu0diPmma4ijnCje4mIYzaeJqa60IaRRJ4n9x9mx8cH7/dGXqsMDizRsH2y339EHrrHmEmGO5FekOUs3XPhxRuy3k0adeiuRUpqb/bT4+k2UWR3Kfi8vORu3N0uF3M6d40VvOhH7CVpZ4OKxn/w4SabWIvKzQGLl0084l6sJNWLmZGSL2bc12xlyXUhs3rzYC4zdUnyAirvxtpE000yCVW5QD/au1OZSfXBBKBEEq60sgHTibnSygaUaw+y0rABxcZkOW4CJlaT/98wAYXVbJNpAoofs8WkCQjS0NWuBSikoTskC1BUSJfPFqCokC53LUBkJ36QYAFig/wgwQCU/tMONM2L6YmgVYsfptNhXBSb2LlpWJxVjoaZJdHSkICwCTHOIgHt+0snIL4mWMgBipFtPBIQqxhac4DMhagL0DGYdgEyCZkDBA2ZdFLp2waAoCGBV2vcBnuJX7qmMWq0wUPXH5FUQNeFiwNwzP+QyoCuGxwHIB//LUDEa3a4/xcAERtcMzIGkP9bE3nk1QGubbfy0oPHdAE++R8B7V7PKUQ3eir/pvwBIBwZ5j0e9jIAAAAASUVORK5CYII=");
+}
+.ymainhy .giftimg {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAG1BMVEUAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD4RAlZAAAACXRSTlMA/yDfQGC/f58cOveqAAAC0klEQVR4nO2auVLcQBCGZRkfoWUZ49BH2ZvarL2bGgpyzoIQiqMIoTg2hQB4bSR1z0zPpe2RqKIW+o92R5pvru6eljSZ6IUrn9wNR/cbtOjn5Hh4cvu/G2/wp2g0Ni1cQUl50YX3AypXGmGP8htd9Ded90tXLoqFrw3vjBQdpvLekco4asorytM0Xr5vAYvrLHtrl5RNr9kyE4jVs8xpolhM4c05lavqdE6hjRTjcTtYVXc7mNZFv3ZA1TRw5cx/TNVKMbXOA35KHnE5Wdk23tFofLm6iy7JH/MbVWGt+pNvUt6/+ro20vo6R6+t+6nHLcANyo1+M4E4hSoA5AaoTA/Nap4JxGnThvvNWwVs4zMT6K6hmlPTRLaUsipYn1gZLgLp0Hu3hTbhzSSaQH+o3eGY91hAWOQvpAQ95wMpgk6nAOkKoplQVwNL4NnNq+bej6QEoxm1Y1h52udpQHovzhiN0QCkrcYFSzAFCK3ywoM/miiQ10N/ND2H7I8mAIRV5i2Kb4cBIPg7DwhmTP00AIQgy9sE0IyJ1flA9HdehEUzJl7gAzEG87IHjPAktvhAjD8sns6KTDrkATEg0YVrE0Zo00UPiB3kmaHZ53Xq6gLVRsjd6fWuNFapqwXMz9X1tjX5TqU393J0XOsA/jW/1Z96TqxKFm6OlR21S2Xijaxst6swC6il98l+Mn4D8aW3jG/hNtlXJuIx88FpMhulAF8OcNHydUtQYTl6HZ7bXGA8NwvserYgggpQgAIUoADDwKPtmHYAeBm9ATLQ2dukBCjApwU+UtJugIPqiQuepUp4/HIFFcLX8Om6+mV/HoBn9PCbndZoA8Pz34IJUIACFKAABShAAQpQgAIUoAAFKEABzhBwfiWkVQBuBS/Ct+kYsLMEOBNA5rnNmPz3/vZZ32T5x0b8s7RJCpzz63W6I3S0cdAHGPx0snsw7Kr7EE/0fPUAd//WhDB8u0oAAAAASUVORK5CYII=");
+}
+.ymainhy .jbimg {
+  content: url("data:image/png;base64,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");
+}
+.ymainhy .poingimg {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAG1BMVEUAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD4RAlZAAAACXRSTlMA/0Cf378gYH8uqrsGAAAFI0lEQVR4nO2aOZPUMBCFh2shZNhdIAQSUo4/wF2ELL+AMweqyCHhd2N1q60+XntseYoi8MvssWWpv6dnybu7TZs2bdr0T/TpwWLdm2rv5365zt7n7V3uaG9oMe/jpa4G98/SBr/3NXgrbfB5X4PnWXvX+9rb77MiXult8NFxmeRUiMlTrXLitB0+LscvzRV0SUalMDkNRb3Zjq+V43f2povhVEKFbH0nFFUViK5w3aFhYSp0u+rPbne1nPnWjk/K8V1718ecCjExP9HTP6gTv4fjM9ANTCXcTvebot6P40NlqCrlNbcTJVNUouLGl1KJTHblzG194gYYX0olMvGuqVTc+FIqhNT84F0zCIyPyoCoxK5719SLHOaUSnw4PcJeROOzz0ipRCZl6lrscPIlVAigIRBdg8eXUIlMomvw5EuoxI5H1wwqZZhHhbLOnAGugZMvoRKZUFj4YqPJR17yF9L4bMGAa/DkIyq/3IWACXANnnyQCqgNcM2gmEmYSmSCXDMITD5IpdxtH0xVjX6lgjkCgApggngmkw9QAXdD19RHOwKACjGJSRVcUzEfnuGACXTNIEQgnguLhsw1ePLR61W/MAETcIqF5kU4B9AlrsFv9kCFiFomdI0LexKaF+EcMbHbDyrVD7QxoXrbUw/LOU2lc3Ftpah0L66tGpXuxbVVo0JhuF7t/XOkBptrySLr1XpIE3691Hwsc3G1tA/pXbY/0/sPsqbdkqS/lLBxU5e6aFI83y6UH0wyccVsfH2lc2/UmXRhGmOImdq8OKFx6EhLtwsxmWjEfunwxT8FRT0pJBN30L+XuQ66NOW5/gVcFN41FFWx3Px5QKVuRsW/LdghcSycOGotmVAJWUrBGdZKg9g5LoIiFb+d4U8zaNHOXX8xHidU/BaTBuKXEtwA02/OwVTcFpNhInjinGZu9AIOyzlkamduO5gwFlcInsbJdxYux1gftPr1WwNsahEDG52D9iR+6ZyYWuTMjahYu7N50QRlsXPGTiEqdpnGps4+LA2ysUjYHRUz43NTi2wsUod1RvowzE0tsuYGVMzS2fsMycZipGLCkD1jhwBX0GNVIhUqshxMmlpkzE0lNSXSYThtapGJRaLS8qf+Kk3wy/xAB+UyNnegosPQzatUJhY9FWJSZ9JBU1ed0Fyo5vZUVBgeNrVIm9u/g1UYHjY1ikWCoKi0KKhTYEZ7xtxEpeWzYsKe0Q44ZG5uxlJRYTjL1CIVi5ZKC0Ne5h8ytUjFoqXSwpDdijZaUByL5XIzNRqTuaaO5jZUWhiyqed4hqViUVMZwxAtWafV3vmayvg1kk2d/6FnytyayshkgalFYyxqKhKG84LQaoxFRWVse5GpRaO52xdIWTAuM7WInfNWf9GRFxQ/a7apRfLOb1RqGLKp0RedaUksNio1DJeaWiRboZFKXSIvN7VIYlGo1DAMO6T5Xay1kvlRw9CvxBeobkDkqxGHYY+pRdXcQqUM/bzP1CJO0T+VCjFhe/Z1cIxFpsJhGHaEi1RjkecKFe9Jp6lFbO5XRIWa5UX/clNbc3PZuK1eU4s4FmmYre0eU1tzW03808AMgX8D6PUMi51jtKqD4CNWvg+bp8++wV5Ti9jcTWs8w+L8G9Vv6rGL5gvy+g5qc680tch8k17pGZZyzjpTi5S5j9JB1cW1phZxLA46vA+bJ3HOMTzDquZeb2rR1BezPlEsTn9cWCYy95E8wxqccxxTiy5fvO5aH23atGnTpv9XfwEcAVUR549mdAAAAABJRU5ErkJggg==");
+}
 .ywardbfl::before {
   content: "";
   position: absolute;
@@ -595,6 +524,8 @@ onMounted(() => {
   font-weight: 600;
   font-family: "Poppins";
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 .ymainhy .ywardbfctit {
   color: #000;
@@ -688,6 +619,12 @@ onMounted(() => {
 .ywardbfcrbctop > button:hover {
   color: rgba(0, 0, 0, 0.75);
 }
+.ymainhy .ywardbfcrbctop > button {
+  color: rgb(17 11 11);
+}
+.ymainhy .ywardbfcrbctop > button:hover {
+  color: rgb(56 59 64);
+}
 .ywardbfcrbc > p {
   font-family: "Interl";
   font-size: 1.25rem;
@@ -734,6 +671,7 @@ onMounted(() => {
   overflow: hidden;
   background: rgb(40, 48, 54);
   box-shadow: 0 8px 32px #0000001a;
+  z-index: 2;
 }
 .ymainhy .ywardleafltxt {
   box-shadow: 0 8px 32px #0000001a;
@@ -844,10 +782,10 @@ onMounted(() => {
   background: #53514e;
 }
 .ymainhy .scrool > div:nth-child(even) {
-  background: rgb(125, 125, 125);
+  background: #f5f5f5;
 }
 .ymainhy .scrool > div:hover {
-  background: rgb(100, 100, 100);
+  background: #c4c4c4;
 }
 .leftls {
   width: 100%;
@@ -893,6 +831,9 @@ onMounted(() => {
   line-height: 1.8125rem;
   color: white;
   text-align: center;
+}
+.ymainhy .leftlsltxt {
+  color: #000;
 }
 .leftlsllead {
   width: 1.8125rem;

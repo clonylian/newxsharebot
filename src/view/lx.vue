@@ -672,41 +672,49 @@
       <img @click="tcbgshow('0', '1')" src="../assets/close-line.svg" alt="" />
       <div class="yaritctjmbcon">
         <h1>{{ $store.state.txt.yaridropcopyy }}</h1>
-        <p>
-          You currently have <span>10</span> invite links. Unlock more after
-          completing Squad tasks. After each successful squad tasks. After each
-          successful squad member invitation, you will receive 300 points.
-        </p>
-        <div
-          v-for="(item, index) in invitationcode"
-          :key="index"
-          class="yariinvs flex jus"
-        >
-          <div class="yariinvl flex">
-            <img src="../assets/logos.png" alt="" />
-            <span>Available Invite Code</span>
-          </div>
-          <div class="yaritctinpb flex">
-            <h2>{{ item }}</h2>
+        <div class="copybox">
+          <p>Referral Link:</p>
+          <div
+            v-for="(item, index) in invitationcode"
+            :key="index"
+            class="copybcon flex jus"
+          >
+            <p>{{ `${copyurl}${item}` }}</p>
             <div class="yaritctbcopy flex">
-              <button
-                @click="qriscopy('1', item, index)"
-                :class="iscopy != index ? 'yaricopy flex' : 'yaricopynone'"
-              >
-                {{ $store.state.txt.yaridropcopyt }}
-              </button>
-              <button
-                :class="iscopy == index ? 'yaricopyed flex' : 'yaricopynone'"
-              >
-                {{ $store.state.txt.yaridropcopythr }}
+              <button @click="qriscopy('1', item)" class="yaricopy flex">
+                COPY LINK
               </button>
             </div>
           </div>
         </div>
-
-        <h1 class="yaritctjmbcond">
-          {{ $store.state.txt.yaridropcopyf }}
-        </h1>
+        <div class="copylist flex flexcol">
+          <div class="copylistb flex">
+            <img src="../assets/link-d1d85c57.png" alt="" />
+            <p>Share your referral link with friends and in your community.</p>
+          </div>
+          <div class="copylistb flex">
+            <img style="width: 1.5rem" src="../assets/3135783.png" alt="" />
+            <p>
+              Get 5 gems per new user who signs up and completes their first
+              quest through your link.
+            </p>
+          </div>
+          <div class="copylistb flex">
+            <img style="width: 1.375rem" src="../assets/4213958.png" alt="" />
+            <p>
+              Receive 1 gem for each existing user completing a quest through
+              your referral link.
+            </p>
+          </div>
+        </div>
+        <div class="copybx"></div>
+        <a href="" class="copybtxt">Click to visit terms and conditions</a>
+      </div>
+    </div>
+    <div :class="iscopy == '1' ? 'yaritcbq yaritcbqtop' : 'yaritcbq'">
+      <div class="yaritcbqc flex">
+        <span>✓</span>
+        <p>Invite Link copied successfully</p>
       </div>
     </div>
   </div>

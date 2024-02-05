@@ -3,9 +3,12 @@ import Axios from "axios";
 export default {
   registers: function (data) {
     return Axios.post(
-      "https://xbotx.site/moon-server/api/common/register-list",
+      "https://xbotx.site/moon-server/api/common/user-commissions-rank",
       data
     );
+  },
+  getpoints: function (data) {
+    return Axios.post("https://xbotx.site/moon-server/api/common/point", data);
   },
   login: function (data) {
     return Axios.post(

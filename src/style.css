@@ -1,7 +1,7 @@
-/* @font-face {
-  font-family: "Inter";
-  src: url("./assets/Inter-Medium.ttf");
-} */
+@font-face {
+  font-family: "themify";
+  src: url("./assets/themify.woff");
+}
 @font-face {
   font-family: "Poppins";
   src: url("./assets/Poppins-SemiBold.ttf");
@@ -21,6 +21,15 @@
 :root {
   --onboard-modal-z-index: 550;
   --onboard-font-family-normal: "Interl";
+}
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgb(30, 37, 43);
+}
+.ymainhy #particles-js {
+  background: white;
 }
 * {
   padding: 0;

@@ -1634,7 +1634,7 @@ onMounted(() => {
       xhlloginzt.value = "CONNECT  ";
     }
   });
-  var twoDaysFromNow = new Date().getTime() / 1000 + 86400 * 2 + 1;
+  var twoDaysFromNow = new Date(2024, 1, 6, 20, 0, 0).getTime() / 1000;
   var flipdown = new FlipDown(twoDaysFromNow).start().ifEnded(() => {
     console.log("The countdown has ended!");
   });
@@ -1655,7 +1655,7 @@ let tasklis = () => {
       appId: "xbot",
     })
     .then((res) => {
-      console.log("xbot", res.data);
+      console.log("xbottask", res.data);
       tasklist.value = res.data.data.userTaskList;
       tasklist.value.map((res) => {
         if (res.taskName == "register" && res.completed == true) {
@@ -1821,8 +1821,6 @@ let getaddress = async () => {
       xhladdress.value.length - 4,
       xhladdress.value.length
     );
-
-  userxxlog();
   firstlogin();
   localStorage.setItem("xhladd", xhladdress.value);
   butshow.value = "1";
@@ -1844,6 +1842,8 @@ let getaddress = async () => {
   bus.$emit("qbusdtbalance", xusdtbalance.value);
 };
 let userxxlog = () => {
+  //获取用户信息接口
+  tasklis();
   yarilog.value = "0";
   bus.$emit("Twname", "dasdas");
   localStorage.setItem("Twname", "dasdas");
@@ -1861,7 +1861,7 @@ let firstlogin = () => {
       console.log("renderres", res);
       localStorage.setItem("user", JSON.stringify(res.data.data));
       userlog.value = res.data.data;
-      tasklis();
+      userxxlog();
     });
 };
 let qxdl = async () => {
@@ -2227,6 +2227,7 @@ let twpltxt = () => {
       taskValue: "",
     })
     .then((res) => {
+      console.log("submit", res);
       if (res.data.status == "success") {
         isgt.value = "1";
       }
@@ -2287,21 +2288,21 @@ let tcbgshow = (str, success) => {
     // ];
   }
   if (success == "1" && copyed.value == "1") {
-    // api
-    //   .submit({
-    //     userId: userlog.value.userId,
-    //     token: userlog.value.token,
-    //     appId: "xbot",
-    //     taskName: "swap",
-    //     taskValue: "",
-    //   })
-    //   .then((res) => {
-    //     if (res.data.status == "success") {
-    //       isgw.value = "1";
-    //     }
-    //   });
-    console.log("isgf", iscopy.value == "1");
-    isgf.value = "1";
+    api
+      .submit({
+        userId: userlog.value.userId,
+        token: userlog.value.token,
+        appId: "xbot",
+        taskName: "copy",
+        taskValue: "",
+      })
+      .then((res) => {
+        if (res.data.status == "success") {
+          isgf.value = "1";
+        }
+      });
+    // console.log("isgf", iscopy.value == "1");
+    // isgf.value = "1";
   }
 };
 
@@ -2476,7 +2477,7 @@ let fwc = () => {
   width: 200%;
   display: none;
   left: -65%;
-  top: -6rem;
+  top: -5rem;
 }
 .yairlsywtxt > p::before {
   content: "";
@@ -2500,12 +2501,17 @@ let fwc = () => {
   text-align: left;
   width: 100%;
   padding: 1rem;
+  color: white;
   background: #2c353d;
   box-sizing: border-box;
   overflow: hidden;
   font-family: "Interl";
   font-size: 1rem;
   border-radius: 0.5rem;
+}
+.ymainhy .yairlsywtxt > p {
+  color: #000;
+  background: rgb(247 247 247);
 }
 .yairlsywjt {
   width: 0;
@@ -2517,6 +2523,9 @@ let fwc = () => {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid rgb(82 76 103);
+}
+.ymainhy .yairlsywjt {
+  border-top: 10px solid rgb(234 225 239);
 }
 .yimg {
   padding-top: 5rem;
@@ -2719,6 +2728,8 @@ let fwc = () => {
 .aroro {
   width: 80%;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .aroro > h1 {

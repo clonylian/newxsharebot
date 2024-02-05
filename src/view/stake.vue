@@ -377,6 +377,8 @@ let isstop = () => {
   font-family: "Poppins";
   text-align: center;
   color: white;
+  position: relative;
+  z-index: 10;
 }
 .yscon > p {
   display: block;
@@ -395,6 +397,8 @@ let isstop = () => {
   font-family: "Poppins";
   text-align: center;
   color: white;
+  position: relative;
+  z-index: 10;
 }
 .ysconf > p {
   display: block;
@@ -405,6 +409,8 @@ let isstop = () => {
   line-height: 24px;
   text-align: center;
   margin: 1.5rem 0 3rem 0;
+  position: relative;
+  z-index: 10;
 }
 .yscbox {
   width: 98rem;

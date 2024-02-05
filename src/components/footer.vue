@@ -27,6 +27,7 @@ export default {};
   width: 100%;
   background: rgb(30, 37, 43);
   padding-top: 3.75rem;
+  position: relative;
 }
 .ymainhy .ynewfoot {
   background: white;

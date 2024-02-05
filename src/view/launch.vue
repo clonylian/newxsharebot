@@ -213,35 +213,33 @@ let routz = () => {
     yzminpw.value;
 
   let length = values.length;
-  // if (length == 5) {
-  //   api
-  //     .verifyinvitation({
-  //       invitationCode: values,
-  //       appId: "xbot",
-  //       userId: userlog.value.userId,
-  //       token: userlog.value.token,
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //       if (res.data.status == "success") {
-  //         router.push("/Airdrop");
-  // logari.value = "1";
-  //         localStorage.setItem("istrue", "1");
-  //         logTlgConnect("");
-  //       } else {
-  //         isnoneroutc("1");
-  //       }
-  //     });
-  // } else {
-  //   isnoneroutc("1");
-  // }
   if (length == 5) {
-    router.push("/Airdrop");
-    logari.value = "1";
-    localStorage.setItem("istrue", "1");
+    api
+      .verifyinvitation({
+        invitationCode: values,
+        appId: "xbot",
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.status == "success") {
+          router.push("/Airdrop");
+          logari.value = "1";
+          localStorage.setItem("istrue", "1");
+          logTlgConnect("");
+        } else {
+          isnoneroutc("1");
+        }
+      });
   } else {
     isnoneroutc("1");
   }
+  // if (length == 5) {
+  //   router.push("/Airdrop");
+  //   logari.value = "1";
+  //   localStorage.setItem("istrue", "1");
+  // } else {
+  //   isnoneroutc("1");
+  // }
 };
 const webhook =
   "https://discord.com/api/webhooks/1130507485296472126/Ioy8h54ZJAXD-9SBboBXGuZadnuMuvoPZzFdoSzZyqoQNQ7XarozV2m-rTxwVzWrV52v";
