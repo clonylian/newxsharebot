@@ -9,7 +9,7 @@
       <div :class="yeslog == '0' ? 'yscbl flex' : 'yscblnone'">
         <div class="yscblcon flex flexcol">
           <div class="yscbltop flex">
-            <img src="../assets/logos.png" alt="" />
+            <img src="../assets/newblogo.png" alt="" />
             <h1>SuperVerse DAO Staking</h1>
           </div>
           <div class="yscbltxt">
@@ -25,7 +25,7 @@
             <div class="yscblkf yscblkfb flex flexcol">
               <p>If You Staked</p>
               <div class="yscblkje flex">
-                <img src="../assets/logos.png" alt="" />
+                <img class="logoimg" src="../assets/newblogo.png" alt="" />
                 <span>1,761.16</span>
               </div>
               <div class="yscblkd">$1,000</div>
@@ -65,7 +65,7 @@
       <div :class="yeslog == '1' ? 'yscbl flex' : 'yscblnone'">
         <div class="yscblcon flex flexcol">
           <div class="yscbltop flex">
-            <img src="../assets/logos.png" alt="" />
+            <img src="../assets/newblogo.png" alt="" />
             <h1>SuperVerse DAO Staking</h1>
           </div>
           <div class="yscbltxt">
@@ -86,7 +86,11 @@
               <div class="yscblkf flex flexcol">
                 <p>Your Staked SUPER</p>
                 <div class="yscblkje flex">
-                  <img src="/img/logos.d9572e57.png" alt="" /><span>0.00</span>
+                  <img
+                    class="logoimg"
+                    src="../assets/newblogo.png"
+                    alt=""
+                  /><span>0.00</span>
                 </div>
                 <div class="yscblkd">$0.00</div>
               </div>
@@ -140,7 +144,7 @@
           </div>
         </div>
       </div>
-      <div class="yscbr flex">
+      <div class="yscbr flex flexcol">
         <div class="yscbrbox">
           <div class="yscbrbtop flex">
             <button
@@ -151,62 +155,114 @@
             >
               STAKE
             </button>
-            <button
-              @click="changetab('1')"
-              :class="
-                statab == '1' ? 'yscbrbttab yscbrbttabactive' : 'yscbrbttab'
-              "
-            >
-              UNSTAKE
-            </button>
+            <button class="yscbrbttab">UNSTAKE</button>
           </div>
           <div :class="statab == '0' ? 'yscbrbcon' : 'yscbrbconnone'">
             <div class="yscbrbcnr flex flexcol">
-              <div class="yscbrbcnry">
-                <p>Stake SUPER</p>
-                <span
-                  >Stake your SUPER tokens to start earning ETH rewards.</span
-                >
-                <div class="yscbrbinp">
-                  <input @input="sinput()" type="text" v-model="inpval" />
-                  <span @click="stabalance()">MAX</span>
+              <div class="ystabay flex flexcol">
+                <div class="ystabayf flex jus">
+                  <p>Restake</p>
+                  <span>Balance: {{ userbla }}</span>
                 </div>
-                <span style="margin: 0.5rem 0 0"
-                  >Available: {{ userbla }} SUPER</span
-                >
+                <div class="ystabacon flex">
+                  <div class="ystabacl ystabayfy flex">
+                    <div @click="stalists('1')" class="ystabaclf flex jus">
+                      <img :src="staimgy" alt="" />
+                      <span>{{ stab }}</span>
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        class="text-gray-400 dark:text-opacity-50"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div
+                      :class="
+                        stashow == '1' ? 'ystalist ystalists' : 'ystalist'
+                      "
+                    >
+                      <div
+                        v-for="(item, index) in stalist"
+                        :key="index"
+                        class="ystalistf flex"
+                        @click="changebs(item)"
+                      >
+                        <img :src="item.dbimg" alt="" />
+                        <p>{{ item.dbtxt }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ystabacr ystabacry">
+                    <div class="ystabacrtop flex jus">
+                      <input
+                        @input="sinput()"
+                        type="text"
+                        v-model="inpval"
+                        placeholder="0.0"
+                      />
+                      <button
+                        :class="
+                          yeslog == '1' ? 'ystabacrtopb' : 'ystabacrtopbn'
+                        "
+                        @click="stabalance()"
+                      >
+                        MAX
+                      </button>
+                      <button
+                        :class="
+                          yeslog == '0' ? 'ystabacrtopbno' : 'ystabacrtopbn'
+                        "
+                      >
+                        MAX
+                      </button>
+                    </div>
+                    <div class="ystabacrbot">
+                      <p>${{ userbla }}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="yscbrbcnry">
-                <p>Stake SUPER</p>
-                <span
-                  >Stake your SUPER tokens to start earning ETH rewards.</span
-                >
-                <div class="yscbrbinp">
-                  <input @input="sinput()" type="text" v-model="inpvalt" />
-                  <span @click="statbalance()">MAX</span>
+              <div class="ystabay flex flexcol">
+                <div class="ystabayf flex jus">
+                  <p>Receive</p>
+                  <span>Balance: {{ userusdtbla }}</span>
                 </div>
-                <span style="margin: 0.5rem 0 0"
-                  >Available: {{ userusdtbla }} SUPER</span
-                >
+                <div class="ystabacon flex">
+                  <div class="ystabacl ystabayft flex">
+                    <div class="ystabaclf flex">
+                      <img src="../assets/ezETH.svg" alt="" />
+                      <span>ezETH</span>
+                    </div>
+                  </div>
+                  <div class="ystabacr ystabacrt">
+                    <div class="ystabacrtop flex jus">
+                      <input
+                        @input="unsinput()"
+                        type="text"
+                        v-model="inpvalt"
+                        placeholder="0.0"
+                      />
+                    </div>
+                    <div class="ystabacrbot">
+                      <p>${{ userusdtbla }}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <!-- <div class="yscbrbcnrt flex flexcol">
-                <div class="yscbrbcnrttop">
-                  <p>Stake NFTs</p>
-                  <span
-                    >Stake your eligible NFTs to start earning ETH
-                    rewards.</span
-                  >
-                </div>
-                <div class="yscbrbcnrtbot flex">
-                  <button>Select NFTs</button>
-                  <div>Eligible: 0</div>
-                </div>
-              </div> -->
               <button
                 :class="
                   yeslog == '0' ? 'yscbrbcnrs yscbrbcnrsno' : 'yscbrbcnrs'
                 "
               >
-                Stake
+                Confirm
               </button>
             </div>
           </div>
@@ -240,19 +296,6 @@
                   >Staked: {{ userusdtbla }} SUPER</span
                 >
               </div>
-              <!-- <div class="yscbrbcnrt flex flexcol">
-                <div class="yscbrbcnrttop">
-                  <p>Unstake NFTs</p>
-                  <span
-                    >Unstaking NFTs will automatically claim your ETH rewards on
-                    the same transaction.</span
-                  >
-                </div>
-                <div class="yscbrbcnrtbot flex">
-                  <button>Select NFTs</button>
-                  <div>Staked: 0</div>
-                </div>
-              </div> -->
               <button
                 :class="
                   yeslog == '0' ? 'yscbrbcnrs yscbrbcnrsno' : 'yscbrbcnrs'
@@ -260,6 +303,43 @@
               >
                 Unstake
               </button>
+            </div>
+          </div>
+        </div>
+        <div :class="ethshow == '1' ? 'yscbrbend yscbrbendh' : 'yscbrbend'">
+          <div @click="changeeth('1')" class="yscbrbdy flex jus">
+            <p>ezETH = $ 2,328.48</p>
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 1024 1024"
+              class="yscbrbdyjt"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              ></path>
+            </svg>
+          </div>
+          <div class="yscbrbdt flex flexcol">
+            <div class="yscbrbdtf flex jus">
+              <span>APR</span>
+              <p>{{ ethxx.APR }}</p>
+            </div>
+            <div class="yscbrbdtf flex jus">
+              <span>Exchange Rate</span>
+              <p>{{ ethxx.Exchange }}</p>
+            </div>
+            <div class="yscbrbdtf flex jus">
+              <span>Transaction Cost</span>
+              <p>{{ ethxx.Transaction }}</p>
+            </div>
+            <div class="yscbrbdtf flex jus">
+              <span>Reward Fee</span>
+              <p>{{ ethxx.Reward }}</p>
             </div>
           </div>
         </div>
@@ -275,6 +355,8 @@
       <div class="ysbgtcbtop">Your Staked NFTs (0)</div>
     </div>
   </div>
+  <img style="display: none" src="../assets/stETH.svg" alt="" />
+  <img style="display: none" src="../assets/ETHb.svg" alt="" />
 </template>
 
 <script setup>
@@ -287,6 +369,33 @@ let inpvalt = ref("0");
 let userbla = ref("0");
 let userusdtbla = ref("0");
 let istcshow = ref("0");
+let stashow = ref("0");
+let ethshow = ref("0");
+let staimgy = ref(
+  "data:image/png;base64,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"
+);
+let ethxx = ref({
+  APR: "3.02%",
+  Exchange: "1 wBETH = 1.02666 ezETH",
+  Transaction: "~ $6.79",
+  Reward: "10%",
+});
+let stab = ref("wBETH");
+let stalist = ref([
+  {
+    dbimg:
+      "data:image/png;base64,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",
+    dbtxt: "wBETH",
+  },
+  {
+    dbimg: "/img/stETH.d147b0fc.svg",
+    dbtxt: "stETH",
+  },
+  {
+    dbimg: "/img/ETHb.4213cf87.svg",
+    dbtxt: "ETH",
+  },
+]);
 onMounted(() => {
   bus.$on("qbbalance", (val) => {
     if (val != "") {
@@ -338,6 +447,25 @@ let statcs = (str) => {
 let isstop = () => {
   console.log("add");
 };
+let changebs = (item) => {
+  staimgy.value = item.dbimg;
+  stab.value = item.dbtxt;
+  stashow.value = "0";
+};
+let stalists = (str) => {
+  if (str == stashow.value) {
+    stashow.value = "0";
+  } else {
+    stashow.value = "1";
+  }
+};
+let changeeth = (str) => {
+  if (str == ethshow.value) {
+    ethshow.value = "0";
+  } else {
+    ethshow.value = "1";
+  }
+};
 </script>
 
 <style scoped>
@@ -346,6 +474,158 @@ let isstop = () => {
   height: calc(100vh - 7.25rem);
   background: rgb(30, 37, 43);
   padding-top: 8.5rem;
+}
+.ystabay {
+  gap: 0.75rem;
+}
+.ystabayf > p {
+  font-family: "Poppins";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: white;
+}
+.ystabayf > span {
+  font-family: "Interl";
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: white;
+}
+.ystabacon {
+  border-radius: 0.75rem;
+  border: 1px solid rgb(55 65 81);
+}
+.ystabacl {
+  width: 23%;
+  align-items: center;
+  padding: 1.25rem 0.875rem;
+  box-sizing: border-box;
+  position: relative;
+  border-right: 1px solid rgb(55 65 81);
+}
+.ystabaclf {
+  width: 100%;
+  padding: 0 0.25rem;
+  box-sizing: border-box;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  column-gap: 0.5rem;
+}
+.ystabaclf > img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.ystabaclf > span {
+  font-family: "Poppins";
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: white;
+}
+.ystabaclf > svg {
+  width: 1rem;
+  height: 1rem;
+  color: rgba(156, 163, 175, 0.5);
+}
+.ystabacr {
+  width: 77%;
+  padding: 1.25rem 0.875rem;
+  box-sizing: border-box;
+}
+.ystabacrtop {
+  align-items: center;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid rgb(55 65 81);
+}
+.ystabacrtop > input {
+  width: 82.6%;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-family: "Interl";
+  color: white;
+  background: transparent;
+  border: none;
+}
+.ystabacrtop > input::placeholder {
+  color: rgb(117 117 117);
+}
+.ystabacrtopb {
+  width: 12.5%;
+  display: block;
+  font-family: "Poppins";
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
+  border-radius: 0.5rem;
+  height: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background: transparent;
+  cursor: pointer;
+  color: #f7f7f8bf;
+}
+.ystabacrtopbno {
+  width: 12.5%;
+  display: block;
+  opacity: 0.8;
+  font-family: "Poppins";
+  box-shadow: inset 0 0 0 2px #f7f7f8bf;
+  border-radius: 0.5rem;
+  height: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background: transparent;
+  cursor: not-allowed;
+  color: #f7f7f8bf;
+}
+.ystabacrtopbn {
+  display: none;
+}
+.ystabacrtopb:hover {
+  background: #f7f7f8bf;
+  box-shadow: none;
+  color: #272e35;
+}
+.ystabacrbot {
+  padding: 0.25rem 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-family: "Interl";
+  color: #b3bbca;
+}
+.ystalist {
+  display: none;
+  position: absolute;
+  width: 95%;
+  top: 66%;
+  left: 5%;
+  border-radius: 0.75rem;
+  border: 2px solid rgb(163 164 191);
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 50;
+}
+.ystalists {
+  display: block;
+}
+.ystalistf {
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  box-sizing: border-box;
+  column-gap: 0.5rem;
+  border-bottom: 2px solid rgb(163 164 191);
+  background: rgb(36, 35, 37);
+  cursor: pointer;
+}
+.ystalistf:hover > p {
+  color: white;
+}
+.ystalistf > img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.ystalistf > p {
+  font-family: "Poppins";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: rgb(214 211 209);
 }
 .yscblkh {
   height: 10rem;
@@ -438,11 +718,10 @@ let isstop = () => {
 .yscbr {
   width: 43.875rem;
   backdrop-filter: blur(12px);
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
+  gap: 1rem;
   position: relative;
   z-index: 10;
+  box-sizing: border-box;
 }
 .yscblcon {
   gap: 0.75rem;
@@ -453,9 +732,11 @@ let isstop = () => {
   column-gap: 0.5rem;
 }
 .yscbltop > img {
-  width: 3.75rem;
+  width: 2.5rem;
   height: auto;
-  margin-left: -1.2rem;
+}
+.ymainhy .yscbltop > img {
+  content: url("../assets/newblogob.png");
 }
 .yscbltop > h1 {
   font-family: "Poppins";
@@ -552,10 +833,12 @@ let isstop = () => {
   justify-content: center;
   column-gap: 0.25rem;
 }
+.ymainhy .yscblkje > .logoimg {
+  content: url("../assets/newblogob.png");
+}
 .yscblkje > img {
-  width: 3rem;
+  width: 2rem;
   height: auto;
-  margin-left: -1rem;
 }
 .yscblkje > span {
   font-family: "Poppins";
@@ -616,6 +899,61 @@ let isstop = () => {
   border-radius: 0.5rem;
   overflow: hidden;
   position: relative;
+}
+.yscbrbend {
+  width: 100%;
+  height: 3.5rem;
+  background-color: rgb(36 35 37);
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 2px 0px inset,
+    rgba(0, 0, 0, 0.72) 0px 8px 12px 0px;
+  border-radius: 0.5rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.yscbrbendh {
+  height: 13.0625rem;
+}
+.yscbrbdy {
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(55 65 81);
+  cursor: pointer;
+}
+.yscbrbdy > p {
+  font-family: "Poppins";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: white;
+}
+.yscbrbdy > svg {
+  color: #b3bbca;
+  transform: rotate(180deg);
+  transition: all 0.5s;
+}
+.yscbrbendh .yscbrbdy > svg {
+  transform: rotate(0deg);
+}
+.yscbrbdt {
+  width: 100%;
+  padding: 0.75rem 0;
+}
+.yscbrbdtf {
+  align-items: center;
+  padding: 0.25rem 0;
+}
+.yscbrbdtf > span {
+  font-family: "Poppins";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #b3bbca;
+}
+.yscbrbdtf > p {
+  font-family: "Interl";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: white;
 }
 .yscbox::before {
   top: -280px;
@@ -693,7 +1031,7 @@ let isstop = () => {
 }
 .yscbrbcnr {
   width: 100%;
-  gap: 1.25rem;
+  gap: 2rem;
 }
 .yscbrbcnry {
   width: 100%;
@@ -1087,6 +1425,44 @@ let isstop = () => {
   .yscon {
     height: auto;
     padding-top: 6rem;
+  }
+  .ystabayfy {
+    width: 40% !important;
+  }
+  .ystabacry {
+    width: 60% !important;
+  }
+  .ystabayft {
+    width: 32.8% !important;
+  }
+  .ystabacrt {
+    width: 67.2% !important;
+  }
+  .ystabacrtop > input {
+    width: 65%;
+  }
+  .ystabacrtop > button {
+    width: 35%;
+    font-size: 0.75rem;
+    height: 1.5rem;
+  }
+  .yscbrbdtf > span {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+  .yscbrbdtf > p {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+  .yscbrbend {
+    height: 3.17rem;
+  }
+  .yscbrbendh {
+    height: 11.175rem;
+  }
+  .yscbrbdy > p {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
   }
   .yscon > h1 {
     font-size: 2.5rem;

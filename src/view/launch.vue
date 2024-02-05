@@ -99,6 +99,7 @@ import { ethers } from "ethers";
 import { init, useOnboard } from "@web3-onboard/vue";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { useRouter, useRoute } from "vue-router";
+import md5 from "blueimp-md5";
 let isrouter = ref("0");
 const route = useRoute();
 const router = useRouter();
@@ -134,9 +135,6 @@ onMounted(() => {
   console.log(input3.value);
   console.log(input2.value);
   console.log(input1.value);
-  if (localStorage.getItem("user")) {
-    userlog.value = JSON.parse(localStorage.getItem("user"));
-  }
   if (route.query.ref != undefined) {
     yzminpy.value = route.query.ref.substring(0, 1);
     yzminpt.value = route.query.ref.substring(1, 2);
@@ -388,18 +386,75 @@ let sgin = async () => {
     localStorage.setItem("xhlusdtbalance", xusdtbalance.value);
     bus.$emit("qbbalance", xethbalance.value);
     bus.$emit("qbusdtbalance", xusdtbalance.value);
+    firstlogin();
     //接口请求
-    if (xhladdress.value == "") {
-      isnoneroutc("1");
-      inverr.value = "user error";
-      inverrtxt.value = "User does not exist";
-    } else {
-      router.push("/Airdrop");
-      logari.value = "1";
-      localStorage.setItem("istrue", "1");
-      bus.$emit("Twname", "dasdas");
-      localStorage.setItem("Twname", "dasdas");
-    }
+    // if (xhladdress.value == "") {
+    //   isnoneroutc("1");
+    //   inverr.value = "user error";
+    //   inverrtxt.value = "User does not exist";
+    // } else {
+    //   router.push("/Airdrop");
+    //   logari.value = "1";
+    //   localStorage.setItem("istrue", "1");
+    //   bus.$emit("Twname", "dasdas");
+    //   localStorage.setItem("Twname", "dasdas");
+    // }
+  }
+};
+let firstlogin = () => {
+  let sign = md5(xhladdress.value + "88888888");
+  let walletadd = xhladdress.value;
+  api
+    .login({
+      appId: "xbot",
+      sign: sign,
+      walletAddress: walletadd,
+    })
+    .then((res) => {
+      if (res.data.status == "success") {
+        localStorage.setItem("user", JSON.stringify(res.data.data));
+        userlog.value = res.data.data;
+        console.log(userlog.value.userId, userlog.value.token);
+        lgetuser();
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+let lgetuser = () => {
+  // api
+  //   .getuser({
+  //     userId: userlog.value.userId,
+  //     token: userlog.value.token,
+  //     appId: "xbot",
+  //   })
+  //   .then((res) => {
+  //     if (res.data.data.status == "success") {
+  //       logari.value = "1";
+  //       localStorage.setItem("istrue", "1");
+  //       bus.$emit("Twname", res.data.data.userName);
+  //       localStorage.setItem("Twname", res.data.data.userName);
+  //       router.push("/Airdrop");
+  //     } else {
+  //       isnoneroutc("1");
+  //       inverr.value = "user error";
+  //       inverrtxt.value = "User does not exist";
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  if (xhladdress.value != "") {
+    logari.value = "1";
+    localStorage.setItem("istrue", "1");
+    bus.$emit("Twname", "dasdasd");
+    localStorage.setItem("Twname", "dasdasd");
+    router.push("/Airdrop");
+  } else {
+    isnoneroutc("1");
+    inverr.value = "user error";
+    inverrtxt.value = "User does not exist";
   }
 };
 let logwith = () => {

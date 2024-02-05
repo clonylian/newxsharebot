@@ -7,6 +7,12 @@ export default {
       data
     );
   },
+  getuser: function (data) {
+    return Axios.post(
+      "https://xbotx.site/moon-server/api/common/user-info",
+      data
+    );
+  },
   getpoints: function (data) {
     return Axios.post("https://xbotx.site/moon-server/api/common/point", data);
   },

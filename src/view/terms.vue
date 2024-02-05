@@ -1749,7 +1749,7 @@
   }
   .ytermbox > h1 {
     font-size: 2.5rem;
-    line-height: 3rem;
+    line-height: 3rem !;
   }
 }
 </style>

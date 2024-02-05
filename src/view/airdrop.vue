@@ -1842,11 +1842,27 @@ let getaddress = async () => {
   bus.$emit("qbusdtbalance", xusdtbalance.value);
 };
 let userxxlog = () => {
-  //获取用户信息接口
+  // api
+  //   .getuser({
+  //     userId: userlog.value.userId,
+  //     token: userlog.value.token,
+  //     appId: "xbot",
+  //   })
+  //   .then((res) => {
+  //     if (res.data.data.status == "success") {
+  //       tasklis();
+  //       yarilog.value = "0";
+  //       bus.$emit("Twname", res.data.data.userName);
+  //       localStorage.setItem("Twname", res.data.data.userName);
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
   tasklis();
   yarilog.value = "0";
-  bus.$emit("Twname", "dasdas");
-  localStorage.setItem("Twname", "dasdas");
+  bus.$emit("Twname", "dasdasd");
+  localStorage.setItem("Twname", "dasdasd");
 };
 let firstlogin = () => {
   let sign = md5(xhladdress.value + "88888888");
