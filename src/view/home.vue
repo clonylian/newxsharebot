@@ -1669,4 +1669,49 @@ export default {
     width: 6.875rem !important ;
   }
 }
+@media (max-width: 1800px) {
+  .ysybjiul > img {
+    width: 20rem;
+  }
+  .ysybjbox {
+    align-items: center;
+  }
+  .ysybfiveboxlis > p {
+    width: 80%;
+  }
+  .ysybone {
+    align-items: center;
+    width: 71%;
+  }
+  .ysybtwo {
+    width: 71%;
+  }
+  .ysybthree {
+    width: 71%;
+  }
+  .ysybfivebox {
+    align-items: center;
+  }
+  .ysybfivebr > img {
+    width: 28rem !important;
+  }
+  .ysybfour {
+    width: 71%;
+  }
+  .ysybfive {
+    width: 71%;
+  }
+  .ysybqi {
+    width: 71%;
+  }
+  .ysybba {
+    width: 71%;
+  }
+  .ysybjiu {
+    width: 71%;
+  }
+  .ysybten {
+    width: 71%;
+  }
+}
 </style>
