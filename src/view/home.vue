@@ -24,124 +24,272 @@
       <h2>Live Market</h2>
       <div class="ysybtbox flex">
         <div class="ysybtbcon">
-          <div class="ysybtbcc">
-            <div class="ysybtbccif" style="width: 100%; height: 126px">
-              <iframe
-                scrolling="no"
-                allowtransparency="true"
-                frameborder="0"
-                src="https://www.tradingview-widget.com/embed-widget/single-quote/?locale=in#%7B%22symbol%22%3A%22BITSTAMP%3ABTCUSD%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22bestwpware.com%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22single-quote%22%2C%22page-uri%22%3A%22bestwpware.com%2Fhtml%2Ftf%2Fkaniz-demo%2Fkaniz%2Findex.html%22%7D"
-                title="single quote TradingView widget"
-                lang="en"
-                style="
-                  user-select: none;
-                  box-sizing: border-box;
-                  display: block;
-                  height: calc(100% - 32px);
-                  width: 100%;
-                "
-              ></iframe>
-              <div class="ysybtbccifend flex">
-                <a
-                  href="https://in.tradingview.com/symbols/BTCUSD/?exchange=BITSTAMP&amp;utm_source=bestwpware.com&amp;utm_medium=widget_new&amp;utm_campaign=single-quote"
-                  rel="noopener"
-                  target="_blank"
-                  ><span class="blue-text">BTCUSD Rates</span></a
-                >
-                by TradingView
+          <a
+            href="https://app.eigenlayer.xyz/token/swETH"
+            target="_blank"
+            class="ysybtbcc"
+          >
+            <div class="ysybtbccif flex jus">
+              <div class="ysybtbccifl flex flexcol">
+                <div class="ysybtbccifltop flex">
+                  <img src="../assets/EigenLayer.svg" alt="" />
+                  <div class="ysyertr flex flexcol">
+                    <div class="ysyertry flex">
+                      <div>EigenLayer</div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M10 2H14V6"
+                          stroke="white"
+                          stroke-linecap="square"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M6.66663 9.33333L14 2"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="ysyertrt flex">
+                      <div>Ethereum</div>
+                      <img src="../assets/eth.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="ysybtbcciflbot flex flexcol">
+                  <div class="ysybtbbot flex">
+                    <span>POOL / TOKEN</span>
+                    <img src="../assets/sweth.svg" alt="" />
+                  </div>
+                  <div class="ysybtbbotdtxt">EigenLayer Restaked swETH</div>
+                </div>
+              </div>
+              <div class="ysybtbccifr flex flexcol jus">
+                <div class="ysybtbbot flex flexcol">
+                  <span>MAX APY</span>
+                  <div class="ysybtbbotdtxt">3.34%</div>
+                </div>
+                <div class="ysybtbbot flex flexcol">
+                  <span>TVL</span>
+                  <div class="ysybtbbotdtxt">$265.34M</div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
         <div class="ysybtbcon">
-          <div class="ysybtbcc">
-            <div class="ysybtbccif" style="width: 100%; height: 126px">
-              <iframe
-                scrolling="no"
-                allowtransparency="true"
-                frameborder="0"
-                src="https://www.tradingview-widget.com/embed-widget/single-quote/?locale=in#%7B%22symbol%22%3A%22BITSTAMP%3AETHUSD%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22bestwpware.com%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22single-quote%22%2C%22page-uri%22%3A%22bestwpware.com%2Fhtml%2Ftf%2Fkaniz-demo%2Fkaniz%2Findex.html%22%7D"
-                title="single quote TradingView widget"
-                lang="en"
-                style="
-                  user-select: none;
-                  box-sizing: border-box;
-                  display: block;
-                  height: calc(100% - 32px);
-                  width: 100%;
-                "
-              ></iframe>
-              <div class="ysybtbccifend flex">
-                <a
-                  href="https://in.tradingview.com/symbols/ETHUSD/?exchange=BITSTAMP&amp;utm_source=bestwpware.com&amp;utm_medium=widget_new&amp;utm_campaign=single-quote"
-                  rel="noopener"
-                  target="_blank"
-                  ><span class="blue-text">ETHUSD Rates</span></a
-                >
-                by TradingView
+          <a
+            href="https://swellsupersweth.enzyme.community/vault/0x325a0e5c84b4d961b19161956f57ae8ba5bb3c26?currency=ETH"
+            target="_blank"
+            class="ysybtbcc"
+          >
+            <div class="ysybtbccif flex jus">
+              <div class="ysybtbccifl flex flexcol jus">
+                <div class="ysybtbccifltop flex">
+                  <img src="../assets/superSWELL.svg" alt="" />
+                  <div class="ysyertr flex flexcol">
+                    <div class="ysyertry flex">
+                      <div>Swell</div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M10 2H14V6"
+                          stroke="white"
+                          stroke-linecap="square"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M6.66663 9.33333L14 2"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="ysyertrt flex">
+                      <div>Ethereum</div>
+                      <img src="../assets/eth.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="ysybtbcciflbot flex flexcol">
+                  <div class="ysybtbbot flex">
+                    <span>POOL / TOKEN</span>
+                    <img src="../assets/stETH.svg" alt="" />
+                  </div>
+                  <div class="ysybtbbotdtxt">Super swETH</div>
+                </div>
+              </div>
+              <div class="ysybtbccifr flex flexcol jus">
+                <div class="ysybtbbot flex flexcol">
+                  <span>MAX APY</span>
+                  <div class="ysybtbbotdtxt">14.18%</div>
+                </div>
+                <div class="ysybtbbot flex flexcol">
+                  <span>TVL</span>
+                  <div class="ysybtbbotdtxt">$14.43M</div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
         <div class="ysybtbcon">
-          <div class="ysybtbcc">
-            <div class="ysybtbccif" style="width: 100%; height: 126px">
-              <iframe
-                scrolling="no"
-                allowtransparency="true"
-                frameborder="0"
-                src="https://www.tradingview-widget.com/embed-widget/single-quote/?locale=in#%7B%22symbol%22%3A%22BINANCE%3ALTCUSDT%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22bestwpware.com%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22single-quote%22%2C%22page-uri%22%3A%22bestwpware.com%2Fhtml%2Ftf%2Fkaniz-demo%2Fkaniz%2Findex.html%22%7D"
-                title="single quote TradingView widget"
-                lang="en"
-                style="
-                  user-select: none;
-                  box-sizing: border-box;
-                  display: block;
-                  height: calc(100% - 32px);
-                  width: 100%;
-                "
-              ></iframe>
-              <div class="ysybtbccifend flex">
-                <a
-                  href="https://in.tradingview.com/symbols/LTCUSDT/?exchange=BINANCE&amp;utm_source=bestwpware.com&amp;utm_medium=widget_new&amp;utm_campaign=single-quote"
-                  rel="noopener"
-                  target="_blank"
-                  ><span class="blue-text">LTCUSDT Rates</span></a
-                >
-                by TradingView
+          <a
+            href="https://app.sommelier.finance/strategies/Turbo-SWETH/manage"
+            target="_blank"
+            class="ysybtbcc"
+          >
+            <div class="ysybtbccif flex jus">
+              <div class="ysybtbccifl ysybtbcciflw flex flexcol jus">
+                <div class="ysybtbccifltop flex">
+                  <img src="../assets/somm.svg" alt="" />
+                  <div class="ysyertr flex flexcol">
+                    <div class="ysyertry flex">
+                      <div>Sommelier</div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M10 2H14V6"
+                          stroke="white"
+                          stroke-linecap="square"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M6.66663 9.33333L14 2"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="ysyertrt flex">
+                      <div>Ethereum</div>
+                      <img src="../assets/eth.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="ysybtbcciflbot flex flexcol">
+                  <div class="ysybtbbot flex">
+                    <span>POOL / TOKEN</span>
+                    <img src="../assets/eth.svg" alt="" />
+                  </div>
+                  <div class="ysybtbbotdtxt">Turbo swETH</div>
+                </div>
+              </div>
+              <div class="ysybtbccifr flex flexcol jus">
+                <div class="ysybtbbot flex flexcol">
+                  <span>MAX APY</span>
+                  <div class="ysybtbbotdtxt">3.92%</div>
+                </div>
+                <div class="ysybtbbot flex flexcol">
+                  <span>TVL</span>
+                  <div class="ysybtbbotdtxt">$1.53M</div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
         <div class="ysybtbcon">
-          <div class="ysybtbcc">
-            <div class="ysybtbccif" style="width: 100%; height: 126px">
-              <iframe
-                scrolling="no"
-                allowtransparency="true"
-                frameborder="0"
-                src="https://www.tradingview-widget.com/embed-widget/single-quote/?locale=in#%7B%22symbol%22%3A%22BINANCE%3AXRPUSDT%22%2C%22width%22%3A%22100%25%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Atrue%2C%22height%22%3A126%2C%22utm_source%22%3A%22bestwpware.com%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22single-quote%22%2C%22page-uri%22%3A%22bestwpware.com%2Fhtml%2Ftf%2Fkaniz-demo%2Fkaniz%2Findex.html%22%7D"
-                title="single quote TradingView widget"
-                lang="en"
-                style="
-                  user-select: none;
-                  box-sizing: border-box;
-                  display: block;
-                  height: calc(100% - 32px);
-                  width: 100%;
-                "
-              ></iframe>
-              <div class="ysybtbccifend flex">
-                <a
-                  href="https://in.tradingview.com/symbols/XRPUSDT/?exchange=BINANCE&amp;utm_source=bestwpware.com&amp;utm_medium=widget_new&amp;utm_campaign=single-quote"
-                  rel="noopener"
-                  target="_blank"
-                  ><span class="blue-text">XRPUSDT Rates</span></a
-                >
-                by TradingView
+          <a
+            href="https://app.pendle.finance/trade/pools/0x0e1c5509b503358ea1dac119c1d413e28cc4b303/zap/in?chain=ethereum"
+            target="_blank"
+            class="ysybtbcc"
+          >
+            <div class="ysybtbccif flex jus">
+              <div class="ysybtbccifl ysybtbcciflw flex flexcol jus">
+                <div class="ysybtbccifltop flex">
+                  <img src="../assets/pendle.svg" alt="" />
+                  <div class="ysyertr flex flexcol">
+                    <div class="ysyertry flex">
+                      <div>Pendle</div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M10 2H14V6"
+                          stroke="white"
+                          stroke-linecap="square"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M6.66663 9.33333L14 2"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="ysyertrt flex">
+                      <div>Ethereum</div>
+                      <img src="../assets/eth.svg" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="ysybtbcciflbot flex flexcol">
+                  <div class="ysybtbbot flex">
+                    <span>POOL / TOKEN</span>
+                    <img src="../assets/sweth.svg" alt="" />
+                  </div>
+                  <div class="ysybtbbotdtxt">swETH Pendle LP Dec 2024</div>
+                </div>
+              </div>
+              <div class="ysybtbccifr flex flexcol jus">
+                <div class="ysybtbbot flex flexcol">
+                  <span>MAX APY</span>
+                  <div class="ysybtbbotdtxt">26.62%</div>
+                </div>
+                <div class="ysybtbbot flex flexcol">
+                  <span>TVL</span>
+                  <div class="ysybtbbotdtxt">$14.03M</div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -381,36 +529,6 @@
               <p>Beta version of Ico</p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="ysybjiu">
-      <h2>DOCUMENTS</h2>
-      <div class="ysybjbox flex">
-        <div class="ysybjiul">
-          <img src="../assets/whitepaper.png" alt="" />
-        </div>
-        <div class="ysybjiur">
-          <p>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't anything therefore always embarrassing
-            hidden in the middle of text.
-          </p>
-          <p>
-            It uses a dictionary of over 200 Latin words, combined with a
-            handful of model sentence structures, to generate Lorem Ipsum which
-            looks reasonable. The generated Lorem Ipsum is therefore always free
-            from repetition, injected humour, or non-characteristic words etc.
-          </p>
-          <p>
-            It uses a dictionary of over 200 Latin words, combined with a
-            handful of model sentence structures, to generate Lorem Ipsum which
-            looks reasonable. The generated Lorem Ipsum is therefore always free
-            from repetition, injected humour, or non-characteristic words etc.
-          </p>
         </div>
       </div>
     </div>
@@ -699,16 +817,20 @@ export default {
   box-sizing: border-box;
 }
 .ysybtbcc {
+  display: block;
   width: 100%;
-  background: #0a1634;
-  padding: 1rem;
   border-radius: 0.375rem;
-  margin-bottom: 1.875rem;
+  padding: 1.5rem;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
   background: rgb(40, 48, 54);
   box-shadow: 0 8px 32px #0000001a;
+  transition: transform 0.3s ease 0s;
+}
+.ysybtbcc:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
 }
 .ymainhy .ysybtbcc {
   box-shadow: 0 8px 32px #0000001a;
@@ -734,24 +856,7 @@ export default {
 .ysybtbccif {
   position: relative;
   z-index: 10;
-}
-.ysybtbccifend {
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8125rem;
-  line-height: 2rem;
-  text-align: center;
-  color: #6e757c;
-}
-.ysybtbccifend > a {
-  font-size: 0.8125rem;
-  line-height: 2rem;
-  text-align: center;
-  color: #1e53e5;
-  margin-right: 0.5rem;
-}
-.ysybtbccifend > a:hover {
-  color: #2962ff;
+  height: 8.95rem;
 }
 .ysybthree {
   width: 64.986%;
@@ -771,6 +876,91 @@ export default {
 }
 .ymainhy .ysybthree > h2 {
   color: #000;
+}
+.ysybtbccifl {
+  gap: 1.5rem;
+  width: 70%;
+}
+.ysybtbcciflw {
+  width: 72.5%;
+}
+.ysybtbccifltop {
+  align-items: center;
+  column-gap: 0.625rem;
+}
+.ysybtbccifltop > img {
+  width: 2.875rem;
+  height: 2.875rem;
+}
+.ysybtbbot {
+  align-items: center;
+  column-gap: 0.25rem;
+}
+.ysybtbbot > span {
+  font-family: "Interl";
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 1.2px;
+  color: white;
+}
+.ymainhy .ysybtbbot > span {
+  color: #000;
+}
+.ymainhy .ysyertry svg path {
+  stroke: #000;
+}
+.ysybtbbotdtxt {
+  font-family: "Poppins";
+  font-size: 16px;
+  line-height: 160%;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: white;
+}
+.ymainhy .ysybtbbotdtxt {
+  color: #000;
+}
+.ysybtbccifr {
+  gap: 1.5rem;
+}
+.ysybtbbot > img {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+.ysyertr {
+  gap: 0.125rem;
+}
+.ysyertry {
+  align-items: center;
+  gap: 0.25rem;
+}
+.ysyertrt {
+  align-items: center;
+  gap: 0.25rem;
+}
+.ysyertry > div {
+  font-family: "Poppins";
+  font-size: 20px;
+  line-height: 130%;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: white;
+}
+.ymainhy .ysyertry > div {
+  color: #000;
+}
+.ysyertrt > div {
+  font-family: "Interl";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #6e757c;
+}
+.ysyertrt > img {
+  width: 1rem;
+  height: 1rem;
 }
 .ysybthrb {
   width: 100%;
@@ -1188,48 +1378,6 @@ export default {
   color: #6e757c;
   text-align: center;
 }
-.ysybjiu {
-  width: 64.986%;
-  padding: 6.25rem 0.75rem 5rem;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-.ysybjiu > h2 {
-  font-size: 48px;
-  line-height: 56px;
-  font-weight: 600;
-  font-family: "Poppins";
-  margin-bottom: 1.25rem;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 3.75rem;
-}
-.ymainhy .ysybjiu > h2 {
-  color: #000;
-}
-.ysybjiul {
-  width: 41.66666667%;
-  padding: 0 0.75rem;
-  box-sizing: border-box;
-}
-.ysybjiul > img {
-  width: 28.125rem;
-  display: block;
-  margin: 0 auto;
-}
-.ysybjiur {
-  width: 58.33333333%;
-  padding: 0 0.75rem;
-  box-sizing: border-box;
-}
-.ysybjiur > p {
-  font-family: "Interl";
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.2;
-  color: #6e757c;
-  margin-bottom: 1.875rem;
-}
 .ysybten {
   width: 64.986%;
   padding: 6.25rem 0.75rem 5rem;
@@ -1442,7 +1590,7 @@ export default {
 }
 @media (max-width: 1250px) {
   .ysybone {
-    width: 100%;
+    width: 100% !important;
     padding: 0;
     display: block;
   }
@@ -1471,7 +1619,7 @@ export default {
     padding-top: 2rem;
   }
   .ysybtwo {
-    width: 100%;
+    width: 100% !important;
     padding: 3rem 0.5rem;
     box-sizing: border-box;
   }
@@ -1482,12 +1630,13 @@ export default {
   }
   .ysybtbcon {
     width: 100%;
+    margin-bottom: 1.5rem;
   }
   .ysybtbox {
     display: block;
   }
   .ysybthree {
-    width: 100%;
+    width: 100% !important;
     padding: 0;
   }
   .ysybthree > h2 {
@@ -1517,7 +1666,7 @@ export default {
     margin-top: 4rem;
   }
   .ysybfour {
-    width: 100%;
+    width: 100% !important;
   }
   .ysybfour > h2 {
     font-size: 2.5rem;
@@ -1532,7 +1681,7 @@ export default {
     margin-bottom: 2rem;
   }
   .ysybfive {
-    width: 100%;
+    width: 100% !important;
     padding: 3rem 0 2rem;
   }
   .ysybfive > h2 {
@@ -1566,16 +1715,19 @@ export default {
   .ysybfivebr {
     width: 100%;
   }
-  .ysybfivebr > img {
+  .ysybfivebox .ysybfivebr > img {
     margin-top: 4rem;
     width: 90% !important;
   }
+  .ysybsix .ysybfivebr > img {
+    width: 20rem !important;
+  }
   .ysybsix {
-    width: 100%;
+    width: 100% !important;
     padding: 0;
   }
   .ysybqi {
-    width: 100%;
+    width: 100% !important;
     padding: 3rem 0 2rem;
   }
   .ysybqi > h2 {
@@ -1605,7 +1757,7 @@ export default {
     margin-top: 4rem;
   }
   .ysybba {
-    width: 100%;
+    width: 100% !important;
     padding: 3rem 0.75rem 2rem;
   }
   .ysybba > h2 {
@@ -1613,36 +1765,8 @@ export default {
     line-height: 3rem;
     text-align: center;
   }
-  .ysybjiu {
-    width: 100%;
-    padding: 3rem 0 2rem;
-  }
-  .ysybjiu > h2 {
-    font-size: 2.5rem;
-    line-height: 3rem;
-    text-align: center;
-  }
-  .ysybjbox {
-    display: block;
-  }
-  .ysybjiul {
-    width: 100%;
-    margin-bottom: 3rem;
-  }
-  .ysybjiul > img {
-    width: 85%;
-  }
-  .ysybjiur {
-    width: 100%;
-  }
-  .ysybjiur > p {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    text-align: center;
-    margin-bottom: 1.25rem;
-  }
   .ysybten {
-    width: 100%;
+    width: 100% !important;
     padding: 3rem 0 2rem;
   }
   .ysybten > h2 {
@@ -1668,16 +1792,55 @@ export default {
   .owl-itemf {
     width: 6.875rem !important ;
   }
-}
-@media (max-width: 1800px) {
-  .ysybjiul > img {
-    width: 20rem;
+  .ysybtbccif {
+    height: 6.5rem !important;
   }
+  .ysybtbccifltop > img {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+  }
+}
+@media (max-width: 1900px) {
   .ysybjbox {
     align-items: center;
   }
   .ysybfiveboxlis > p {
     width: 80%;
+  }
+  .ysybtbcc {
+    padding: 1rem;
+  }
+  .ysybtbcciflw {
+    width: 65%;
+  }
+  .ysybtbccif {
+    height: 7.95rem;
+  }
+  .ysybtbccifltop > img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .ysybtbccifltop {
+    column-gap: 0.25rem;
+  }
+  .ysyertry > div {
+    font-size: 0.875rem;
+  }
+  .ysybtbbotdtxt {
+    font-size: 0.875rem;
+  }
+  .ysyertry > svg {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+  .ysybtbccifr {
+    width: 30%;
+  }
+  .ysybtbbot > span {
+    font-size: 0.5rem;
+  }
+  .ysyertrt > div {
+    font-size: 0.75rem;
   }
   .ysybone {
     align-items: center;
@@ -1705,9 +1868,6 @@ export default {
     width: 71%;
   }
   .ysybba {
-    width: 71%;
-  }
-  .ysybjiu {
     width: 71%;
   }
   .ysybten {

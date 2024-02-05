@@ -3597,6 +3597,8 @@ let fwc = () => {
   font-family: "Poppins";
   font-weight: 600;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .ymainhy .yaribot > h4 {
@@ -3607,6 +3609,8 @@ let fwc = () => {
   justify-content: center;
   column-gap: 1rem;
   margin-top: 4.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .yariboter button {

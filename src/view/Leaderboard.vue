@@ -238,6 +238,12 @@
       </div>
     </div>
   </div>
+  <div :class="iscopy == '1' ? 'yaritcbq yaritcbqtop' : 'yaritcbq'">
+    <div class="yaritcbqc flex">
+      <span>✓</span>
+      <p>Invite Link copied successfully</p>
+    </div>
+  </div>
   <img style="display: none" src="../assets/c1-df62b591.png" alt="" />
   <img style="display: none" src="../assets/c2-62e2c101.png" alt="" />
   <img style="display: none" src="../assets/c3-e9b17bd8.png" alt="" />
@@ -293,6 +299,7 @@ let huanlist = ref([
 let valqh = ref(0);
 let reglist = ref([]);
 let copyurl = ref("");
+let iscopy = ref("0");
 let invitationcode = ref([]);
 const protocol = window.location.protocol;
 const hostname = window.location.hostname;
@@ -336,6 +343,10 @@ let linetxt = () => {
 };
 let copyurlcli = () => {
   navigator.clipboard.writeText(`${copyurl.value}${invitationcode.value[0]}`);
+  iscopy.value = "1";
+  setTimeout(() => {
+    iscopy.value = "0";
+  }, 1000);
 };
 onMounted(() => {
   api
@@ -399,6 +410,40 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.yaritcbq {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.75s;
+  background: white;
+  z-index: 100;
+}
+.yaritcbqtop {
+  top: 3rem;
+}
+.yaritcbqc {
+  column-gap: 0.5rem;
+  align-items: center;
+}
+.yaritcbqc > span {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: greenyellow;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.yaritcbqc > p {
+  font-family: "Interl";
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  color: rgba(0, 0, 0, 0.75);
+}
 .yward {
   width: 100%;
   height: calc(100vh - 7.25rem);

@@ -696,16 +696,37 @@ let ongb = () => {
   justify-content: center;
   align-items: center;
   padding: 1rem 1.5rem;
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  background: rgb(255 110 48);
+  position: relative;
+  overflow: hidden;
+  background: rgb(40, 48, 54);
+  box-shadow: 0 8px 32px #0000001a;
   border-radius: 1rem;
   font-family: "Poppins";
   font-size: 1rem;
   line-height: 1.5rem;
   color: rgb(247 247 248);
 }
-.yheadslau:hover > a {
-  background: rgb(252 75 0);
+.ymainhy .yheadslau > a {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
+  color: #000;
+}
+.yheadslau > a::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
 }
 .yddhshowy {
   display: flex !important;
