@@ -692,7 +692,7 @@ export default {
 }
 .ysybone {
   width: 64.986%;
-  padding: 0 0.75rem;
+  padding: 0 0.75rem 5rem;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -860,7 +860,7 @@ export default {
 }
 .ysybthree {
   width: 64.986%;
-  padding: 0 0.75rem;
+  padding: 6.25rem 0.75rem 5rem;
   margin: 0 auto;
   box-sizing: border-box;
 }

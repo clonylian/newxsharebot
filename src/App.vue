@@ -5,11 +5,11 @@
         <div class="yheadbox flex jus">
           <div
             :class="
-              $route.path == '/Rewards'
+              $route.path == '/rewards'
                 ? 'Rewardsactive yheady flex'
-                : $route.path == '/Airdrop'
+                : $route.path == '/airdrop'
                 ? 'Airdropactive yheady flex'
-                : $route.path == '/Stake'
+                : $route.path == '/stake'
                 ? 'Stakeacive yheady flex'
                 : 'yheady flex'
             "
@@ -73,7 +73,7 @@
                   ? 'yleadanone'
                   : ''
               "
-              to="/Rewards"
+              to="/rewards"
             >
               {{ $store.state.txt.tabtwo }}</router-link
             >
@@ -86,7 +86,7 @@
                   ? 'yleadanone'
                   : ''
               "
-              to="/Airdrop"
+              to="/airdrop"
             >
               {{ $store.state.txt.tabAirdrop }}</router-link
             >
@@ -99,7 +99,7 @@
                   ? 'yleadanone'
                   : ''
               "
-              to="/Stake"
+              to="/stake"
             >
               {{ $store.state.txt.tabStake }}</router-link
             >
@@ -169,7 +169,7 @@
               "
             >
               <router-link
-                :to="xhladdress == '' ? '/launch' : '/Airdrop'"
+                :to="xhladdress == '' ? '/launch' : '/airdrop'"
                 target="_blank"
               >
                 Launch app</router-link
@@ -242,7 +242,7 @@
               </div>
               <div class="twxnametc">
                 <div class="twxnametcf flexcol">
-                  <router-link to="/Airdrop">AIRDROP</router-link>
+                  <router-link to="/airdrop">AIRDROP</router-link>
                   <span @click="logout()">LOGOUT</span>
                 </div>
                 <div class="twxnametcjt"></div>
@@ -281,7 +281,7 @@
     >
       <div class="ydddhl">
         <router-link to="/">{{ $store.state.txt.tabzero }}</router-link>
-        <router-link to="/Rewards">{{ $store.state.txt.tabtwo }}</router-link>
+        <router-link to="/rewards">{{ $store.state.txt.tabtwo }}</router-link>
         <router-link to="/Ido">{{
           $store.state.txt.bxtttabthreetop
         }}</router-link>
@@ -291,7 +291,7 @@
 
   <div :class="dhisshow == 0 ? 'dhshow flex' : 'dhshow flex dhhidd'">
     <div class="anidh flex">
-      <img src="./assets/logos.png" alt="" />
+      <img src="./assets/newblogo.png" alt="" />
       <span>Blex.Finance</span>
     </div>
   </div>
@@ -904,9 +904,10 @@ let ongb = () => {
 
 .anidh {
   align-items: center;
+  column-gap: 1rem;
 }
 .anidh > img {
-  width: 8.5rem;
+  width: 6rem;
   height: auto;
 }
 .anidh > span {

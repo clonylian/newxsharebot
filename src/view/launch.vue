@@ -220,7 +220,7 @@ let routz = () => {
       .then((res) => {
         console.log(res);
         if (res.data.status == "success") {
-          router.push("/Airdrop");
+          router.push("/airdrop");
           logari.value = "1";
           localStorage.setItem("istrue", "1");
           logTlgConnect("");
@@ -450,7 +450,7 @@ let lgetuser = () => {
     localStorage.setItem("istrue", "1");
     bus.$emit("Twname", "dasdasd");
     localStorage.setItem("Twname", "dasdasd");
-    router.push("/Airdrop");
+    router.push("/airdrop");
   } else {
     isnoneroutc("1");
     inverr.value = "user error";

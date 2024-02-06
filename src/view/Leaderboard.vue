@@ -262,10 +262,10 @@ let points = ref("—");
 let stakeCommissions = ref("—");
 let invitepoints = ref("—");
 let textvalue = ref(
-  "@Owlto_Finance is my favorite bridge. It is 'safe, fast, cheap, and easy-to-use'.%0a%0a"
+  "@Blex_Finance is the Early protocol launching modular liquid staking for EigenLayer.%0a%0a"
 );
 let textver = ref(
-  "By bridging via %20%23Owlto, you can earn points and have the opportunity to receive enticing commissions. Check it out and give a trial!%0a%0a"
+  "You can earn points and have the opportunity to receive enticing commissions. Check it out and give a trial!%0a%0a"
 );
 let textsan = ref("👉 https://owlto.finance/?ref=null");
 let leadlist = ref([
@@ -309,7 +309,7 @@ let twittertxt = () => {
     "https://twitter.com/intent/tweet?&text=\n" +
       textvalue.value +
       textver.value +
-      textsan.value
+      `👉 ${protocol}//${hostname}/%20%23/launch?ref=${invitationcode.value[0]}`
   );
 };
 let ttxt = () => {
@@ -317,7 +317,7 @@ let ttxt = () => {
     "https://t.me/share?url=%20&text=" +
       textvalue.value +
       textver.value +
-      textsan.value
+      `👉 ${protocol}//${hostname}/%20%23/launch?ref=${invitationcode.value[0]}`
   );
 };
 let apptxt = () => {
@@ -325,7 +325,7 @@ let apptxt = () => {
     "https://api.whatsapp.com/send?text=" +
       textvalue.value +
       textver.value +
-      textsan.value
+      `👉 ${protocol}//${hostname}/%20%23/launch?ref=${invitationcode.value[0]}`
   );
 };
 let facetxt = () => {
@@ -338,7 +338,7 @@ let linetxt = () => {
     "https://line.naver.jp/R/msg/text/?" +
       textvalue.value +
       textver.value +
-      textsan.value
+      `👉 ${protocol}//${hostname}/%20%23/launch?ref=${invitationcode.value[0]}`
   );
 };
 let copyurlcli = () => {
@@ -403,6 +403,10 @@ onMounted(() => {
         }
       });
   } else {
+    Commissions.value = "—";
+    points.value = "—";
+    stakeCommissions.value = "—";
+    invitepoints.value = "—";
     copyurl.value = `${protocol}//${hostname}/#/launch?ref=`;
     invitationcode.value[0] = "FFBSO";
   }
@@ -536,8 +540,8 @@ onMounted(() => {
 }
 .moneytxt > div {
   font-family: "Poppins";
-  font-size: 1.5rem;
-  line-height: 1.25rem;
+  font-size: 1rem;
+  line-height: 1rem;
   color: white;
   text-align: left;
 }

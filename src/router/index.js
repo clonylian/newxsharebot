@@ -6,13 +6,13 @@ const routes = [
     component: () => import("../view/home.vue"),
   },
   {
-    path: "/Stake",
-    name: "Stake",
+    path: "/stake",
+    name: "stake",
     component: () => import("../view/stake.vue"),
   },
   {
-    path: "/Airdrop",
-    name: "Airdrop",
+    path: "/airdrop",
+    name: "airdrop",
     component: () => import("../view/airdrop.vue"),
   },
   {
@@ -21,8 +21,8 @@ const routes = [
     component: () => import("../view/ido.vue"),
   },
   {
-    path: "/Rewards",
-    name: "Rewards",
+    path: "/rewards",
+    name: "rewards",
     component: () => import("../view/Leaderboard.vue"),
   },
   {
