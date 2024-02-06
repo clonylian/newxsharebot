@@ -9,7 +9,7 @@
       <div :class="yeslog == '0' ? 'yscbl flex' : 'yscblnone'">
         <div class="yscblcon flex flexcol">
           <div class="yscbltop flex">
-            <img src="../assets/newblogo.png" alt="" />
+            <img src="../assets/slogos.png" alt="" />
             <h1>SuperVerse DAO Staking</h1>
           </div>
           <div class="yscbltxt">
@@ -25,7 +25,7 @@
             <div class="yscblkf yscblkfb flex flexcol">
               <p>If You Staked</p>
               <div class="yscblkje flex">
-                <img class="logoimg" src="../assets/newblogo.png" alt="" />
+                <img class="logoimg" src="../assets/slogos.png" alt="" />
                 <span>1,761.16</span>
               </div>
               <div class="yscblkd">$1,000</div>
@@ -65,7 +65,7 @@
       <div :class="yeslog == '1' ? 'yscbl flex' : 'yscblnone'">
         <div class="yscblcon flex flexcol">
           <div class="yscbltop flex">
-            <img src="../assets/newblogo.png" alt="" />
+            <img src="../assets/slogos.png" alt="" />
             <h1>SuperVerse DAO Staking</h1>
           </div>
           <div class="yscbltxt">
@@ -86,11 +86,9 @@
               <div class="yscblkf flex flexcol">
                 <p>Your Staked SUPER</p>
                 <div class="yscblkje flex">
-                  <img
-                    class="logoimg"
-                    src="../assets/newblogo.png"
-                    alt=""
-                  /><span>0.00</span>
+                  <img class="logoimg" src="../assets/slogos.png" alt="" /><span
+                    >0.00</span
+                  >
                 </div>
                 <div class="yscblkd">$0.00</div>
               </div>
@@ -732,11 +730,8 @@ let changeeth = (str) => {
   column-gap: 0.5rem;
 }
 .yscbltop > img {
-  width: 2.5rem;
+  width: 3.5rem;
   height: auto;
-}
-.ymainhy .yscbltop > img {
-  content: url("../assets/newblogob.png");
 }
 .yscbltop > h1 {
   font-family: "Poppins";
@@ -833,8 +828,9 @@ let changeeth = (str) => {
   justify-content: center;
   column-gap: 0.25rem;
 }
-.ymainhy .yscblkje > .logoimg {
-  content: url("../assets/newblogob.png");
+.yscblkje > .logoimg {
+  width: 2.5rem;
+  height: auto;
 }
 .yscblkje > img {
   width: 2rem;

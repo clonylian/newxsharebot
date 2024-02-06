@@ -1655,6 +1655,8 @@
   padding: 8.3rem 0 5rem;
   box-sizing: border-box;
   background: rgb(30, 37, 43);
+  position: relative;
+  z-index: 1;
 }
 .ymainhy .yterms {
   background: white;
@@ -1742,7 +1744,7 @@
 }
 @media (max-width: 1250px) {
   .yterms {
-    padding: 8.5rem 0 3rem;
+    padding: 10rem 0 3rem;
   }
   .ytermbox {
     width: 95%;

@@ -465,11 +465,11 @@ let logwith = () => {
 </script>
 
 <style scoped>
-.ymainhy .yhome {
+/* .ymainhy .yhome {
   background: white;
-  /* background: url("../assets/homebgw.png"); */
+  background: url("../assets/homebgw.png");
   overflow: auto;
-}
+} */
 .yerror {
   width: 100%;
   height: 100vh;
@@ -575,7 +575,8 @@ let logwith = () => {
   height: calc(100vh - 7.25rem);
   padding: 8.3rem 0 0;
   box-sizing: border-box;
-  background: rgb(30, 37, 43);
+  position: relative;
+  z-index: 1;
 }
 .yhomey {
   width: 63.5%;

@@ -363,7 +363,7 @@
         </div>
         <div class="yarijhbttthr flex">
           <div class="yarijhbttthrimg">
-            <img src="../assets/blast-color.svg" alt="" />
+            <img src="../assets/slogos.png" alt="" />
           </div>
           <span>Blast L2</span>
         </div>
