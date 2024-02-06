@@ -649,6 +649,9 @@ onMounted(() => {
   font-size: 0.875rem;
   line-height: 1.125rem;
   color: rgba(0, 0, 0, 0.75);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .ywardbfcrbctop > button {
   height: 2.5rem;
@@ -963,6 +966,25 @@ onMounted(() => {
   .points {
     width: 2rem;
     height: 2rem;
+  }
+  .moneytxt > span {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .ywardbfl {
+    column-gap: 0.25rem;
+  }
+  .ywardbfly {
+    width: 28%;
+  }
+  .ywardbflt {
+    width: 20.5%;
+  }
+  .money {
+    margin-right: 0.25rem;
+  }
+  .points {
+    margin-right: 0.25rem;
   }
 }
 </style>
