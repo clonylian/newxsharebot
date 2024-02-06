@@ -1541,8 +1541,12 @@ let ongb = () => {
     display: none;
   }
   .yheady > a > svg {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 18rem;
+    height: 14rem;
+    margin-top: -5.5rem;
+  }
+  .yheady > a:nth-child(1) {
+    width: 8rem;
   }
   .yht {
     padding: 0.5rem 1rem;
