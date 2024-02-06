@@ -77,18 +77,48 @@
             <div class="link-box">
               <div @click="twittertxt()" class="link-item">
                 <img src="../assets/twitter-66225175.png" alt="link" />
+                <div class="linkitembtxt">
+                  <div class="linkitembox">
+                    <p>Share to Twitter</p>
+                  </div>
+                  <div class="linkitemjt"></div>
+                </div>
               </div>
               <div @click="ttxt()" class="link-item">
                 <img src="../assets/telegram-96270d36.jpg" alt="link" />
+                <div class="linkitembtxt linkitembtxtb">
+                  <div class="linkitembox">
+                    <p>Share to Telegram</p>
+                  </div>
+                  <div class="linkitemjt"></div>
+                </div>
               </div>
               <div @click="apptxt()" class="link-item">
                 <img src="../assets/whatsapp-78286f95.jpg" alt="link" />
+                <div class="linkitembtxt linkitembtxtb">
+                  <div class="linkitembox">
+                    <p>Share to Whatsapp</p>
+                  </div>
+                  <div class="linkitemjt"></div>
+                </div>
               </div>
               <div @click="facetxt()" class="link-item">
                 <img src="../assets/facebook-e3fcdba3.jpg" alt="link" />
+                <div class="linkitembtxt linkitembtxtb">
+                  <div class="linkitembox">
+                    <p>Share to Facebook</p>
+                  </div>
+                  <div class="linkitemjt"></div>
+                </div>
               </div>
               <div @click="linetxt()" class="link-item">
                 <img src="../assets/line-f9910d12.png" alt="link" />
+                <div class="linkitembtxt linkitembtxtw">
+                  <div class="linkitembox">
+                    <p>Share to Line</p>
+                  </div>
+                  <div class="linkitemjt"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -237,6 +267,103 @@
         </div>
       </div>
     </div>
+    <div class="ywardru">
+      <h2 class="ywardbfctit flex">
+        <img class="timeimg" src="../assets/time.png" alt="" />
+        <span>Rules</span>
+      </h2>
+      <div class="ywardrub">
+        <div class="ywardrublib">
+          <div
+            :class="tabrus == '1' ? 'ywardrublis ywardrublish' : 'ywardrublis'"
+          >
+            <div @click="changetab('1')" class="ywardrublisy flex jus">
+              <p>Referral Program Introduction</p>
+              <img
+                src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"
+                alt=""
+              />
+            </div>
+            <div class="ywardrublist">
+              <div class="ywardrublisttxt">
+                The "Owlto Referral Reward Program Phase2" uses a dual reward
+                model of Commissions and Bonus Points. When a referrer
+                successfully invites a referee to complete a bridging
+                transaction via Owlto, the referrer will receive Commissions
+                (provided by the official partner Maker) and Bonus Points. In
+                addition, both the referrer and referee can receive point
+                rewards after completing a bridging transaction.
+              </div>
+            </div>
+          </div>
+          <div
+            :class="tabrus == '2' ? 'ywardrublis ywardrublish' : 'ywardrublis'"
+          >
+            <div @click="changetab('2')" class="ywardrublisy flex jus">
+              <p>Referrer and referee relationship confirmation</p>
+              <img
+                src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"
+                alt=""
+              />
+            </div>
+            <div class="ywardrublist">
+              <div class="ywardrublisttxt">
+                In order to avoid the loss of the relationship between the
+                referrer and the referee during the process of promotion or
+                visiting the website, the referee will immediately receive a
+                wallet signature request when connected to wallet after clicking
+                on the referral link of the referrer. This signature request is
+                only limited to confirming the referral relationship and there
+                will be no other permission requests. Please feel free to
+                confirm.
+              </div>
+            </div>
+          </div>
+          <div
+            :class="tabrus == '3' ? 'ywardrublis ywardrublish' : 'ywardrublis'"
+          >
+            <div @click="changetab('3')" class="ywardrublisy flex jus">
+              <p>Referral Rewards</p>
+              <img
+                src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"
+                alt=""
+              />
+            </div>
+            <div class="ywardrublist">
+              <div class="ywardrublisttxt">
+                Maker will provide the referrer with a scalable proportion of
+                the profits generated from every bridging transaction initiated
+                by the referee. The referrer's commission percentage increases
+                as the referee engages in more bridging transactions, resulting
+                in a higher commission amount. Please note that this rule
+                applies exclusively to transactions generated after December 6,
+                2023. confirm.
+              </div>
+            </div>
+          </div>
+          <div
+            :class="tabrus == '4' ? 'ywardrublis ywardrublish' : 'ywardrublis'"
+          >
+            <div @click="changetab('4')" class="ywardrublisy flex jus">
+              <p>Bridge Rewards</p>
+              <img
+                src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"
+                alt=""
+              />
+            </div>
+            <div class="ywardrublist">
+              <div class="ywardrublisttxt">
+                That is, the point reward = 100 * boost.It should be noted that
+                the points for Phase2 will be calculated according to the new
+                rules, which means they will not be based on the points
+                accumulated in Phase1. Your total points = The points of Phase1
+                + The points of Phase2.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div :class="iscopy == '1' ? 'yaritcbq yaritcbqtop' : 'yaritcbq'">
     <div class="yaritcbqc flex">
@@ -297,6 +424,7 @@ let huanlist = ref([
   },
 ]);
 let valqh = ref(0);
+let tabrus = ref("0");
 let reglist = ref([]);
 let copyurl = ref("");
 let iscopy = ref("0");
@@ -319,6 +447,13 @@ let ttxt = () => {
       textver.value +
       `👉 ${protocol}//${hostname}/%23/launch?ref=${invitationcode.value[0]}`
   );
+};
+let changetab = (str) => {
+  if (str == tabrus.value) {
+    tabrus.value = "0";
+  } else {
+    tabrus.value = str;
+  }
 };
 let apptxt = () => {
   window.open(
@@ -450,7 +585,7 @@ onMounted(() => {
 }
 .yward {
   width: 100%;
-  height: calc(100vh - 7.25rem);
+  height: auto;
   padding: 10rem 0 0;
   background: rgb(30, 37, 43);
   box-sizing: border-box;
@@ -588,7 +723,7 @@ onMounted(() => {
 }
 .ywardbfcrbox {
   width: 100%;
-  padding: 1.2rem 1.5rem;
+  padding: 1.875rem 1.75rem;
   position: relative;
   border-radius: 1.5rem;
   overflow: hidden;
@@ -689,15 +824,86 @@ onMounted(() => {
   display: flex;
   gap: 1.5rem;
   align-items: center;
-  padding: 0.5rem 0 0 0.5rem;
+  padding: 0.5rem 0 1.25rem 0.5rem;
   box-sizing: border-box;
   position: relative;
   z-index: 10;
 }
 .link-item {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
+  position: relative;
+}
+.link-item:hover > .linkitembtxt {
+  display: block;
+}
+.linkitembtxt {
+  width: 305%;
+  display: none;
+  position: absolute;
+  top: 3.125rem;
+  left: -80%;
+}
+.linkitembox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  box-sizing: border-box;
+  background: rgb(40, 48, 54);
+  box-shadow: 0 8px 32px #0000001a;
+  border-radius: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.ymainhy .linkitembox {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
+}
+.linkitembox::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
+}
+.linkitembox > p {
+  font-family: "Interl";
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: white;
+}
+.ymainhy .linkitembox > p {
+  color: #000;
+}
+.linkitemjt {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -5px;
+  left: 45%;
+  transform: translate(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid rgb(82 76 103);
+}
+
+.ymainhy .linkitemjt {
+  border-bottom-color: rgb(225 212 236);
+}
+.linkitembtxtw > .linkitemjt {
+  left: 50%;
 }
 .link-item > img {
   width: 100%;
@@ -891,10 +1097,179 @@ onMounted(() => {
   width: 1.8125rem;
   height: 2.125rem;
 }
+.linkitembtxtb {
+  width: 322.5%;
+}
+.ywardru {
+  width: 60%;
+  margin: 3rem auto 2.5rem;
+}
+.ymainhy .timeimg {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAG1BMVEUAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD4RAlZAAAACXRSTlMA/0Cff2Ag37/Yg/2YAAACLUlEQVR4nO2aO0/DQAyAS4GIkfBKR4qExAhCgpVKCFZAsEMphZGXYAWEBD8bO2ovbeO7s+8iBI2/LTj3NSE5x/GloSiKovwyfXe4K/V10mdXuO0Ol5lL0/TEHm5CeFskvIIR9/bwDIQfRcJTGLFkD7chvCISdmDEqvv3llVIkWxeDHjHEcONMjsQbpmtS5vvGnYLIdujfXgzBxoPSCGeZqix2gMEqEPE2RYMNQ/xygXTIoQPMULqnxjjo4SY4tLPwwH5jT3cKIPh1nDjGEeu00KTNBlTz6SvWRVahWt2IT4CzO+xhDhi0S7EWWUeOSzhAmzQKSRnHsJvImHScT7VIFxMNpawkZw5fBAeSdM8oQAVqlCFKlShClVYe2Hv69VN8X7HEuZbTjLT42AJsUvh4UUkxJrXg6zgxJLYg6zGxpLYg6zGZryampqeJcQi2oNR8O7DO48u+zC7TsvUU2EthH03Ix05nnDLN/OKtjNLyGiEmdfpqjK2aXdVlbFl+fDvZ+xbv9B09nlNDG/zLxNm7JtvD0UTZmrmsgprICyWVnLK+0uFE+kmsy7CCDqcY5gCOFBYSl/U6kFUxiaXYKIydtWn7Fh0C7sojoVSXsaeWPEq3ptC78Pm+dgCypHdNzVzWYUqVKEK/4swwT8/7QawjyPLlUUuDIc48ogPMejCgvE2Zod6bEd9iUEtbjPaXXbI+jHinOnarPLvbRq9wAtt88G92N0IwaZTFEVRquQHU+NMFDCokLEAAAAASUVORK5CYII=");
+}
+.ywardrub {
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  background: rgb(40, 48, 54);
+  box-shadow: 0 8px 32px #0000001a;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.ymainhy .ywardrub {
+  box-shadow: 0 8px 32px #0000001a;
+  background: #f7f7f8;
+}
+.ywardrub::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  right: -194px;
+  bottom: -181px;
+  width: 390px;
+  height: 390px;
+  filter: blur(160px);
+  opacity: 0.6;
+}
+.ywardrub::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135.15deg,
+    #ae80dc 1.17%,
+    #dc83c3 31.88%,
+    #8084dc 65.46%
+  );
+  top: -280px;
+  left: -280px;
+  width: 560px;
+  height: 560px;
+  opacity: 0.6;
+  filter: blur(278.261px);
+}
+.ywardrublib {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.ywardrublis {
+  width: 100%;
+  height: auto;
+  padding: 0 1rem;
+  position: relative;
+  box-sizing: border-box;
+}
+.ywardrublis::after {
+  width: 100%;
+  border-bottom: 1px solid rgb(179 187 202);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.ywardrublisy {
+  align-items: center;
+  padding: 0.625rem 0;
+  cursor: pointer;
+}
+.ywardrublisy > p {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 600;
+  font-family: "Poppins";
+  color: white;
+}
+.ymainhy .ywardrublisy > p {
+  color: #000;
+}
+.ywardrublisy > img {
+  width: 1rem;
+  height: auto;
+  transform: rotate(0deg);
+  transition: all 0.3s;
+}
+.ywardrublist {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.ywardrublish .ywardrublist {
+  height: 5.5rem;
+}
+.ywardrublish .ywardrublisy > img {
+  transform: rotate(180deg);
+}
+.ywardrublisttxt {
+  width: 100%;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-family: "Interl";
+  color: white;
+}
+.linkitembtxtw {
+  width: 260%;
+}
+.ymainhy .ywardrublisttxt {
+  color: #000;
+}
+@media (max-width: 1380px) {
+  .ywardrublish .ywardrublist {
+    height: 6.5rem;
+  }
+}
 @media (max-width: 1250px) {
   .yward {
     height: auto;
     padding-top: 10rem;
+  }
+  .ywardrublisy > p {
+    font-size: 0.85rem;
+  }
+  .ywardrub {
+    padding: 0.75rem;
+  }
+  .ywardrublib .ywardrublish:nth-child(1) .ywardrublist {
+    height: 10.5rem;
+  }
+  .ywardrublib .ywardrublish:nth-child(2) .ywardrublist {
+    height: 11.5rem;
+  }
+  .ywardrublib .ywardrublish:nth-child(3) .ywardrublist {
+    height: 10.5rem;
+  }
+  .ywardrublib .ywardrublish:nth-child(4) .ywardrublist {
+    height: 7.5rem;
+  }
+  .ywardrublis {
+    padding: 0 0.625rem;
+  }
+  .ywardrublisttxt {
+    font-size: 0.75rem;
+    line-height: 1rme;
+  }
+  .ywardru {
+    width: 95%;
+  }
+  .linkitembtxtw {
+    width: 271% !important;
+  }
+  .linkitembtxt {
+    width: 330%;
+  }
+  .linkitembtxtb {
+    width: 342.5%;
+  }
+  .linkitemjt {
+    left: 40%;
   }
   .ywardbfcon {
     margin-bottom: 1.5rem;
@@ -917,19 +1292,16 @@ onMounted(() => {
     text-align: center;
   }
   .ywardbfcrbctop > p {
-    width: 70%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    width: 70% !important;
   }
   .ywardbfl {
     flex-wrap: wrap;
   }
   .ywardbfly {
-    width: 50%;
+    width: 50% !important;
   }
   .ywardbflt {
-    width: 45%;
+    width: 45% !important;
   }
   .ywardlea {
     width: 95%;
@@ -959,6 +1331,9 @@ onMounted(() => {
   }
 }
 @media (max-width: 1950px) {
+  .ywardbfcrbctop > p {
+    width: 75%;
+  }
   .money {
     width: 2rem;
     height: 2rem;
@@ -985,6 +1360,10 @@ onMounted(() => {
   }
   .points {
     margin-right: 0.25rem;
+  }
+  .ywardbfcrbc > p {
+    line-height: 1.5rem;
+    margin: 0.75rem 0 0.5rem;
   }
 }
 </style>
