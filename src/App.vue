@@ -188,12 +188,11 @@
           </div>
         </div>
       </div>
-      <div class="yht flex">
+      <router-link to="/launch" class="yht flex">
         <p>
           🌟 stETH and wBETH deposits go live on February 5th, 2024, 20:00 UTC.
-          200 ezPoints Boost per 1 wBETH deposit. ETH deposits are never capped!
         </p>
-      </div>
+      </router-link>
     </div>
     <div id="particles-js">
       <canvas
@@ -1339,8 +1338,8 @@ let ongb = () => {
   font-family: "Interl";
   width: 100%;
   background: rgb(23 29 35);
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: 1rem;
+  line-height: 1.2;
   padding: 0.5rem 0;
   justify-content: center;
   align-items: center;
