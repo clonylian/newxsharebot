@@ -309,7 +309,7 @@ let twittertxt = () => {
     "https://twitter.com/intent/tweet?&text=\n" +
       textvalue.value +
       textver.value +
-      `👉 ${protocol}//${hostname}/%20%23/launch?ref=${invitationcode.value[0]}`
+      `👉 ${protocol}//${hostname}/%23/launch?ref=${invitationcode.value[0]}`
   );
 };
 let ttxt = () => {
@@ -317,7 +317,7 @@ let ttxt = () => {
     "https://t.me/share?url=%20&text=" +
       textvalue.value +
       textver.value +
-      `👉 ${protocol}//${hostname}/%20%23/launch?ref=${invitationcode.value[0]}`
+      `👉 ${protocol}//${hostname}/%23/launch?ref=${invitationcode.value[0]}`
   );
 };
 let apptxt = () => {
@@ -325,7 +325,7 @@ let apptxt = () => {
     "https://api.whatsapp.com/send?text=" +
       textvalue.value +
       textver.value +
-      `👉 ${protocol}//${hostname}/%20%23/launch?ref=${invitationcode.value[0]}`
+      `👉 ${protocol}//${hostname}/%23/launch?ref=${invitationcode.value[0]}`
   );
 };
 let facetxt = () => {
@@ -338,7 +338,7 @@ let linetxt = () => {
     "https://line.naver.jp/R/msg/text/?" +
       textvalue.value +
       textver.value +
-      `👉 ${protocol}//${hostname}/%20%23/launch?ref=${invitationcode.value[0]}`
+      `👉 ${protocol}//${hostname}/%23/launch?ref=${invitationcode.value[0]}`
   );
 };
 let copyurlcli = () => {
